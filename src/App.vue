@@ -9,14 +9,15 @@
 </template>
 
 <style>
-/* #app {
+#app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  background-color: rgba(250, 233, 239, 0.863);
+  padding-bottom: 40px;
 }
-#nav {
+/* #nav {
   padding: 30px;
 }
 

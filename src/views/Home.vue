@@ -1,12 +1,14 @@
 <template>
   <div class="home pl-3 pr-3">
     <HomeHeader />
+    <router-link to="/matchResults">
     <FlashReport />
+    </router-link>
     <div id="logo" class="mb-3">
       <img alt="logo" src="../assets/premier-league-logo.png" class="img-fluid mx-auto d-block mt-2">
     </div>
     <div class="d-flex justify-content-center" id="title">
-      <p class="h1 d-flex justify-content-center pb-3"></p>
+      <p class="h1 d-flex justify-content-center pt-2 pb-3"></p>
     </div>
     <div id="home_menu">
     <div id="team_information">
@@ -22,8 +24,10 @@
       </router-link>
     </div>
     <div id="stadium_information">
+      <router-link to="/stadiumLocation">
       <img alt="stadium_icon" src="../assets/stadium.png">
       <p>Stadium Location</p>
+      </router-link>
     </div>
     </div>
   </div>

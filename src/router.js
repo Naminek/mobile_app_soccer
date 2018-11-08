@@ -30,6 +30,16 @@ export default new Router({
       path: '/schedule',
       name: 'schedule',
       component: () => import('./views/Schedule.vue')
+    },
+    {
+      path: '/matchResults',
+      name: 'matchResults',
+      component: () => import('./views/MatchResults.vue')
+    },
+    {
+      path: '/stadiumLocation',
+      name: 'stadiumLocation',
+      component: () => import('./views/StadiumLocation.vue')
     }
   ]
 })
