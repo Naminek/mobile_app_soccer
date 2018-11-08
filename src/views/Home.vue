@@ -10,12 +10,16 @@
     </div>
     <div id="home_menu">
     <div id="team_information">
+      <router-link to="/teamInformation">
       <img alt="soccer_icon" src="../assets/soccer_ball.png">
       <p>Team Information</p>
+      </router-link>
     </div>
     <div id="schedule">
+      <router-link to="/schedule">
       <img alt="calender_icon" src="../assets/calendar.png">
       <p>Match Schedule</p>
+      </router-link>
     </div>
     <div id="stadium_information">
       <img alt="stadium_icon" src="../assets/stadium.png">
@@ -59,7 +63,7 @@
 
   #home_menu img {
     width: 15%;
-    margin-right: 5%;
+    margin-right: 7%;
   }
 
   #home_menu div{
