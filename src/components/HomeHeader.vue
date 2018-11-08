@@ -23,7 +23,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header_icon img {
-  width: 50%;
+  width: 40%;
   height: auto;
   object-fit: contain;
 }
