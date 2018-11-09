@@ -15,8 +15,8 @@
 				<p>Chelsea</p>
 			</div>
 			<div id="stadium_information">
-				<img alt="stadium_icon" src="../assets/stadium.png">
-				<p>Stadium Location</p>
+				<img alt="stadium_icon" src="../assets/huddersfield_town_logo.png">
+				<p>Huddersfield Town</p>
 			</div>
 		</div>
 	</div>
