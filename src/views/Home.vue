@@ -1,8 +1,8 @@
 <template>
   <div class="home pl-3 pr-3">
-    <!-- <div id="header"> -->
+    <div id="home_header">
     <HomeHeader />
-    <!-- </div> -->
+    </div>
     <div id="scroll">
       <router-link to="/matchResults">
         <FlashReport />
@@ -57,6 +57,14 @@
   margin: 0;
 }
 
+#home_header {
+  position:fixed;
+top: 0;
+left: 0;
+z-index: 24;
+width: 100%;
+background-color: rgb(250, 233, 239)
+}
 
   #title p {
     width: 35%;
@@ -68,8 +76,7 @@
   }
 
   #scroll {
-    overflow: scroll;
-    height: 90%;
+    padding-top: 100px;
   }
 
   #home_menu {
