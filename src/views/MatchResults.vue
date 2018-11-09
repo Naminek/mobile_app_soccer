@@ -6,6 +6,8 @@
 			<p class="h4 d-flex justify-content-center pb-4 mb-4"></p>
 		</div>
 		<TodayOneMatch />
+		<TodayOneMatch />
+		
 	</div>
 </template>
 
