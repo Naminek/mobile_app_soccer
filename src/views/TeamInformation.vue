@@ -5,7 +5,12 @@
 		<div class="d-flex justify-content-center" id="title">
 			<p class="h4 d-flex justify-content-center pb-4"></p>
 		</div>
-		<div id="home_menu">
+		<div id="search_engine" class="d-flex justify-content-center">
+			<label for="search_team">
+				<img src="../assets/scope.png" alt="search_icon"></label>
+			<input type="text" placeholder="search by team name" name="search_team">
+		</div>
+		<div id="teams">
 			<div id="team_information">
 				<img alt="soccer_icon" src="../assets/liverpool_logo.png">
 				<p>Liverpool</p>
@@ -44,21 +49,32 @@
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
 	}
 
-#home_menu {
-    margin: 60px 20%;
-  }
+	#search_engine {
+		margin-top: 50px;
+	}
 
-  #home_menu img {
-    width: 25%;
-    margin-right: 8%;
-  }
+	#search_engine input {
+		padding: 5px;
+		margin: 0 5px;
+		border: 1px solid rgba(56, 55, 55, 0.7);
+		border-radius: 4px;
+	}
 
-  #home_menu div{
-    margin-bottom: 25px;
-  }
+	#teams {
+		margin: 50px 20%;
+	}
 
-  #home_menu img,
-  #home_menu p {
-    display: inline-block;
-  }
+	#teams img {
+		width: 25%;
+		margin-right: 8%;
+	}
+
+	#teams div {
+		margin-bottom: 25px;
+	}
+
+	#teams img,
+	#teams p {
+		display: inline-block;
+	}
 </style>
