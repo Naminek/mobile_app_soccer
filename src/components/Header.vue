@@ -1,17 +1,21 @@
 <template>
-	<div class="row">
-		<div class="col-8">
+	<div class="row header">
+		<div class="col-6">
 			<div id="logo" class="mb-3">
 				<img alt="logo" src="../assets/premier-league-logo.png">
 			</div>
 		</div>
-		<div class="col-4">
+		<div class="col-6">
 			<div class="d-flex justify-content-end header_icon">
-				<!-- <router-link to="/"> -->
+				<router-link to="/">
 					<img alt="home_icon" src="../assets/home.png">
-				<!-- </router-link> -->
-				<img alt="chat_icon" src="../assets/chat.png" class="ml-1">
-				<img alt="menu_icon" src="../assets/menu_bar.png" class="ml-1">
+				</router-link>
+				<router-link to="">
+					<img alt="chat_icon" src="../assets/chat.png">
+				</router-link>
+				<div id="menu_bar">
+					<img alt="menu_icon" src="../assets/menu_bar.png">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -28,14 +32,27 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-	.header_icon img {
-		width: 35%;
-		height: auto;
+	/* .header_icon router-link { */
+		/* width: 30%; */
+		/* height: auto;
 		object-fit: contain;
+	} */
+	.header {
+		height: 10%;
 	}
 
 	#logo img {
-		width: 60%;
+		width: 90%;
 		margin-top: 15px;
+	}
+
+	.header_icon img {
+		width: 70%;
+		/* padding-left:5px; */
+	}
+
+	.header_icon {
+		margin-top: 50px;
+		margin-left: 10px 
 	}
 </style>

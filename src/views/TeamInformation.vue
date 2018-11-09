@@ -10,31 +10,20 @@
 				<img src="../assets/scope.png" alt="search_icon"></label>
 			<input type="text" placeholder="search by team name" name="search_team">
 		</div>
-		<div id="teams">
-			<div id="team_information">
-				<img alt="soccer_icon" src="../assets/liverpool_logo.png">
-				<p>Liverpool</p>
-			</div>
-			<div id="schedule">
-				<img alt="calender_icon" src="../assets/chelsea_logo.png">
-				<p>Chelsea</p>
-			</div>
-			<div id="stadium_information">
-				<img alt="stadium_icon" src="../assets/huddersfield_town_logo.png">
-				<p>Huddersfield Town</p>
-			</div>
-		</div>
+		<TeamDetails />
 	</div>
 </template>
 
 <script>
 	// @ is an alias to /src
 	import Header from "@/components/Header.vue";
+	import TeamDetails from "@/components/TeamDetails.vue";
 
 	export default {
-		name: "home",
+		name: "teamInformation",
 		components: {
-			Header
+			Header,
+			TeamDetails
 		}
 	};
 </script>
@@ -60,7 +49,7 @@
 		border-radius: 4px;
 	}
 
-	#teams {
+	/* #teams {
 		margin: 50px 20%;
 	}
 
@@ -76,5 +65,5 @@
 	#teams img,
 	#teams p {
 		display: inline-block;
-	}
+	} */
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
+    <!-- <div id="nav"> -->
+      <!-- <router-link to="/">Home</router-link> -->
       <!-- <router-link to="/about">About</router-link> -->
-    </div>
+    <!-- </div> -->
     <router-view/>
   </div>
 </template>
@@ -14,8 +14,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  background-color: rgba(250, 233, 239, 0.863);
-  padding-bottom: 40px;
+  background-color: rgb(250, 233, 239);
+  padding: 0 0 40px;
 }
 /* #nav {
   padding: 30px;

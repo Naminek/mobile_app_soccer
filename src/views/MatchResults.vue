@@ -3,20 +3,22 @@
 		<Header />
 		<p class="h4 d-flex justify-content-center pb-4 pt-5">Today's Match</p>
 		<div class="d-flex justify-content-center" id="title">
-			<p class="h4 d-flex justify-content-center pb-4"></p>
+			<p class="h4 d-flex justify-content-center pb-4 mb-4"></p>
 		</div>
-		
+		<TodayOneMatch />
 	</div>
 </template>
 
 <script>
 	// @ is an alias to /src
 	import Header from "@/components/Header.vue";
+	import TodayOneMatch from "@/components/TodayOneMatch.vue";
 
 	export default {
-		name: "home",
+		name: "matchResults",
 		components: {
-			Header
+			Header,
+			TodayOneMatch
 		}
 	};
 </script>
