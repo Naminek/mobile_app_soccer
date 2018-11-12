@@ -5,7 +5,11 @@
 		<div class="d-flex justify-content-center" id="title">
 			<p class="h4 d-flex justify-content-center pb-4"></p>
 		</div>
-		
+		<div id="search_engine" class="d-flex justify-content-center">
+			<label for="search_stadium">
+				<img src="../assets/scope.png" alt="search_icon"></label>
+			<input type="text" placeholder="search by stadium" name="search_stadium">
+		</div>
 	</div>
 </template>
 
@@ -28,5 +32,15 @@
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
 	}
 
+#search_engine {
+		margin-top: 50px;
+	}
+
+	#search_engine input {
+		padding: 5px;
+		margin: 0 5px;
+		border: 1px solid rgba(56, 55, 55, 0.7);
+		border-radius: 4px;
+	}
 
 </style>
