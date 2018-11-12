@@ -40,6 +40,11 @@ export default new Router({
       path: '/stadiumLocation',
       name: 'stadiumLocation',
       component: () => import('./views/StadiumLocation.vue')
+    },
+    {
+      path: '/chatRoomLogin',
+      name: 'chatRoomLogin',
+      component: () => import('./views/ChatRoomLogin.vue')
     }
   ]
 })

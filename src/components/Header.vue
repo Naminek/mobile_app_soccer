@@ -10,7 +10,7 @@
 				<router-link to="/">
 					<img alt="home_icon" src="../assets/home.png">
 				</router-link>
-				<router-link to="">
+				<router-link to="/chatRoomLogin">
 					<img alt="chat_icon" src="../assets/chat.png">
 				</router-link>
 				<div id="menu_bar">

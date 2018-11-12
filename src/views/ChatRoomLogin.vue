@@ -1,7 +1,7 @@
 <template>
 	<div class="login pl-3 pr-3">
 		<Header />
-		<p class="h4 d-flex justify-content-center pb-4 pt-5">Match Schedule</p>
+		<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
 		<div class="d-flex justify-content-center" id="title">
 			<p class="h4 d-flex justify-content-center pb-4"></p>
 		</div>
