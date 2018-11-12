@@ -4,11 +4,11 @@
     </div>
     <div class="col-4">
 	    <div class="d-flex justify-content-end header_icon">
-        <router-link to="">
+        <router-link to=""  class="mr-3">
         <img alt="chat_icon" src="../assets/chat.png">
         </router-link>
         <div id="menu_bar">
-		    <img alt="menu_icon" src="../assets/menu_bar.png" class="ml-1">
+		    <img alt="menu_icon" src="../assets/menu_bar.png">
         </div>
       </div>
     </div>
@@ -27,13 +27,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header_icon img {
-  width: 80%;
+  width: 100%;
   height: auto;
   object-fit: contain;
 }
 
 .header_icon {
-  margin: 30px 0;
+  margin: 30px 20px 30px 0;
 }
 
 </style>
