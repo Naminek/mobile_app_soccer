@@ -5,6 +5,13 @@
 		<div class="d-flex justify-content-center" id="title">
 			<p class="h4 d-flex justify-content-center pb-4"></p>
 		</div>
+		<form id="form_for_login">
+			Email: <input type="text" name="email" id="email"><br>
+			Password: <input type="password" name="pwd" maxlength="8" id="password"><br>
+			<input type="submit" id="submit">
+		</form>
+
+
 
 	</div>
 </template>
@@ -22,24 +29,36 @@
 </script>
 
 <style scoped>
+	.login {
+		min-height: 700px;
+	}
 
 	#title p {
 		width: 40%;
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
 	}
 
-	/* #search_engine {
+	#form_for_login {
 		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
-	#search_engine input {
+	#email, #password {
 		padding: 5px;
 		margin: 0 5px;
 		border: 1px solid rgba(56, 55, 55, 0.7);
 		border-radius: 4px;
+		width: 55%;
 	}
 
-	#search_engine input {
-		width: 45%;
-	} */
+	#submit {
+		padding: 5px;
+		margin: 20px 5px;
+		border: 1px solid rgba(56, 55, 55, 0.7);
+		border-radius: 4px;
+		width: 70%;
+	}
+
 </style>
