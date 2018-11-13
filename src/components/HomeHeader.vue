@@ -32,6 +32,6 @@ export default {
   object-fit: contain;
 }
 .header_icon {
-  margin: 45px 20px 30px 25px;
+  margin: 30px 20px 30px 25px;
 }
 </style>

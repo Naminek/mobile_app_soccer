@@ -38,12 +38,12 @@
 		object-fit: contain;
 	} */
 	.header {
-		height: 10%;
+		height: 8%;
 	}
 
 	#logo img {
 		width: 90%;
-		margin-top: 15px;
+		margin-top: 10px;
 	}
 
 	.header_icon img {
@@ -52,7 +52,7 @@
 	}
 
 	.header_icon {
-		margin-top: 50px;
+		margin-top: 40px;
 		margin-left: 10px 
 	}
 </style>
