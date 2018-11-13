@@ -16,7 +16,8 @@
 		<div class="row" id="time_and_location">
 			<div class="col-12  text-center align-middle">
 				<p>Kick Off: <span>7:00 p.m.</span></p>
-				<p>Location: <span>XXXXXXX</span></p>
+				<button class="btn" @click="ShowMap = true">Location: <span>XXXXXXX</span></button>
+				<div v-if="ShowMap" @close="ShowMap = false">google map</div>
 			</div>
 		</div>
 	</div>
@@ -24,10 +25,12 @@
 
 <script>
 	export default {
-		name: "todayOneMatch"
-		// props: {
-		//   msg: String
-		// }
+		name: "todayOneMatch",
+		data(){
+			return {
+				ShowMap: false
+			}
+		}
 	};
 </script>
 
@@ -61,4 +64,11 @@
 	#time_and_location p:first-child {
 		margin-bottom: 0;
 	}
+
+	.btn {
+    border: none;
+    background-color: inherit;
+    margin-bottom: 5px;
+}
+
 </style>
