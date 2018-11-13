@@ -12,6 +12,8 @@
 			<input type="text" placeholder="search by stadium" name="search_stadium">
 		</div>
 		<OneStadium />
+		<OneStadium />
+		<OneStadium />
 		</div>
 	</div>
 </template>

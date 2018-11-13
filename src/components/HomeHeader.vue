@@ -36,7 +36,7 @@ export default {
 }
 
 .home_header {
-  background-color: rgba(250, 233, 239, 0.7);
+  /* background-color: rgba(250, 233, 239, 0.6); */
   position: fixed;
     top: 0;
     left: 0;
