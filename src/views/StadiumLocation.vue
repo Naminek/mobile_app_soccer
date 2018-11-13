@@ -1,6 +1,9 @@
 <template>
 	<div class="location pl-3 pr-3">
+		<div id="stadium_header">
 		<Header />
+		</div>
+		<div id="scroll">
 		<p class="h4 d-flex justify-content-center pb-4 pt-5">Stadium</p>
 		<div class="d-flex justify-content-center" id="title">
 			<p class="h4 d-flex justify-content-center pb-4"></p>
@@ -9,6 +12,7 @@
 			<label for="search_stadium">
 				<img src="../assets/scope.png" alt="search_icon"></label>
 			<input type="text" placeholder="search by stadium" name="search_stadium">
+		</div>
 		</div>
 	</div>
 </template>
@@ -30,6 +34,19 @@
 	#title p {
 		width: 40%;
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
+	}
+
+	#stadium_header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 24;
+		width: 100%;
+		background-color: rgb(250, 233, 239)
+	}
+
+	#scroll {
+		padding-top: 120px;
 	}
 
 #search_engine {

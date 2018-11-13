@@ -1,8 +1,8 @@
 <template>
   <div class="row home_header">
-    <div class="col-8">
+    <div class="col-7">
     </div>
-    <div class="col-4">
+    <div class="col-5">
 	    <div class="d-flex justify-content-end header_icon">
         <router-link to="/chatRoomLogin"  class="mr-3">
         <img alt="chat_icon" src="../assets/chat.png">
@@ -27,13 +27,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header_icon img {
-  width: 100%;
+  width: 85%;
   height: auto;
   object-fit: contain;
 }
 
 .header_icon {
-  margin: 30px 20px 30px 0;
+  margin: 45px 10px 30px 25px;
 }
 
 </style>

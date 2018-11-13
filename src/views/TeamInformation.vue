@@ -1,6 +1,9 @@
 <template>
 	<div class="home pl-3 pr-3">
+		<div id="team_information_header">
 		<Header />
+		</div>
+		<div id="scroll">
 		<p class="h4 d-flex justify-content-center pb-4 pt-5">Team Information</p>
 		<div class="d-flex justify-content-center" id="title">
 			<p class="h4 d-flex justify-content-center pb-4"></p>
@@ -11,6 +14,7 @@
 			<input type="text" placeholder="search by team name" name="search_team">
 		</div>
 		<TeamDetails />
+		</div>
 	</div>
 </template>
 
@@ -40,6 +44,19 @@
 
 	#search_engine {
 		margin-top: 50px;
+	}
+
+	#team_information_header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 24;
+		width: 100%;
+		background-color: rgb(250, 233, 239)
+	}
+
+	#scroll {
+		padding-top: 120px;
 	}
 
 	#search_engine input {
