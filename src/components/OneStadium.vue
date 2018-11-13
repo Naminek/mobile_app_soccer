@@ -1,16 +1,16 @@
 <template>
 	<div id="one_stadium">
 		<div>
-			<img alt="team_icon" src="../assets/liverpool_logo.png">
-			<p>Liverpool</p>
+			<img alt="team_icon" src="../assets/anfield.jpg">
+			<p>Anfield, Liverpool</p>
 		</div>
 		<div>
-			<img alt="team_icon" src="../assets/chelsea_logo.png">
-			<p>Chelsea</p>
+			<img alt="team_icon" src="../assets/vitality_stadium.jpg">
+			<p>Vitality Stadium, Bournemouth</p>
 		</div>
 		<div>
-			<img alt="team_icon" src="../assets/huddersfield_town_logo.png">
-			<p>Huddersfield Town</p>
+			<img alt="team_icon" src="../assets/amex.jpg">
+			<p>The Amex, Brighton</p>
 		</div>
 	</div>
 </template>
@@ -27,11 +27,11 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 	#one_stadium {
-		margin: 50px 20%;
+		margin: 50px 15%;
 	}
 
 	#one_stadium img {
-		width: 40%;
+		width: 100%;
 		/* margin-right: 8%; */
 	}
 

@@ -16,7 +16,7 @@
 		<div class="row" id="time_and_location">
 			<div class="col-12  text-center align-middle">
 				<p>Kick Off: <span>7:00 p.m.</span></p>
-				<button class="btn" @click="ShowMap = true">Location: <span>XXXXXXX</span></button>
+				<button class="btn" @click="ShowMap = true">Location: <span>Anfield, Liverpool</span></button>
 				<div v-if="ShowMap" @close="ShowMap = false">google map</div>
 			</div>
 		</div>
@@ -69,6 +69,7 @@
     border: none;
     background-color: inherit;
     margin-bottom: 5px;
+	color: #2c3e50;
 }
 
 </style>
