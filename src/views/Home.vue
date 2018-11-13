@@ -41,7 +41,6 @@
   // @ is an alias to /src
   import FlashReport from "@/components/FlashReport.vue";
   import HomeHeader from "@/components/HomeHeader.vue";
-
   export default {
     name: "home",
     components: {
@@ -56,7 +55,6 @@
     padding: 0;
     margin: 0;
   }
-
   #home_header {
     position: fixed;
     top: 0;
@@ -65,33 +63,26 @@
     width: 100%;
     background-color: rgb(250, 233, 239)
   }
-
   #title p {
     width: 35%;
     border-bottom: solid 3px rgba(56, 55, 55, 0.7);
   }
-
   #logo img {
     width: 45%;
   }
-
   #scroll {
     padding-top: 100px;
   }
-
   #home_menu {
     padding: 60px 25%;
   }
-
   #home_menu img {
     width: 15%;
     margin-right: 7%;
   }
-
   #home_menu div {
     margin-bottom: 25px;
   }
-
   #home_menu img,
   #home_menu p {
     display: inline-block;

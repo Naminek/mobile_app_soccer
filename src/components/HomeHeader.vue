@@ -31,9 +31,7 @@ export default {
   height: auto;
   object-fit: contain;
 }
-
 .header_icon {
   margin: 45px 10px 30px 25px;
 }
-
 </style>

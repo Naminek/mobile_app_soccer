@@ -1,6 +1,11 @@
 <template>
   <div id="app">
+    <v-app>
+      
+
+    
     <router-view/>
+    </v-app>
   </div>
 </template>
 
@@ -13,5 +18,4 @@
   background-color: rgb(250, 233, 239);
   padding: 0 0 40px;
 }
-
 </style>
