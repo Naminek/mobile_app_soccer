@@ -13,6 +13,7 @@
 				<img src="../assets/scope.png" alt="search_icon"></label>
 			<input type="text" placeholder="search by stadium" name="search_stadium">
 		</div>
+		<OneStadium />
 		</div>
 	</div>
 </template>
@@ -20,11 +21,13 @@
 <script>
 	// @ is an alias to /src
 	import Header from "@/components/Header.vue";
+	import OneStadium from "@/components/OneStadium.vue";
 
 	export default {
 		name: "home",
 		components: {
-			Header
+			Header,
+			OneStadium
 		}
 	};
 </script>
