@@ -59,7 +59,7 @@
     border-bottom: solid 3px rgba(56, 55, 55, 0.7);
   }
   #logo img {
-    width: 45%;
+    width: 50%;
   }
   #scroll {
     padding-top: 100px;

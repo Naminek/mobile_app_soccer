@@ -12,7 +12,7 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #22313f;
   background-color: rgba(250, 233, 239, 0.5);
   padding: 0 0 40px;
   background-image: url("./assets/one_shoes_v.jpg");

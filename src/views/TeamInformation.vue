@@ -2,7 +2,7 @@
 	<div class="home pl-3 pr-3">
 		<Header />
 		<div id="scroll">
-		<p class="h4 d-flex justify-content-center pb-4 pt-5">Team Information</p>
+		<p class="h3 d-flex justify-content-center pb-4 pt-5">Team Information</p>
 		<div class="d-flex justify-content-center" id="title">
 			<p class="h4 d-flex justify-content-center pb-4"></p>
 		</div>
@@ -11,6 +11,8 @@
 				<img src="../assets/scope.png" alt="search_icon"></label>
 			<input type="text" placeholder="search by team name" name="search_team">
 		</div>
+		<TeamDetails />
+		<TeamDetails />
 		<TeamDetails />
 		</div>
 	</div>
