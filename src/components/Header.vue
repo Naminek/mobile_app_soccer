@@ -32,13 +32,16 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-	/* .header_icon router-link { */
-		/* width: 30%; */
-		/* height: auto;
-		object-fit: contain;
-	} */
+
 	.header {
-		height: 8%;
+		height: 17%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 24;
+		width: 100%;
+		background-color: rgb(250, 233, 239, 0.6);
+		margin: 0;
 	}
 
 	#logo img {

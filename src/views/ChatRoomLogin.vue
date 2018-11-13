@@ -1,8 +1,6 @@
 <template>
 	<div class="login pl-3 pr-3">
-		<div id="login_header">
 		<Header />
-		</div>
 		<div id="scroll">
 		<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
 		<div class="d-flex justify-content-center" id="title">
@@ -35,15 +33,6 @@
 <style scoped>
 	.login {
 		min-height: 700px;
-	}
-
-	#login_header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 24;
-		width: 100%;
-		background-color: rgb(250, 233, 239)
 	}
 
 	#scroll {

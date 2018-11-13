@@ -13,10 +13,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  background-color: rgba(250, 233, 239, 0.6);
+  background-color: rgba(250, 233, 239, 0.5);
   padding: 0 0 40px;
-  /* background-image: url("./assets/grass.jpg"); */
-  background-size: 110%;
+  background-image: url("./assets/one_shoes_v.jpg");
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-position: 0; */
   background-blend-mode: screen ;
 }
 </style>

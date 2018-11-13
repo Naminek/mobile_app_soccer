@@ -32,6 +32,16 @@ export default {
   object-fit: contain;
 }
 .header_icon {
-  margin: 30px 20px 30px 25px;
+  margin: 30px 0px 30px 25px;
+}
+
+.home_header {
+  background-color: rgba(250, 233, 239, 0.7);
+  position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 24;
+    width: 100%;
+    margin: 0;
 }
 </style>
