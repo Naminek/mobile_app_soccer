@@ -27,11 +27,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header_icon img {
-  width: 85%;
+  width: 40px;
   height: auto;
   object-fit: contain;
 }
 .header_icon {
-  margin: 45px 10px 30px 25px;
+  margin: 45px 20px 30px 25px;
 }
 </style>
