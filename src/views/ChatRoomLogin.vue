@@ -1,6 +1,6 @@
 <template>
 	<div class="login pl-3 pr-3">
-		<Header />
+		<ChatRoomHeader />
 		<div id="scroll">
 		<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
 		<div class="d-flex justify-content-center" id="title">
@@ -20,12 +20,12 @@
 
 <script>
 	// @ is an alias to /src
-	import Header from "@/components/Header.vue";
+	import ChatRoomHeader from "@/components/ChatRoomHeader.vue";
 
 	export default {
 		name: "chatRoomLogin",
 		components: {
-			Header
+			ChatRoomHeader
 		}
 	};
 </script>

@@ -1,5 +1,5 @@
 <template>
-	<div class="home pl-3 pr-3">
+	<div class="home pl-3 pr-3" id="top">
 		<Header />
 		<div id="scroll">
 			<p class="h3 d-flex justify-content-center pb-4 pt-5">Team Information</p>
@@ -14,6 +14,7 @@
 			<TeamDetails />
 			<TeamDetails />
 			<TeamDetails />
+			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
 </template>
@@ -56,6 +57,11 @@
 		margin: 0 5px;
 		border: 1px solid rgba(56, 55, 55, 0.7);
 		border-radius: 4px;
+	}
+
+	a {
+		text-decoration: none;
+		color: #22313f;
 	}
 
 	/* #teams {

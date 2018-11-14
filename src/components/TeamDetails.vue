@@ -6,7 +6,7 @@
 			<div v-if="ShowDetails">
 				<p>City: <span>Liverpool</span></p>
 				<button type="button" class="btn btn-dark mb-1">players</button>
-				<a href="#" class="btn btn-dark">Official Website</a>
+				<a href="#" target="_blank" class="btn btn-dark">Official Website</a>
 				<p @click="ShowDetails = false" class="mt-1">&times; CLOSE</p>
 			</div>
 		</div>

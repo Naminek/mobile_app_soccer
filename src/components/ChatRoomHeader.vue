@@ -1,14 +1,16 @@
 <template>
-  <div class="home_header">
-    <div class="row">
-      <div class="col-7">
-      </div>
-      <div class="col-5">
-        <div class="d-flex justify-content-end header_icon">
-          <router-link to="/chatRoomLogin" class="mr-3">
-            <img alt="chat_icon" src="../assets/chat.png">
-          </router-link>
-          <div id="navmenu">
+	<div class="row chat_room_header">
+		<div class="col-6">
+			<div id="logo" class="mb-3">
+				<img alt="logo" src="../assets/premier-league-logo.png">
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="d-flex justify-content-end header_icon">
+				<router-link to="/">
+					<img alt="home_icon" src="../assets/home.png" class="mr-2">
+				</router-link>
+				<div id="navmenu">
             <img alt="menu_icon" src="../assets/menu_bar.png" @click="menuOn = !menuOn" v-if="!menuOn">
             <img alt="menu_icon" src="../assets/menu_bar.png" @click="ShowMenuBar" v-if="menuOn">
             <transition name="show">
@@ -28,17 +30,15 @@
               </div>
             </transition>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-
-  export default {
-    name: "homeHeader",
-    data() {
+	export default {
+		name: "chatRoomHeader",
+		data() {
       return {
         menuOn: false
       }
@@ -48,34 +48,38 @@
         this.menuOn = !this.menuOn;
       }
     }
-
-  };
+	};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .header_icon img {
-    width: 40px;
-    height: auto;
-    object-fit: contain;
-  }
+	.chat_room_header {
+		height: 17%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 24;
+		width: 100%;
+		/* background-color: rgb(250, 233, 239, 0.6); */
+		margin: 0;
+	}
 
-  .header_icon {
-    margin: 30px 0px 30px 25px;
-  }
+	#logo img {
+		width: 90%;
+		margin-top: 10px;
+	}
 
-  .home_header {
-    /* background-color: rgba(250, 233, 239, 0.6); */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 24;
-    width: 100%;
-    margin: 0;
-    padding: 0 10px 0 0;
-  }
+	.header_icon img {
+		width: 40px;
+		/* padding-left:5px; */
+	}
 
-  .sidemenu {
+	.header_icon {
+		margin-top: 40px;
+		margin-left: 10px
+	}
+
+	.sidemenu {
     background: rgba(0, 0, 0, .8);
     height: 100%;
     position: fixed;
