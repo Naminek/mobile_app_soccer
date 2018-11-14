@@ -8,7 +8,7 @@
 		<div class="col-6">
 			<div class="d-flex justify-content-end header_icon">
 				<router-link to="/">
-					<img alt="home_icon" src="../assets/home.png" class="mr-2">
+					<img alt="home_icon" src="../assets/home.png" class="mr-3">
 				</router-link>
 				<div id="navmenu">
             <img alt="menu_icon" src="../assets/menu_bar.png" @click="menuOn = !menuOn" v-if="!menuOn">
@@ -60,65 +60,135 @@
 		left: 0;
 		z-index: 24;
 		width: 100%;
-		/* background-color: rgb(250, 233, 239, 0.6); */
 		margin: 0;
 	}
 
-	#logo img {
-		width: 90%;
-		margin-top: 10px;
+
+	.sidemenu ul {
+		position: relative;
+		list-style: none;
+		top: 20px;
+		margin-top: 50px;
 	}
 
-	.header_icon img {
-		width: 40px;
-		/* padding-left:5px; */
+	.sidemenu ul p {
+		position: fixed;
+		top: 30px;
+		right: 30px;
+		color: #fff;
 	}
 
-	.header_icon {
-		margin-top: 40px;
-		margin-left: 10px
+
+	.sidemenu ul li a {
+		color: #fff;
+		text-decoration: none;
 	}
 
-	.sidemenu {
-    background: rgba(0, 0, 0, .8);
-    height: 100%;
-    position: fixed;
-    width: 250px;
-    top: 0;
-    right: 0;
-    /* padding-top: 50px; */
-  }
+	.show-enter-active,
+	.show-leave-active {
+		transition: opacity 1.0s
+	}
 
-  .sidemenu ul {
-    position: relative;
-    list-style: none;
-    top: 20px;
-    margin-top: 50px;
-  }
+	.show-enter,
+	.show-leave-to {
+		opacity: 0
+	}
 
-  .sidemenu ul p {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    color:#fff;
-  }
+	@media screen and (max-width: 415px) {
 
-  .sidemenu ul li {
-    margin: 20px 0;
-  }
+		#logo img {
+			width: 150px;
+			margin-top: 10px;
+		}
 
-  .sidemenu ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
+		.header_icon img {
+			width: 35px;
+		}
 
-  .show-enter-active,
-  .show-leave-active {
-    transition: opacity 1.0s
-  }
+		.header_icon {
+			margin-top: 40px;
+			margin-left: 10px
+		}
 
-  .show-enter,
-  .show-leave-to {
-    opacity: 0
-  }
+		.sidemenu {
+			background: rgba(0, 0, 0, .8);
+			height: 100%;
+			position: fixed;
+			width: 250px;
+			top: 0;
+			right: 0;
+		}
+
+		.sidemenu ul li {
+			margin: 20px 0;
+			padding: 10px 0;
+		}
+
+	}
+
+	@media screen and (min-width:416px) and (max-width: 750px) {
+
+		#logo img {
+			width: 200px;
+			margin-top: 10px;
+		}
+
+		.header_icon img {
+			width: 50px;
+		}
+
+		.header_icon {
+			margin-top: 40px;
+			margin-left: 15px
+		}
+
+		.sidemenu {
+			background: rgba(0, 0, 0, .8);
+			height: 100%;
+			position: fixed;
+			width: 300px;
+			top: 0;
+			right: 0;
+		}
+
+		.sidemenu ul li {
+			margin: 20px 0;
+			padding: 10px 0;
+		}
+
+	}
+
+	@media screen and (min-width:751px) {
+
+		#logo img {
+			width: 250px;
+			margin-top: 10px;
+		}
+
+		.header_icon img {
+			width: 70px;
+		}
+
+		.header_icon {
+			margin-top: 50px;
+			margin-left: 25px;
+		}
+
+		.sidemenu {
+			background: rgba(0, 0, 0, .8);
+			height: 100%;
+			position: fixed;
+			width: 350px;
+			top: 0;
+			right: 0;
+		}
+
+		.sidemenu ul li {
+			margin: 20px 0;
+			padding: 10px 0;
+			font-size: 25px;
+		}
+
+
+	}
 </style>

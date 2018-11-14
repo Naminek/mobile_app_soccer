@@ -119,7 +119,7 @@
   }
 
   #scroll {
-    padding-top: 150px;
+    padding-top: 200px;
   }
 
   #home_menu {
