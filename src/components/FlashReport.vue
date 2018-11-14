@@ -29,8 +29,8 @@
 	#flash_report {
 		border: solid 2px rgba(56, 55, 55, 0.7);
 		margin: 30px 13% 40px;
-		height: 130px;
-		padding: 0 20px
+		height: auto;
+		padding: 20px 20px
 	}
 
 	#flash_report img {

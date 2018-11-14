@@ -39,7 +39,7 @@
 		left: 0;
 		z-index: 24;
 		width: 100%;
-		/* background-color: rgb(250, 233, 239, 0.6); */
+		background-color: rgb(250, 233, 239, 0.6);
 		margin: 0;
 	}
 

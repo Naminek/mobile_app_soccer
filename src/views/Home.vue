@@ -68,8 +68,12 @@
   }
 
   #home_menu {
-    padding: 60px 25%;
+    padding: 60px 20%;
+    display: flex;
+		flex-direction: column;
+		align-items: center;
   }
+
 
   #home_menu img {
     width: 15%;
@@ -78,10 +82,15 @@
 
   #home_menu div {
     margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
   }
 
   #home_menu img,
   #home_menu p {
     display: inline-block;
+    /* display: flex; */
+		flex-direction: row;
+		justify-content: center;
   }
 </style>
