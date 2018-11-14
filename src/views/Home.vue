@@ -97,7 +97,7 @@
   }
 
   #home_menu p {
-    font-size: 20px;
+    font-size: 3vmax;
     color: #22313f;
   }
 }

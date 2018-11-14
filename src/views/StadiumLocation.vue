@@ -1,5 +1,5 @@
 <template>
-	<div class="location pl-3 pr-3">
+	<div class="location pl-3 pr-3" id="top">
 		<Header />
 		<div id="scroll">
 			<p class="d-flex justify-content-center">Stadium</p>
@@ -58,37 +58,53 @@
 		text-decoration: none;
 		color: #22313f;
 	}
-@media screen and (max-width:416px){
-	#top p:last-child {
-		padding-top: 30px;
-		font-size: 20px;
+
+	@media screen and (max-width:416px) {
+		#top p:last-child {
+			padding-top: 30px;
+			font-size: 20px;
+		}
+
+		#scroll p:first-child {
+			font-size: 25px;
+		}
+
+		input {
+			font-size: 15px;
+		}
 	}
 
-	#scroll p:first-child {
-		font-size: 25px;
-	}
-}
+	@media screen and (min-width:416px) and (max-width:750px) {
+		#top p:last-child {
+			padding-top: 30px;
+			font-size: 20px;
+		}
 
-@media screen and (min-width:416px) and (max-width:750px) {
-	#top p:last-child {
-		padding-top: 30px;
-		font-size: 20px;
-	}
-	#scroll p:first-child {
-		font-size: 30px;
-	}
-}
-@media screen and (min-width:751px){
-	#top p:last-child {
-		padding-top: 35px;
-		font-size: 25px;
-	}
-	#scroll p:first-child {
-		font-size: 35px;
-	}
-	#scroll {
-		padding-top: 200px;
-	}
-}
+		#scroll p:first-child {
+			font-size: 30px;
+		}
 
+		input {
+			font-size: 20px;
+		}
+	}
+
+	@media screen and (min-width:751px) {
+		#top p:last-child {
+			padding-top: 35px;
+			font-size: 25px;
+		}
+
+		#scroll p:first-child {
+			font-size: 35px;
+		}
+
+		#scroll {
+			padding-top: 200px;
+		}
+
+		input {
+			font-size: 25px;
+		}
+	}
 </style>
