@@ -2,9 +2,9 @@
 	<div class="location pl-3 pr-3">
 		<Header />
 		<div id="scroll">
-			<p class="h4 d-flex justify-content-center pb-4 pt-5">Stadium</p>
+			<p class="d-flex justify-content-center">Stadium</p>
 			<div class="d-flex justify-content-center" id="title">
-				<p class="h4 d-flex justify-content-center pb-4"></p>
+				<p class="d-flex justify-content-center pb-4"></p>
 			</div>
 			<div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_stadium">
@@ -40,7 +40,7 @@
 	}
 
 	#scroll {
-		padding-top: 120px;
+		padding-top: 150px;
 	}
 
 	#search_engine {
@@ -58,5 +58,37 @@
 		text-decoration: none;
 		color: #22313f;
 	}
+@media screen and (max-width:416px){
+	#top p:last-child {
+		padding-top: 30px;
+		font-size: 20px;
+	}
+
+	#scroll p:first-child {
+		font-size: 25px;
+	}
+}
+
+@media screen and (min-width:416px) and (max-width:750px) {
+	#top p:last-child {
+		padding-top: 30px;
+		font-size: 20px;
+	}
+	#scroll p:first-child {
+		font-size: 30px;
+	}
+}
+@media screen and (min-width:751px){
+	#top p:last-child {
+		padding-top: 35px;
+		font-size: 25px;
+	}
+	#scroll p:first-child {
+		font-size: 35px;
+	}
+	#scroll {
+		padding-top: 200px;
+	}
+}
 
 </style>

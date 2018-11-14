@@ -14,9 +14,10 @@
   -moz-osx-font-smoothing: grayscale;
   color: #22313f;
   background-color: rgba(250, 233, 239, 0.7);
-  padding: 0 0 40px;
+  /* padding: 0 0 40px; */
   background-image: url("./assets/one_shoes_v.jpg");
-  background-size: 120%;
+  height: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   /* background-position: 0; */

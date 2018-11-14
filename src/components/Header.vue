@@ -56,6 +56,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@media screen and (max-width: 415px) {
 	.header {
 		height: 17%;
 		position: fixed;
@@ -63,7 +64,6 @@
 		left: 0;
 		z-index: 24;
 		width: 100%;
-		/* background-color: rgb(250, 233, 239, 0.6); */
 		margin: 0;
 	}
 
@@ -74,7 +74,6 @@
 
 	.header_icon img {
 		width: 40px;
-		/* padding-left:5px; */
 	}
 
 	.header_icon {
@@ -89,7 +88,6 @@
     width: 250px;
     top: 0;
     right: 0;
-    /* padding-top: 50px; */
   }
 
   .sidemenu ul {
@@ -125,4 +123,143 @@
   .show-leave-to {
     opacity: 0
   }
+}
+
+@media screen and (min-width:416px) and (max-width: 750px) {
+		.header {
+		height: 17%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 24;
+		width: 100%;
+		margin: 0;
+	}
+
+	#logo img {
+		width: 200px;
+		margin-top: 10px;
+	}
+
+	.header_icon img {
+		width: 55px;
+	}
+
+	.header_icon {
+		margin-top: 40px;
+		margin-left: 15px
+	}
+
+	.sidemenu {
+    background: rgba(0, 0, 0, .8);
+    height: 100%;
+    position: fixed;
+    width: 250px;
+    top: 0;
+    right: 0;
+  }
+
+  .sidemenu ul {
+    position: relative;
+    list-style: none;
+    top: 20px;
+    margin-top: 50px;
+  }
+
+  .sidemenu ul p {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color:#fff;
+  }
+
+  .sidemenu ul li {
+    margin: 20px 0;
+		padding: 10px 0;
+  }
+
+  .sidemenu ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .show-enter-active,
+  .show-leave-active {
+    transition: opacity 1.0s
+  }
+
+  .show-enter,
+  .show-leave-to {
+    opacity: 0
+  }
+}
+
+@media screen and (min-width:751px) {
+		.header {
+		height: 17%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 24;
+		width: 100%;
+		margin: 0;
+	}
+
+	#logo img {
+		width: 250px;
+		margin-top: 10px;
+	}
+
+	.header_icon img {
+		width: 70px;
+	}
+
+	.header_icon {
+		margin-top: 50px;
+		margin-left: 25px;
+	}
+
+	.sidemenu {
+    background: rgba(0, 0, 0, .8);
+    height: 100%;
+    position: fixed;
+    width: 250px;
+    top: 0;
+    right: 0;
+  }
+
+  .sidemenu ul {
+    position: relative;
+    list-style: none;
+    top: 20px;
+    margin-top: 50px;
+  }
+
+  .sidemenu ul p {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color:#fff;
+  }
+
+  .sidemenu ul li {
+    margin: 20px 0;
+		padding: 10px 0;
+  }
+
+  .sidemenu ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .show-enter-active,
+  .show-leave-active {
+    transition: opacity 1.0s
+  }
+
+  .show-enter,
+  .show-leave-to {
+    opacity: 0
+  }
+}
 </style>

@@ -5,14 +5,14 @@
 				<img alt="team_icon" src="../assets/liverpool_logo.png">
 			</div>
 			<div class="col-6 text-center align-middle">
-				<p class="h3 pt-4"> - </p>
+				<p class="pt-4"> - </p>
 
 			</div>
 			<!-- <div class="col-3"></div> -->
 			<div class="col-3 pt-3">
 				<img alt="team_icon" src="../assets/chelsea_logo.png">
 			</div>
-			<div class="col-12  text-center align-middle">
+			<div class="col-12 text-center align-middle" id="time_and_location">
 				<p>Kick Off: <span>7:00 p.m.</span></p>
 				<button class="btn" @click="ShowMap = true">Location: <span>Anfield, Liverpool</span></button>
 				<div v-if="ShowMap">
@@ -36,11 +36,10 @@
 	};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 	#today_one_match {
 		border: solid 2px rgba(56, 55, 55, 0.7);
-		margin: 30px 10% 0;
+		margin: 35px 10% 0;
 		height: auto;;
 		padding: 0 20px;
 		width: 100%;
@@ -48,6 +47,7 @@
 
 	#today_one_match img {
 		width: 100%;
+		margin: 2%;
 	}
 
 	#today_one_match div {
@@ -64,4 +64,26 @@
 		margin-bottom: 5px;
 		color: #2c3e50;
 	}
+
+
+@media screen and (max-width:416px){
+	#today_one_match p,
+	#today_one_match button {
+		font-size: 15px;
+	}
+}
+
+@media screen and (min-width:416px) and (max-width:750px) {
+	#today_one_match p,
+	#today_one_match button {
+		font-size: 20px;
+	}
+}
+@media screen and (min-width:751px){
+	#today_one_match p,
+	#today_one_match button {
+		font-size: 30px;
+	}
+}
+
 </style>

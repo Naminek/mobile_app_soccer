@@ -1,10 +1,10 @@
 <template>
-	<div class="home pl-3 pr-3" id="top">
+	<div class="pl-3 pr-3" id="top">
 		<Header />
 		<div id="scroll">
-			<p class="h3 d-flex justify-content-center pb-4 pt-5">Team Information</p>
+			<p class="d-flex justify-content-center pt-5">Team Information</p>
 			<div class="d-flex justify-content-center" id="title">
-				<p class="h4 d-flex justify-content-center pb-4"></p>
+				<p class="d-flex justify-content-center pb-4"></p>
 			</div>
 			<div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_team">
@@ -34,9 +34,6 @@
 </script>
 
 <style scoped>
-	/* .home {
-  background-color: bisque;
-} */
 
 	#title p {
 		width: 40%;
@@ -49,7 +46,7 @@
 
 
 	#scroll {
-		padding-top: 120px;
+		padding-top: 150px;
 	}
 
 	#search_engine input {
@@ -64,21 +61,37 @@
 		color: #22313f;
 	}
 
-	/* #teams {
-		margin: 50px 20%;
+@media screen and (max-width:416px){
+	#top p:last-child {
+		padding-top: 30px;
+		font-size: 20px;
 	}
 
-	#teams img {
-		width: 25%;
-		margin-right: 8%;
+	#scroll p:first-child {
+		font-size: 25px;
 	}
+}
 
-	#teams div {
-		margin-bottom: 25px;
+@media screen and (min-width:416px) and (max-width:750px) {
+	#top p:last-child {
+		padding-top: 30px;
+		font-size: 20px;
 	}
+	#scroll p:first-child {
+		font-size: 30px;
+	}
+}
+@media screen and (min-width:751px){
+	#top p:last-child {
+		padding-top: 35px;
+		font-size: 25px;
+	}
+	#scroll p:first-child {
+		font-size: 35px;
+	}
+	#scroll {
+		padding-top: 200px;
+	}
+}
 
-	#teams img,
-	#teams p {
-		display: inline-block;
-	} */
 </style>

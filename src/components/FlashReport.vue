@@ -1,16 +1,17 @@
 <template>
 	<div class="row d-flex justify-content-center" id="flash_report">
-		<div class="col-3 pt-3">
+		<div class="col-3">
 			<img alt="team_icon" src="../assets/liverpool_logo.png">
 		</div>
-		<div class="col-6 text-center align-middle">
-			<p class="h3 pt-4 mt-1">3 - 2</p>
-			<!-- <p class="mt-2">7:00 pm</p> -->
-			<p class="mt-3">end of match</p>
+		<div class="col-6 text-center align-middle" id="result">
+			<p>3 - 2</p>
+
 		</div>
-		<!-- <div class="col-3"></div> -->
-		<div class="col-3 pt-3">
+		<div class="col-3">
 			<img alt="team_icon" src="../assets/chelsea_logo.png">
+		</div>
+		<div class="col-12 text-center align-middle" id="end_of_match">
+			<p>End of Match</p>
 		</div>
 	</div>
 </template>
@@ -35,6 +36,7 @@
 
 	#flash_report img {
 		width: 100%;
+		margin: 2%;
 	}
 
 	#flash_report div {
@@ -43,5 +45,44 @@
 
 	#flash_report div p {
 		margin: 0;
+	}
+
+	p {
+		color: #22313f;
+	}
+
+	@media screen and (max-width:416px) {
+		#result p {
+			padding-top: 10px;
+			font-size: 30px;
+		}
+
+		#end_of_match p {
+			font-size: 15px;
+		}
+
+	}
+
+	@media screen and (min-width:416px) and (max-width:750px) {
+		#result p {
+			padding-top: 30px;
+			font-size: 40px;
+		}
+
+		#end_of_match p {
+			font-size: 20px;
+		}
+	}
+
+	@media screen and (min-width:751px) {
+
+		#result p {
+			padding-top: 50px;
+			font-size: 50px;
+		}
+
+		#end_of_match p {
+			font-size: 25px;
+		}
 	}
 </style>

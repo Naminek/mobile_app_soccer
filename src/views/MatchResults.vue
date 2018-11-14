@@ -1,14 +1,15 @@
 <template>
-	<div class="match_results pl-3 pr-3">
+	<div class="match_results pl-3 pr-3" id="top">
 		<Header />
 		<div id="scroll">
-			<p class="h4 d-flex justify-content-center pb-4 pt-5">Today's Match</p>
+			<p class="d-flex justify-content-center">Today's Match</p>
 			<div class="d-flex justify-content-center" id="title">
-				<p class="h4 d-flex justify-content-center pb-4 mb-4"></p>
+				<p class="d-flex justify-content-center pb-4 mb-4"></p>
 			</div>
 			<TodayOneMatch />
 			<TodayOneMatch />
 			<TodayOneMatch />
+			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
 </template>
@@ -34,6 +35,44 @@
 	}
 
 	#scroll {
-		padding-top: 120px;
+		padding-top: 150px;
 	}
+
+	a {
+		text-decoration: none;
+		color: #22313f;
+	}
+
+	@media screen and (max-width:416px){
+	#top p:last-child {
+		padding-top: 30px;
+		font-size: 20px;
+	}
+
+	#scroll p:first-child {
+		font-size: 25px;
+	}
+}
+
+@media screen and (min-width:416px) and (max-width:750px) {
+	#top p:last-child {
+		padding-top: 30px;
+		font-size: 20px;
+	}
+	#scroll p:first-child {
+		font-size: 30px;
+	}
+}
+@media screen and (min-width:751px){
+	#top p:last-child {
+		padding-top: 35px;
+		font-size: 25px;
+	}
+	#scroll p:first-child {
+		font-size: 35px;
+	}
+	#scroll {
+		padding-top: 200px;
+	}
+}
 </style>
