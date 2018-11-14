@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <HomeHeader />
+    
     <div id="scroll">
       <router-link to="/matchResults">
         <FlashReport />

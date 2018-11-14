@@ -1,42 +1,54 @@
 <template>
-<div class="home_header">
-  <div class="row">
-    <div class="col-7">
-    </div>
-    <div class="col-5">
-      <div class="d-flex justify-content-end header_icon">
-        <router-link to="/chatRoomLogin" class="mr-3">
-          <img alt="chat_icon" src="../assets/chat.png">
-        </router-link>
-        <div id="menu_bar" class="nav-item dropdown">
-          <img alt="menu_icon" src="../assets/menu_bar.png" @click="ShowMenuBar = true">
+  <div class="home_header">
+    <div class="row">
+      <div class="col-7">
+      </div>
+      <div class="col-5">
+        <div class="d-flex justify-content-end header_icon">
+          <router-link to="/chatRoomLogin" class="mr-3">
+            <img alt="chat_icon" src="../assets/chat.png">
+          </router-link>
+          <div id="navmenu" class="nav-item dropdown">
+            <img alt="menu_icon" src="../assets/menu_bar.png" @click="menuOn = !menuOn" v-if="!menuOn">
+            <img alt="menu_icon" src="../assets/menu_bar.png" @click="ShowMenuBar" v-if="menuOn">
+            <transition name="show">
+              <div class="sidemenu" v-if="menuOn">
+                <ul class="h5">
+                  <p @click="ShowMenuBar" v-if="menuOn" class="mt-1 h4">&times;</p>
+                  <li>
+                    <router-link to="/teamInformation">Team Information</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/schedule">Match Schedule</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/stadiumLocation">Stadium Location</router-link>
+                  </li>
+                </ul>
+              </div>
+            </transition>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row mb-2" v-if="ShowMenuBar">
-    <div class="col-6"></div>
-    <div class="col-6">
-      <ul class="balloon">
-        <router-link to="/TeamInformation"><li>Team Information</li></router-link>
-        <router-link to="/Schedule"><li>Match Schedule</li></router-link>
-        <router-link to="/StadiumLocation"><li>Stadium Location</li></router-link>
-      </ul>
-      <p @click="ShowMenuBar = false" class="mt-1 d-flex justify-content-end">&times; CLOSE</p>
-    </div>
-  </div>
-  </div>
 </template>
 
 <script>
+
   export default {
     name: "homeHeader",
-    data(){
+    data() {
       return {
-        ShowMenuBar: false
+        menuOn: false
+      }
+    },
+    methods: {
+      ShowMenuBar() {
+        this.menuOn = !this.menuOn;
       }
     }
-    
+
   };
 </script>
 
@@ -63,79 +75,46 @@
     padding: 0 10px 0 0;
   }
 
-  ul {
-    list-style-type: none;
-    margin: 0 20px 0 0;
-    padding: 10px 0;
-    width: 200px;
-    /* background-color: #f1f1f1; */
-}
+  .sidemenu {
+    background: rgba(0, 0, 0, .8);
+    height: 100%;
+    position: fixed;
+    width: 250px;
+    top: 0;
+    right: 0;
+    /* padding-top: 50px; */
+  }
 
-li {
-    display: block;
-    color: #22313f;
-    padding: 10px 16px;
-    /* text-decoration: none; */
-    /* border: solid 1px #22313f;
-    border-collapse: collapse; */
-}
+  .sidemenu ul {
+    position: relative;
+    list-style: none;
+    top: 20px;
+    margin-top: 50px;
+  }
 
-li:active {
-    background-color: #ca8888;
-    /* color: white; */
-}
+  .sidemenu ul p {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color:#fff;
+  }
 
-/* .menu {
-  padding: 20px;
-} */
+  .sidemenu ul li {
+    margin: 10px 0;
+  }
 
-.balloon{
-  position: relative;
-  /* padding: 20px; */
-  background-color: #ffadad;
-  border: 2px solid #ca8888;
-  /* margin-right: 5px; */
-  width: 100%;
-  /* opacity:1; */
-  /* -webkit-transform: scale(1);
-  -moz-transform:scale(1);
-  -o-transform:scale(1);
-  transform:scale(1);
-  -webkit-transition-delay: 1s;
-	-moz-transition-delay: 1s;
-	-o-transition-delay: 1s;
-	-ms-transition-delay: 1s;
-	transition-delay: 1s;
-    -webkit-transition:1s;
-  -moz-transition:1s;
-  -o-transition:1s;
-  transition:1s; */
-}
+  .sidemenu ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
 
-.balloon::before{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  right: 20px;
-  top: -15px;
-  border-right: 15px solid transparent;
-  border-bottom: 15px solid #ca8888;
-  border-left: 15px solid transparent;
-}
+  .show-enter-active,
+  .show-leave-active {
+    transition: opacity 1.0s
+  }
 
-.balloon::after{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  right: 20px;
-  top: -12px;
-  border-right: 15px solid transparent;
-  border-bottom: 15px solid #ffadad;
-  border-left: 15px solid transparent;
-}
-
+  .show-enter,
+  .show-leave-to {
+    opacity: 0
+  }
 </style>
