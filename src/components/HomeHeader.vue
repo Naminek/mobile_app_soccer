@@ -35,7 +35,6 @@
 </template>
 
 <script>
-
   export default {
     name: "homeHeader",
     data() {
@@ -54,67 +53,199 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .header_icon img {
-    width: 40px;
-    height: auto;
-    object-fit: contain;
+  @media screen and (max-width:415px) {
+    .header_icon img {
+      width: 40px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .header_icon {
+      margin: 30px 0px 30px 25px;
+    }
+
+    .home_header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 24;
+      width: 100%;
+      margin: 0;
+      padding: 0 10px 0 0;
+    }
+
+    .sidemenu {
+      background: rgba(0, 0, 0, .8);
+      height: 100%;
+      position: fixed;
+      width: 250px;
+      top: 0;
+      right: 0;
+    }
+
+    .sidemenu ul {
+      position: relative;
+      list-style: none;
+      top: 20px;
+      margin-top: 50px;
+    }
+
+    .sidemenu ul p {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+    }
+
+    .sidemenu ul li {
+      margin: 20px 0;
+      padding: 10px 0;
+    }
+
+    .sidemenu ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .show-enter-active,
+    .show-leave-active {
+      transition: opacity 1.0s
+    }
+
+    .show-enter,
+    .show-leave-to {
+      opacity: 0
+    }
   }
 
-  .header_icon {
-    margin: 30px 0px 30px 25px;
+  @media screen and (min-width:416px) and (max-width: 750px) {
+    .header_icon img {
+      width: 60px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .header_icon {
+      margin: 40px 30px 30px 25px;
+    }
+
+    .home_header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 24;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidemenu {
+      background: rgba(0, 0, 0, .8);
+      height: 100%;
+      position: fixed;
+      width: 300px;
+      top: 0;
+      right: 0;
+    }
+
+    .sidemenu ul {
+      position: relative;
+      list-style: none;
+      top: 20px;
+      margin-top: 50px;
+    }
+
+    .sidemenu ul p {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+    }
+
+    .sidemenu ul li {
+      margin: 20px 0;
+      padding: 10px 0;
+    }
+
+    .sidemenu ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .show-enter-active,
+    .show-leave-active {
+      transition: opacity 1.0s
+    }
+
+    .show-enter,
+    .show-leave-to {
+      opacity: 0
+    }
   }
 
-  .home_header {
-    /* background-color: rgba(250, 233, 239, 0.6); */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 24;
-    width: 100%;
-    margin: 0;
-    padding: 0 10px 0 0;
-  }
+  @media screen and (min-width:751px) {
+    .header_icon img {
+      width: 70px;
+      height: auto;
+      object-fit: contain;
+    }
 
-  .sidemenu {
-    background: rgba(0, 0, 0, .8);
-    height: 100%;
-    position: fixed;
-    width: 250px;
-    top: 0;
-    right: 0;
-    /* padding-top: 50px; */
-  }
+    .header_icon {
+      margin: 60px 30px 30px 25px;
+    }
 
-  .sidemenu ul {
-    position: relative;
-    list-style: none;
-    top: 20px;
-    margin-top: 50px;
-  }
+    .home_header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 24;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-  .sidemenu ul p {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    color:#fff;
-  }
+    .sidemenu {
+      background: rgba(0, 0, 0, .8);
+      height: 100%;
+      position: fixed;
+      width: 350px;
+      top: 0;
+      right: 0;
+    }
 
-  .sidemenu ul li {
-    margin: 20px 0;
-  }
+    .sidemenu ul {
+      position: relative;
+      list-style: none;
+      top: 20px;
+      margin-top: 50px;
+    }
 
-  .sidemenu ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
+    .sidemenu ul p {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+    }
 
-  .show-enter-active,
-  .show-leave-active {
-    transition: opacity 1.0s
-  }
+    .sidemenu ul li {
+      margin: 20px 0;
+      padding: 10px 0;
+      font-size: 25px;
+    }
 
-  .show-enter,
-  .show-leave-to {
-    opacity: 0
+    .sidemenu ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .show-enter-active,
+    .show-leave-active {
+      transition: opacity 1.0s
+    }
+
+    .show-enter,
+    .show-leave-to {
+      opacity: 0
+    }
   }
 </style>

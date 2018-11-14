@@ -13,19 +13,19 @@
         <p class="h1 d-flex justify-content-center pt-2 pb-3"></p>
       </div>
       <div id="home_menu">
-        <div id="team_information">
+        <div>
           <router-link to="/teamInformation">
             <img alt="soccer_icon" src="../assets/soccer_ball.png">
             <p>Team Information</p>
           </router-link>
         </div>
-        <div id="schedule">
+        <div>
           <router-link to="/schedule">
             <img alt="calender_icon" src="../assets/calendar.png">
             <p>Match Schedule</p>
           </router-link>
         </div>
-        <div id="stadium_information">
+        <div>
           <router-link to="/stadiumLocation">
             <img alt="stadium_icon" src="../assets/stadium.png">
             <p>Stadium Location</p>
@@ -50,6 +50,7 @@
 </script>
 
 <style scoped>
+@media screen and (max-width:415px) {
   .home {
     padding: 0;
     margin: 0;
@@ -82,7 +83,7 @@
   }
 
   #home_menu div {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     display: flex;
     justify-content: center;
   }
@@ -94,4 +95,63 @@
 		flex-direction: row;
 		justify-content: center;
   }
+
+  #home_menu p {
+    font-size: 20px;
+    color: #22313f;
+  }
+}
+
+
+@media screen and (min-width:416px) {
+  .home {
+    padding: 0;
+    margin: 0;
+  }
+
+  #title p {
+    width: 40%;
+    border-bottom: solid 3px rgba(56, 55, 55, 0.7);
+  }
+
+  #logo img {
+    width: 45%;
+  }
+
+  #scroll {
+    padding-top: 150px;
+  }
+
+  #home_menu {
+    padding: 60px 20%;
+    display: flex;
+		flex-direction: column;
+		align-items: center;
+  }
+
+
+  #home_menu img {
+    width: 20%;
+    margin-right: 7%;
+  }
+
+  #home_menu div {
+    margin-bottom: 45px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #home_menu img,
+  #home_menu p {
+    display: inline-block;
+    /* display: flex; */
+		flex-direction: row;
+		justify-content: center;
+  }
+
+  #home_menu p {
+    font-size: 25px;
+    color: #22313f;
+  }
+}
 </style>

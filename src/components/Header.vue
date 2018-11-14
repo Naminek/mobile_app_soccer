@@ -108,6 +108,7 @@
 
   .sidemenu ul li {
     margin: 20px 0;
+		padding: 10px 0;
   }
 
   .sidemenu ul li a {

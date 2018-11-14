@@ -14,6 +14,7 @@
 			<OneStadium />
 			<OneStadium />
 			<OneStadium />
+			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
 </template>
@@ -52,4 +53,10 @@
 		border: 1px solid rgba(56, 55, 55, 0.7);
 		border-radius: 4px;
 	}
+
+	a {
+		text-decoration: none;
+		color: #22313f;
+	}
+
 </style>
