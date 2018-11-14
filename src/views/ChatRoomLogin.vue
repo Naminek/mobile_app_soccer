@@ -7,9 +7,9 @@
 			<p class="h4 d-flex justify-content-center pb-4"></p>
 		</div>
 		<form id="form_for_login">
-			Email: <input type="text" name="email" id="email"><br>
-			Password: <input type="password" name="pwd" maxlength="8" id="password"><br>
-			<input type="submit" id="submit" class="btn btn-outline-secondary">
+			Email<input type="text" name="email" id="email"><br>
+			Password<input type="password" name="pwd" maxlength="8" id="password"><br>
+			<input type="submit" id="submit" class="btn btn-dark">
 		</form>
 		</div>
 

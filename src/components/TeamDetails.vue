@@ -24,12 +24,12 @@
 <script>
 	export default {
 		name: "teamDetails",
-		data(){
+		data() {
 			return {
 				ShowDetails: false
 			}
 		}
-		
+
 	};
 </script>
 

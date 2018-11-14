@@ -8,10 +8,10 @@
 		<div class="col-6">
 			<div class="d-flex justify-content-end header_icon">
 				<router-link to="/">
-					<img alt="home_icon" src="../assets/home.png">
+					<img alt="home_icon" src="../assets/home.png" class="mr-2">
 				</router-link>
 				<router-link to="/chatRoomLogin">
-					<img alt="chat_icon" src="../assets/chat.png">
+					<img alt="chat_icon" src="../assets/chat.png" class="mr-2">
 				</router-link>
 				<div id="menu_bar">
 					<img alt="menu_icon" src="../assets/menu_bar.png">
@@ -32,7 +32,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 	.header {
 		height: 17%;
 		position: fixed;
@@ -40,7 +39,7 @@
 		left: 0;
 		z-index: 24;
 		width: 100%;
-		background-color: rgb(250, 233, 239, 0.6);
+		/* background-color: rgb(250, 233, 239, 0.6); */
 		margin: 0;
 	}
 
@@ -50,12 +49,12 @@
 	}
 
 	.header_icon img {
-		width: 70%;
+		width: 40px;
 		/* padding-left:5px; */
 	}
 
 	.header_icon {
 		margin-top: 40px;
-		margin-left: 10px 
+		margin-left: 10px
 	}
 </style>

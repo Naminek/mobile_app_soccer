@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-      <HomeHeader />
+    <HomeHeader />
     <div id="scroll">
       <router-link to="/matchResults">
         <FlashReport />
@@ -53,27 +53,33 @@
     padding: 0;
     margin: 0;
   }
-  
+
   #title p {
     width: 35%;
     border-bottom: solid 3px rgba(56, 55, 55, 0.7);
   }
+
   #logo img {
     width: 50%;
   }
+
   #scroll {
     padding-top: 100px;
   }
+
   #home_menu {
     padding: 60px 25%;
   }
+
   #home_menu img {
     width: 15%;
     margin-right: 7%;
   }
+
   #home_menu div {
     margin-bottom: 25px;
   }
+
   #home_menu img,
   #home_menu p {
     display: inline-block;

@@ -1,6 +1,6 @@
 <template>
 	<div class="match_results pl-3 pr-3">
-			<Header />
+		<Header />
 		<div id="scroll">
 			<p class="h4 d-flex justify-content-center pb-4 pt-5">Today's Match</p>
 			<div class="d-flex justify-content-center" id="title">

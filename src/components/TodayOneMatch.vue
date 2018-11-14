@@ -1,17 +1,17 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
 		<div class="row" id="today_one_match">
-		<div class="col-3 pt-3">
-			<img alt="team_icon" src="../assets/liverpool_logo.png">
-		</div>
-		<div class="col-6 text-center align-middle">
-			<p class="h3 pt-4"> - </p>
-			
-		</div>
-		<!-- <div class="col-3"></div> -->
-		<div class="col-3 pt-3">
-			<img alt="team_icon" src="../assets/chelsea_logo.png">
-		</div>
+			<div class="col-3 pt-3">
+				<img alt="team_icon" src="../assets/liverpool_logo.png">
+			</div>
+			<div class="col-6 text-center align-middle">
+				<p class="h3 pt-4"> - </p>
+
+			</div>
+			<!-- <div class="col-3"></div> -->
+			<div class="col-3 pt-3">
+				<img alt="team_icon" src="../assets/chelsea_logo.png">
+			</div>
 		</div>
 		<div class="row" id="time_and_location">
 			<div class="col-12  text-center align-middle">
@@ -30,7 +30,7 @@
 <script>
 	export default {
 		name: "todayOneMatch",
-		data(){
+		data() {
 			return {
 				ShowMap: false
 			}
@@ -70,10 +70,9 @@
 	}
 
 	.btn {
-    border: none;
-    background-color: inherit;
-    margin-bottom: 5px;
-	color: #2c3e50;
-}
-
+		border: none;
+		background-color: inherit;
+		margin-bottom: 5px;
+		color: #2c3e50;
+	}
 </style>

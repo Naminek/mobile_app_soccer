@@ -41,8 +41,7 @@
 		padding: 1px;
 	}
 
-	#flash_report div p{
+	#flash_report div p {
 		margin: 0;
 	}
-
 </style>
