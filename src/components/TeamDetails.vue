@@ -5,7 +5,7 @@
 			<p class="h4">Liverpool</p>
 			<div v-if="ShowDetails" id="hidden_details">
 				<p>City: <span>Liverpool</span></p>
-				<button type="button" class="btn btn-dark mb-1">players</button>
+				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1">players List</button></router-link>
 				<a href="#" target="_blank" class="btn btn-dark mt-1">Official Website</a>
 				<p @click="ShowDetails = false" class="mt-2">&times; CLOSE</p>
 			</div>

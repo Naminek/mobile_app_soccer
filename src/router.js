@@ -45,6 +45,11 @@ export default new Router({
       path: '/chatRoomLogin',
       name: 'chatRoomLogin',
       component: () => import('./views/ChatRoomLogin.vue')
+    },
+    {
+      path: '/playersList',
+      name: 'playersList',
+      component: () => import('./views/PlayersList.vue')
     }
   ]
 })
