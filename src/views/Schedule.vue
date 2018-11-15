@@ -12,6 +12,7 @@
 			<input type="text" placeholder="search by team" name="search_team" size="15">
 			<input type="date" name="today" id="today">
 		</div>
+		<OneMatchSchedule />
 </div>
 	</div>
 </template>
@@ -19,11 +20,13 @@
 <script>
 	// @ is an alias to /src
 	import Header from "@/components/Header.vue";
+	import OneMatchSchedule from "@/components/OneMatchSchedule.vue";
 
 	export default {
-		name: "home",
+		name: "schedule",
 		components: {
-			Header
+			Header,
+			OneMatchSchedule
 		}
 	};
 </script>

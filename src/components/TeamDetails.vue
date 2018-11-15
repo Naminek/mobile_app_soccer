@@ -3,11 +3,11 @@
 		<div>
 			<img alt="team_icon" src="../assets/liverpool_logo.png" @click="ShowDetails = true">
 			<p class="h4">Liverpool</p>
-			<div v-if="ShowDetails">
+			<div v-if="ShowDetails" id="hidden_details">
 				<p>City: <span>Liverpool</span></p>
 				<button type="button" class="btn btn-dark mb-1">players</button>
-				<a href="#" target="_blank" class="btn btn-dark">Official Website</a>
-				<p @click="ShowDetails = false" class="mt-1">&times; CLOSE</p>
+				<a href="#" target="_blank" class="btn btn-dark mt-1">Official Website</a>
+				<p @click="ShowDetails = false" class="mt-2">&times; CLOSE</p>
 			</div>
 		</div>
 		<!-- <div>
@@ -39,10 +39,7 @@
 		margin: 50px 20% 0;
 	}
 
-	#team_details img {
-		width: 50%;
-		/* margin-right: 8%; */
-	}
+
 
 	#team_details div {
 		margin-bottom: 25px;
@@ -51,8 +48,39 @@
 		align-items: center;
 	}
 
-	/* #teams img,
-	#teams p {
-		display: inline-block;
-	} */
+	@media screen and (max-width:416px) {
+		#team_details img {
+			width: 50%;
+		}
+
+		#hidden_details p,
+		#hidden_details button,
+		#hidden_details a {
+			font-size: 18px;
+		}
+	}
+
+	@media screen and (min-width:416px) and (max-width:750px) {
+		#team_details img {
+			width: 45%;
+		}
+
+		#hidden_details p,
+		#hidden_details button,
+		#hidden_details a {
+			font-size: 20px;
+		}
+	}
+
+	@media screen and (min-width:751px) {
+		#team_details img {
+			width: 40%;
+		}
+
+		#hidden_details p,
+		#hidden_details button,
+		#hidden_details a {
+			font-size: 25px;
+		}
+	}
 </style>

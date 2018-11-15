@@ -34,7 +34,6 @@
 </script>
 
 <style scoped>
-
 	#title p {
 		width: 40%;
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
@@ -61,37 +60,52 @@
 		color: #22313f;
 	}
 
-@media screen and (max-width:416px){
-	#top p:last-child {
-		padding-top: 30px;
-		font-size: 20px;
+	@media screen and (max-width:416px) {
+		#top p:last-child {
+			padding-top: 30px;
+			font-size: 20px;
+		}
+
+		#scroll p:first-child {
+			font-size: 25px;
+		}
+
+		input {
+			font-size: 15px;
+		}
 	}
 
-	#scroll p:first-child {
-		font-size: 25px;
-	}
-}
+	@media screen and (min-width:416px) and (max-width:750px) {
+		#top p:last-child {
+			padding-top: 30px;
+			font-size: 20px;
+		}
 
-@media screen and (min-width:416px) and (max-width:750px) {
-	#top p:last-child {
-		padding-top: 30px;
-		font-size: 20px;
-	}
-	#scroll p:first-child {
-		font-size: 30px;
-	}
-}
-@media screen and (min-width:751px){
-	#top p:last-child {
-		padding-top: 35px;
-		font-size: 25px;
-	}
-	#scroll p:first-child {
-		font-size: 35px;
-	}
-	#scroll {
-		padding-top: 200px;
-	}
-}
+		#scroll p:first-child {
+			font-size: 30px;
+		}
 
+		input {
+			font-size: 20px;
+		}
+	}
+
+	@media screen and (min-width:751px) {
+		#top p:last-child {
+			padding-top: 35px;
+			font-size: 25px;
+		}
+
+		#scroll p:first-child {
+			font-size: 35px;
+		}
+
+		#scroll {
+			padding-top: 200px;
+		}
+
+		input {
+			font-size: 25px;
+		}
+	}
 </style>

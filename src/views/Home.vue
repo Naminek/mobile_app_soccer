@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HomeHeader />
-    
+
     <div id="scroll">
       <router-link to="/matchResults">
         <FlashReport />
@@ -50,108 +50,95 @@
 </script>
 
 <style scoped>
-@media screen and (max-width:415px) {
   .home {
     padding: 0;
     margin: 0;
   }
 
-  #title p {
-    width: 35%;
-    border-bottom: solid 3px rgba(56, 55, 55, 0.7);
-  }
-
-  #logo img {
-    width: 50%;
-  }
-
-  #scroll {
-    padding-top: 100px;
-  }
-
   #home_menu {
     padding: 60px 20%;
     display: flex;
-		flex-direction: column;
-		align-items: center;
-  }
-
-
-  #home_menu img {
-    width: 15%;
-    margin-right: 7%;
-  }
-
-  #home_menu div {
-    margin-bottom: 35px;
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   #home_menu img,
   #home_menu p {
     display: inline-block;
     /* display: flex; */
-		flex-direction: row;
-		justify-content: center;
-  }
-
-  #home_menu p {
-    font-size: 3vmax;
-    color: #22313f;
-  }
-}
-
-
-@media screen and (min-width:416px) {
-  .home {
-    padding: 0;
-    margin: 0;
-  }
-
-  #title p {
-    width: 40%;
-    border-bottom: solid 3px rgba(56, 55, 55, 0.7);
-  }
-
-  #logo img {
-    width: 45%;
-  }
-
-  #scroll {
-    padding-top: 200px;
-  }
-
-  #home_menu {
-    padding: 60px 20%;
-    display: flex;
-		flex-direction: column;
-		align-items: center;
-  }
-
-
-  #home_menu img {
-    width: 20%;
-    margin-right: 7%;
-  }
-
-  #home_menu div {
-    margin-bottom: 45px;
-    display: flex;
+    flex-direction: row;
     justify-content: center;
   }
 
-  #home_menu img,
-  #home_menu p {
-    display: inline-block;
-    /* display: flex; */
-		flex-direction: row;
-		justify-content: center;
+  @media screen and (max-width:415px) {
+
+    #title p {
+      width: 35%;
+      border-bottom: solid 3px rgba(56, 55, 55, 0.7);
+    }
+
+
+    #logo img {
+      width: 50%;
+    }
+
+    #scroll {
+      padding-top: 100px;
+    }
+
+
+    #home_menu img {
+      width: 15%;
+      margin-right: 7%;
+    }
+
+    #home_menu div {
+      margin-bottom: 35px;
+      display: flex;
+      justify-content: center;
+    }
+
+
+
+    #home_menu p {
+      font-size: 3vmax;
+      color: #22313f;
+    }
   }
 
-  #home_menu p {
-    font-size: 25px;
-    color: #22313f;
+
+  @media screen and (min-width:416px) {
+
+
+    #title p {
+      width: 40%;
+      border-bottom: solid 3px rgba(56, 55, 55, 0.7);
+    }
+
+    #logo img {
+      width: 45%;
+    }
+
+    #scroll {
+      padding-top: 200px;
+    }
+
+
+    #home_menu img {
+      width: 20%;
+      margin-right: 7%;
+    }
+
+    #home_menu div {
+      margin-bottom: 45px;
+      display: flex;
+      justify-content: center;
+    }
+
+
+    #home_menu p {
+      font-size: 25px;
+      color: #22313f;
+    }
   }
-}
 </style>
