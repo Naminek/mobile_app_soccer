@@ -21,25 +21,28 @@
 					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
 					<p @click="ShowLocation = false" class="mt-1">&times; CLOSE</p>
 				</div>
+
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+
 	export default {
 		name: "oneMatchSchedule",
 		data() {
 			return {
 				ShowLocation: false,
-				oneMatch:[
-					{
+				oneMatch: [{
 						"team1": "Liverpool",
-						"team2": "Chelsea"
+						"team2": "Chelsea",
+						"location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1050816941647!2d-2.963018684236881!3d53.43082937999687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2z44Ki44Oz44OV44Kj44O844Or44OJ!5e0!3m2!1sja!2sde!4v1542128644694"
 					},
 					{
 						"team1": "Chelsea",
-						"team2": "Huddersfield Town"
+						"team2": "Huddersfield Town",
+						"location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1050816941647!2d-2.963018684236881!3d53.43082937999687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2z44Ki44Oz44OV44Kj44O844Or44OJ!5e0!3m2!1sja!2sde!4v1542128644694"
 					}
 				]
 			}
@@ -51,7 +54,8 @@
 	#one_match {
 		border: solid 2px rgba(56, 55, 55, 0.7);
 		margin: 35px 10% 0;
-		height: auto;;
+		height: auto;
+		;
 		padding: 0 20px;
 		width: 100%;
 	}
@@ -77,24 +81,27 @@
 	}
 
 
-@media screen and (max-width:416px){
-	#one_match p,
-	#one_match button {
-		font-size: 15px;
-	}
-}
+	@media screen and (max-width:416px) {
 
-@media screen and (min-width:416px) and (max-width:750px) {
-	#one_match p,
-	#one_match button {
-		font-size: 20px;
+		#one_match p,
+		#one_match button {
+			font-size: 15px;
+		}
 	}
-}
-@media screen and (min-width:751px){
-	#one_match p,
-	#one_match button {
-		font-size: 30px;
-	}
-}
 
+	@media screen and (min-width:416px) and (max-width:750px) {
+
+		#one_match p,
+		#one_match button {
+			font-size: 20px;
+		}
+	}
+
+	@media screen and (min-width:751px) {
+
+		#one_match p,
+		#one_match button {
+			font-size: 30px;
+		}
+	}
 </style>
