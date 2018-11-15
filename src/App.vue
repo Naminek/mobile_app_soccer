@@ -1,8 +1,44 @@
 <template>
   <div id="app">
+    <router-link to="{ name: 'schedule', params: { dataToPass: this.matchData } }"></router-link>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return {
+      matchData: [],
+      isLoading: true
+    }
+  },
+  created() {
+    this.getMatchData();
+  },
+  methods: {
+    getMatchData() {
+      fetch("//api.jsonbin.io/b/5beda08b18a56238b6f6e74d", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(json => {
+          this.matchData = json.matches;
+          this.isLoading = false;
+          console.log(this.matchData);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+		}
+  }
+}
+</script>
 
 
 <style>
