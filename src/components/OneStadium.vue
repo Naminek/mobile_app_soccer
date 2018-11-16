@@ -17,6 +17,7 @@
 <script>
 	export default {
 		name: "oneStadium",
+		props: ["oneStadium"],
 		data() {
 			return {
 				ShowBalloonMap: false

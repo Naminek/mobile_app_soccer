@@ -30,7 +30,7 @@
             </router-link>
           </div>
           <div>
-            <router-link to="/stadiumLocation">
+            <router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.teamData } }">
               <img alt="stadium_icon" src="../assets/stadium.png">
               <p>Stadium Location</p>
             </router-link>
