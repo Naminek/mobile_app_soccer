@@ -6,9 +6,9 @@
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 			</div>
-			<div v-for="(item, index) in matchDataInSchedule" :key="index">
-			<p>{{ item.group }} aaa</p>
-			</div>
+			<!-- <div v-for="(item, index) in matchDataInSchedule" :key="index">
+				<p>{{ item.group }} aaa</p>
+			</div> -->
 			<div id="search_engine" class="d-flex">
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
@@ -16,7 +16,7 @@
 				<input type="date" name="today" id="today">
 			</div>
 			<OneMatchSchedule />
-			
+
 		</div>
 	</div>
 </template>
@@ -28,15 +28,21 @@
 
 	export default {
 		name: "schedule",
+		// data(){
+		// 	return {
+		// 		matchDataForSchedule: null
+		// 	}
+		// },
 		components: {
 			Header,
 			OneMatchSchedule
-		},
-		computed: {
-    matchDataInSchedule () {
-	  return this.$route.params.dataToPass;
-    }
-  }
+		// },
+		// computed: {
+		// 	matchDataInSchedule() {
+		// 		return this.$route.params.dataToPass;
+		// 		console.log(this.$route.params.dataToPass)
+		// 	}
+		}
 	};
 </script>
 

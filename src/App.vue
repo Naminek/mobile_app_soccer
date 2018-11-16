@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <router-link to="{ name: 'schedule', params: { dataToPass: this.matchData } }"></router-link>
+    <div v-if="isLoading" id="loading">
+    </div>
+    <div v-else id="container">
+    <router-link :to="{ name: 'schedule', params: { dataToPass: this.matchData } }"></router-link>
     <router-view/>
+    </div>
   </div>
 </template>
 
