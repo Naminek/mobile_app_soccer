@@ -6,42 +6,33 @@
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 			</div>
-			<!-- <div v-for="(item, index) in matchDataInSchedule" :key="index">
-				<p>{{ item.group }} aaa</p>
-			</div> -->
-			<div id="search_engine" class="d-flex">
+			<div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
 				<input type="text" placeholder="search by team" name="search_team" size="15">
 				<input type="date" name="today" id="today">
 			</div>
-			<OneMatchSchedule />
-
+			<OneMatchSchedule :oneMatchSchedule="matchDataInSchedule" />
+			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
 </template>
 
 <script>
-	// @ is an alias to /src
 	import Header from "@/components/Header.vue";
 	import OneMatchSchedule from "@/components/OneMatchSchedule.vue";
 
 	export default {
 		name: "schedule",
-		// data(){
-		// 	return {
-		// 		matchDataForSchedule: null
-		// 	}
-		// },
 		components: {
 			Header,
 			OneMatchSchedule
-		// },
-		// computed: {
-		// 	matchDataInSchedule() {
-		// 		return this.$route.params.dataToPass;
-		// 		console.log(this.$route.params.dataToPass)
-		// 	}
+		},
+		computed: {
+			matchDataInSchedule() {
+				// console.log("111" + this.$route.params.dataToPass)
+				return this.$route.params.dataToPass;
+			}
 		}
 	};
 </script>
@@ -52,9 +43,7 @@
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
 	}
 
-	#scroll {
-		padding-top: 120px;
-	}
+	
 
 	#search_engine {
 		margin-top: 50px;
@@ -67,7 +56,61 @@
 		border-radius: 4px;
 	}
 
-	#search_engine input {
-		width: 45%;
+		@media screen and (max-width:416px) {
+			#scroll {
+		padding-top: 120px;
+	}
+		#top p:last-child {
+			padding-top: 30px;
+			font-size: 20px;
+		}
+
+		#scroll p:first-child {
+			font-size: 25px;
+		}
+
+		input {
+			font-size: 15px;
+		}
+	}
+
+	@media screen and (min-width:416px) and (max-width:750px) {
+		#scroll {
+		padding-top: 150px;
+	}
+		#top p:last-child {
+			padding-top: 30px;
+			font-size: 20px;
+		}
+
+		#scroll p:first-child {
+			font-size: 30px;
+		}
+
+		input {
+			font-size: 20px;
+		}
+	}
+
+	@media screen and (min-width:751px) {
+		#scroll {
+		padding-top: 200px;
+	}
+		#top p:last-child {
+			padding-top: 35px;
+			font-size: 25px;
+		}
+
+		#scroll p:first-child {
+			font-size: 35px;
+		}
+
+		#scroll {
+			padding-top: 200px;
+		}
+
+		input {
+			font-size: 25px;
+		}
 	}
 </style>

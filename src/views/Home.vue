@@ -1,35 +1,40 @@
 <template>
   <div class="home">
-    <HomeHeader />
+    <div v-if="isLoading" id="loading">
+      <p>now loading</p>
+    </div>
+    <div v-else id="container">
+      <HomeHeader />
 
-    <div id="scroll">
-      <router-link to="/matchResults">
-        <FlashReport />
-      </router-link>
-      <div id="logo" class="mb-3">
-        <img alt="logo" src="../assets/premier-league-logo.png" class="img-fluid mx-auto d-block mt-2">
-      </div>
-      <div class="d-flex justify-content-center" id="title">
-        <p class="h1 d-flex justify-content-center pt-2 pb-3"></p>
-      </div>
-      <div id="home_menu">
-        <div>
-          <router-link to="/teamInformation">
-            <img alt="soccer_icon" src="../assets/soccer_ball.png">
-            <p>Team Information</p>
-          </router-link>
+      <div id="scroll">
+        <router-link to="/matchResults">
+          <FlashReport />
+        </router-link>
+        <div id="logo" class="mb-3">
+          <img alt="logo" src="../assets/premier-league-logo.png" class="img-fluid mx-auto d-block mt-2">
         </div>
-        <div>
-          <router-link to="/schedule">
-            <img alt="calender_icon" src="../assets/calendar.png">
-            <p>Match Schedule</p>
-          </router-link>
+        <div class="d-flex justify-content-center" id="title">
+          <p class="h1 d-flex justify-content-center pt-2 pb-3"></p>
         </div>
-        <div>
-          <router-link to="/stadiumLocation">
-            <img alt="stadium_icon" src="../assets/stadium.png">
-            <p>Stadium Location</p>
-          </router-link>
+        <div id="home_menu">
+          <div>
+            <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.teamData } }">
+              <img alt="soccer_icon" src="../assets/soccer_ball.png">
+              <p>Team Information</p>
+            </router-link>
+          </div>
+          <div>
+            <router-link :to="{ name: 'schedule', params: { dataToPass: this.matchData } }">
+              <img alt="calender_icon" src="../assets/calendar.png">
+              <p>Match Schedule</p>
+            </router-link>
+          </div>
+          <div>
+            <router-link to="/stadiumLocation">
+              <img alt="stadium_icon" src="../assets/stadium.png">
+              <p>Stadium Location</p>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -45,6 +50,57 @@
     components: {
       HomeHeader,
       FlashReport
+    },
+    data() {
+      return {
+        matchData: null,
+        teamData: null,
+        isLoading: true
+      }
+    },
+    created() {
+      this.getMatchData();
+      this.getTeamData();
+    },
+    methods: {
+      getMatchData() {
+        fetch("//api.jsonbin.io/b/5beda08b18a56238b6f6e74d", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+          .then(response => {
+            return response.json();
+          })
+          .then(json => {
+            this.matchData = json.matches;
+            this.isLoading = false;
+            console.log(this.matchData);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      },
+      getTeamData() {
+        fetch("//api.jsonbin.io/b/5beecc7018a56238b6f76f57", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          return response.json();
+        })
+        .then(json => {
+          this.teamData = json.everyTeams;
+          this.isLoading = false;
+          console.log(this.teamData);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
     }
   };
 </script>

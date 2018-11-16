@@ -1,12 +1,12 @@
 <template>
 	<div id="team_details">
-		<div>
-			<img alt="team_icon" src="../assets/liverpool_logo.png" @click="ShowDetails = true">
-			<p class="h4">Liverpool</p>
+		<div v-for="(oneTeam, index) in teamDetails" :key="index">
+			<img alt="team_icon" :src="oneTeam.crestUrl" @click="ShowDetails = true">
+			<p class="h4">{{ oneTeam.name }}</p>
 			<div v-if="ShowDetails" id="hidden_details">
 				<p>City: <span>Liverpool</span></p>
-				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1">players List</button></router-link>
-				<a href="#" target="_blank" class="btn btn-dark mt-1">Official Website</a>
+				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1" :value="oneTeam.name">players List</button></router-link>
+				<a :href="oneTeam.website" target="_blank" class="btn btn-dark mt-1">Official Website</a>
 				<p @click="ShowDetails = false" class="mt-2">&times; CLOSE</p>
 			</div>
 		</div>
@@ -24,6 +24,7 @@
 <script>
 	export default {
 		name: "teamDetails",
+		props: ["teamDetails"],
 		data() {
 			return {
 				ShowDetails: false

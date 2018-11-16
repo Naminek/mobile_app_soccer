@@ -11,9 +11,7 @@
 					<img src="../assets/scope.png" alt="search_icon"></label>
 				<input type="text" placeholder="search by team name" name="search_team">
 			</div>
-			<TeamDetails />
-			<TeamDetails />
-			<TeamDetails />
+			<TeamDetails :teamDetails="teamDataInTeamInformation" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
@@ -29,6 +27,12 @@
 		components: {
 			Header,
 			TeamDetails
+		},
+		computed: {
+			teamDataInTeamInformation() {
+				// console.log("111" + this.$route.params.dataToPass)
+				return this.$route.params.dataToPass;
+			}
 		}
 	};
 </script>
