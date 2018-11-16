@@ -1,10 +1,10 @@
 <template>
 	<div id="team_details">
 		<div v-for="(oneTeam, index) in teamDetails" :key="index">
-			<img alt="team_icon" :src="oneTeam.crestUrl" @click="ShowDetails = true">
+			<img alt="team_icon" :src="oneTeam.crestUrl" @click="ShowDetails = true" class="mt-4">
 			<p class="h4">{{ oneTeam.name }}</p>
 			<div v-if="ShowDetails" id="hidden_details">
-				<p>City: <span>Liverpool</span></p>
+				<p>City: <span>{{ oneTeam.city }}</span></p>
 				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1" :value="oneTeam.name">players List</button></router-link>
 				<a :href="oneTeam.website" target="_blank" class="btn btn-dark mt-1">Official Website</a>
 				<p @click="ShowDetails = false" class="mt-2">&times; CLOSE</p>

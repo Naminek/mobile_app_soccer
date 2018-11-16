@@ -9,7 +9,7 @@
 			<div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
-				<input type="text" placeholder="search by team name" name="search_team">
+				<input type="text" v-model="searchTeamName" placeholder="search by team name" name="search_team">
 			</div>
 			<TeamDetails :teamDetails="teamDataInTeamInformation" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
@@ -24,6 +24,11 @@
 
 	export default {
 		name: "teamInformation",
+		data() {
+			return {
+				searchTeamName: ""
+			}
+		},
 		components: {
 			Header,
 			TeamDetails
@@ -31,7 +36,14 @@
 		computed: {
 			teamDataInTeamInformation() {
 				// console.log("111" + this.$route.params.dataToPass)
+				if (this.searchTeamName == "") {
 				return this.$route.params.dataToPass;
+			} else {
+				// console.log(this.searchWords);
+				return this.$route.params.dataToPass.filter
+				(team => (team.name.toUpperCase().includes(this.searchTeamName.toUpperCase()) 
+				));
+			}
 			}
 		}
 	};
