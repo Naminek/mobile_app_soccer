@@ -2,7 +2,7 @@
 	<div id="team_details">
 		<div v-for="(oneTeam, index) in teamDetails" :key="index">
 			<img alt="team_icon" :src="oneTeam.crestUrl" @click="ShowDetails = true" class="mt-4">
-			<p class="h4">{{ oneTeam.name }}</p>
+			<p>{{ oneTeam.name }}</p>
 			<div v-if="ShowDetails" id="hidden_details">
 				<p>City: <span>{{ oneTeam.city }}</span></p>
 				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1" :value="oneTeam.name">players List</button></router-link>
@@ -37,7 +37,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 	#team_details {
-		margin: 50px 20% 0;
+		margin: 50px 15% 0;
 	}
 
 
@@ -51,7 +51,12 @@
 
 	@media screen and (max-width:416px) {
 		#team_details img {
-			width: 50%;
+			width: 45%;
+		}
+		
+		#team_details div p {
+			font-size: 20px;
+			margin-top: 10px;
 		}
 
 		#hidden_details p,
@@ -63,7 +68,12 @@
 
 	@media screen and (min-width:416px) and (max-width:750px) {
 		#team_details img {
-			width: 45%;
+			width: 38%;
+		}
+
+		#team_details div p {
+			font-size: 25px;
+			margin-top: 10px;
 		}
 
 		#hidden_details p,
@@ -75,7 +85,12 @@
 
 	@media screen and (min-width:751px) {
 		#team_details img {
-			width: 40%;
+			width: 33%;
+		}
+
+		#team_details div p {
+			font-size: 30px;
+			margin-top: 10px;
 		}
 
 		#hidden_details p,

@@ -17,7 +17,7 @@ export default {
 <style scoped>
 .balloon_map {
 		position: relative;
-		display: none;
+		display: inline-block;
 		margin: 0;
 		padding: 10px 10px 0;
 		min-width: 250px;
