@@ -7,7 +7,7 @@
       <HomeHeader />
 
       <div id="scroll">
-        <router-link to="/matchResults">
+        <router-link :to="{ name: 'matchResults', params: { dataToPass: this.matchData } }">
           <FlashReport />
         </router-link>
         <div id="logo" class="mb-3">

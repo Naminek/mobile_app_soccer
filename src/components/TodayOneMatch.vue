@@ -1,11 +1,11 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
-		<div class="row" id="today_one_match">
+		<div class="row" id="today_one_match" v-for="(match, index) in todayOneMatch" :key="index">
 			<div class="col-3 pt-3">
 				<img alt="team_icon" src="../assets/liverpool_logo.png">
 			</div>
 			<div class="col-6 text-center align-middle">
-				<p class="pt-4"> - </p>
+				<p class="pt-4">{{ match.score.fullTime.homeTeam }} - {{ match.score.fullTime.awayTeam }}</p>
 
 			</div>
 			<!-- <div class="col-3"></div> -->
@@ -28,6 +28,7 @@
 <script>
 	export default {
 		name: "todayOneMatch",
+		props: ["todayOneMatch"],
 		data() {
 			return {
 				ShowMap: false

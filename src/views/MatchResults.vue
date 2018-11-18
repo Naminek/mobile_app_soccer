@@ -6,9 +6,7 @@
 			<div class="d-flex justify-content-center" id="title">
 				<p class="d-flex justify-content-center pb-4 mb-4"></p>
 			</div>
-			<TodayOneMatch />
-			<TodayOneMatch />
-			<TodayOneMatch />
+			<TodayOneMatch :todayOneMatch="matchDataInResults"/>
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
@@ -24,6 +22,11 @@
 		components: {
 			Header,
 			TodayOneMatch
+		},
+		computed: {
+			matchDataInResults() {
+				return this.$route.params.dataToPass;
+			}
 		}
 	};
 </script>
