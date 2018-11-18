@@ -9,7 +9,7 @@
 			<div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_stadium">
 					<img src="../assets/scope.png" alt="search_icon"></label>
-				<input type="text" v-model="searchStadium" placeholder="search by stadium" name="search_stadium">
+				<input type="text" v-model="searchStadium" placeholder="search by stadium or team" name="search_stadium">
 			</div>
 			<OneStadium :oneStadium="teamDataInStadium" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
@@ -26,7 +26,8 @@
 		name: "home",
 		data() {
 			return {
-				searchStadium: ""
+				searchStadium: "",
+				// pushedStadium: ""
 			}
 		},
 		components: {
@@ -37,13 +38,12 @@
 			teamDataInStadium() {
 				// console.log("111" + this.$route.params.dataToPass)
 				if (this.searchStadium == "") {
-				return this.$route.params.dataToPass;
-			} else {
-				// console.log(this.searchWords);
-				return this.$route.params.dataToPass.filter
-				(stadium => (stadium.name.toUpperCase().includes(this.searchStadium.toUpperCase()) 
-				));
-			}
+					return this.$route.params.dataToPass;
+				} else {
+					// console.log(this.searchWords);
+					return this.$route.params.dataToPass.filter(stadium => (stadium.name.toUpperCase().includes(this.searchStadium.toUpperCase()) ||
+						stadium.venue.toUpperCase().includes(this.searchStadium.toUpperCase())));
+				}
 			}
 		}
 	};
@@ -87,6 +87,7 @@
 
 		input {
 			font-size: 15px;
+			width: 60%;
 		}
 	}
 
@@ -102,6 +103,7 @@
 
 		input {
 			font-size: 20px;
+			width: 50%;
 		}
 	}
 
@@ -121,6 +123,7 @@
 
 		input {
 			font-size: 25px;
+			width: 50%;
 		}
 	}
 </style>
