@@ -1,13 +1,13 @@
 <template>
 	<div id="one_stadium">
-		<div>
+		<div v-for="(stadium, index) in oneStadium" :key="index">
 			<div @click="ShowBalloonMap = true">
 				<img alt="team_icon" src="../assets/anfield.jpg">
-				<p>Anfield, Liverpool</p>
+				<p>{{ stadium.venue }}</p>
 			</div>
 			<div class="balloon_map" v-if="ShowBalloonMap">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1050816941647!2d-2.963018684236881!3d53.43082937999687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2z44Ki44Oz44OV44Kj44O844Or44OJ!5e0!3m2!1sja!2sde!4v1542128644694"
-				 width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
+				width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
 				<p @click="ShowBalloonMap = false" class="mt-2">&times; CLOSE</p>
 			</div>
 		</div>
