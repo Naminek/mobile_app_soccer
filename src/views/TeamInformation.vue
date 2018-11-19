@@ -35,15 +35,12 @@
 		},
 		computed: {
 			teamDataInTeamInformation() {
-				// console.log("111" + this.$route.params.dataToPass)
 				if (this.searchTeamName == "") {
-				return this.$route.params.dataToPass;
-			} else {
-				// console.log(this.searchWords);
-				return this.$route.params.dataToPass.filter
-				(team => (team.name.toUpperCase().includes(this.searchTeamName.toUpperCase()) 
-				));
-			}
+					return this.$route.params.dataToPass;
+				} else {
+					// console.log(this.searchWords);
+					return this.$route.params.dataToPass.filter(team => (team.name.toUpperCase().includes(this.searchTeamName.toUpperCase())));
+				}
 			}
 		}
 	};

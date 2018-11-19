@@ -43,6 +43,7 @@
 <script>
   export default {
     name: "homeHeader",
+    props: ["homeHeader"],
     data() {
       return {
         menuOn: false

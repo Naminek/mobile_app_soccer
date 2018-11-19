@@ -1,33 +1,52 @@
 <template>
 	<div id="team_details">
 		<div v-for="(oneTeam, index) in teamDetails" :key="index">
-			<img alt="team_icon" :src="oneTeam.crestUrl" @click="ShowDetails = true" class="mt-4">
-			<p>{{ oneTeam.name }}</p>
-			<div v-if="ShowDetails" id="hidden_details">
-				<p>City: <span>{{ oneTeam.city }}</span></p>
-				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1" :value="oneTeam.name">players List</button></router-link>
-				<a :href="oneTeam.website" target="_blank" class="btn btn-dark mt-1">Official Website</a>
-				<p @click="ShowDetails = false" class="mt-2">&times; CLOSE</p>
+			<button @click="showDetails($event, oneTeam)" :value="`${ oneTeam.name }`">
+				<img alt="team_icon" :src="oneTeam.crestUrl" class="mt-4">
+				<p>{{ oneTeam.name }}</p>
+			</button>
+			<!-- <OneTeamDetail v-if="whichTeamDetail" :oneTeamDetail="clickedTeam" /> -->
+			<div v-if="whichTeamDetail">
+				<p>City: <span>{{ clickedTeam.city }}</span></p>
+				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1" :value="clickedTeam.name">players
+						List</button></router-link>
+				<a :href="clickedTeam.website" target="_blank" class="btn btn-dark mt-1">Official Website</a>
+				<p @click="closeDetail()" class="mt-2">&times; CLOSE</p>
 			</div>
 		</div>
-		<!-- <div>
-			<img alt="team_icon" src="../assets/chelsea_logo.png">
-			<p>Chelsea</p>
-		</div>
-		<div>
-			<img alt="team_icon" src="../assets/huddersfield_town_logo.png">
-			<p>Huddersfield Town</p>
-		</div> -->
+
+
 	</div>
 </template>
 
 <script>
+	// import OneTeamDetail from "@/components/OneTeamDetail.vue";
 	export default {
 		name: "teamDetails",
 		props: ["teamDetails"],
 		data() {
 			return {
-				ShowDetails: false
+				clickedTeam: null,
+				whichTeamDetail: false,
+				pushedButton: ""
+			}
+		},
+		// components: {
+		// 	OneTeamDetail
+		// },
+		methods: {
+			showDetails(ev, oneTeam) {
+				this.clickedTeam = oneTeam;
+				console.log(this.clickedTeam);
+				this.pushedButton = ev.target.value;
+				if (this.clickedTeam.id = this.pushedButton){
+					this.whichTeamDetail = true;
+				}
+				// console.log(this.whichTeamDetail);
+					console.log(this.pushedButton);
+			},
+			closeDetail() {
+				this.whichTeamDetail = false;
 			}
 		}
 
@@ -49,15 +68,21 @@
 		align-items: center;
 	}
 
+	#hidden_details {
+		display: none;
+	}
+
 	@media screen and (max-width:416px) {
 		#team_details img {
 			width: 45%;
 		}
-		
+
 		#team_details div p {
 			font-size: 20px;
 			margin-top: 10px;
 		}
+
+
 
 		#hidden_details p,
 		#hidden_details button,
