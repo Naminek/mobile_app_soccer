@@ -9,8 +9,8 @@
 			<div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
-				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchTeam">
-				<input type="date" name="today" id="today">
+				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchTeam" />
+				<input type="date" name="today" id="today" v-model="searchByDate" />
 			</div>
 			<!-- <div v-for="(team, index) in teamDataInSchedule" :key="index">
 				<p>{{ team.name }}</p>
@@ -29,7 +29,9 @@
 		name: "schedule",
 		data() {
 			return {
-				searchTeam: ""
+				searchTeam: "",
+				todayDate: "",
+				searchByDate: new Date(),
 			}
 		},
 		components: {
@@ -40,11 +42,31 @@
 			matchDataInSchedule() {
 				if (this.searchTeam == "") {
 					return this.$route.params.dataToPass;
+					console.log(new Date(this.searchByDate));
 				} else {
 					// console.log(this.searchWords);
 					return this.$route.params.dataToPass.filter(team => (team.awayTeam.name.toUpperCase().includes(this.searchTeam.toUpperCase())
 					|| team.homeTeam.name.toUpperCase().includes(this.searchTeam.toUpperCase())));
 				}
+			}
+		},
+		created() {
+			this.getTodayDate()
+		},
+		methods: {
+			getTodayDate() {
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0
+				var yyyy = today.getFullYear();
+				if(dd < 10) {
+    				dd = '0' + dd;
+				} 
+				if(mm < 10) {
+       				 mm = '0' + mm;
+				} 
+				this.todayDate = mm + '/' + dd + '/' + yyyy;
+				console.log(this.todayDate);
 			}
 		}
 	};

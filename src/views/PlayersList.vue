@@ -1,16 +1,21 @@
 <template>
 	<div class="players_list pl-3 pr-3">
-		<Header />
-		<div id="scroll">
-			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.name }}</p>
+		<div v-if="isLoading" id="loading">
+      <img src="#" alt="loading_icon"><p>now loading</p>
+    </div>
+
+		<!-- <Header /> -->
+		
+		<div v-else id="scroll">
+			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.teamData.name }}</p>
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
-				
-				<img alt="team_icon" :src="teamDataInPlayersList.crestUrl" class="mt-4">
-				
+
+				<img alt="team_icon" :src="teamDataInPlayersList.teamData.crestUrl" class="mt-4">
+
 			</div>
 			<div id="search_engine" class="d-flex">
-					<img src="../assets/scope.png" alt="search_icon">
+				<img src="../assets/scope.png" alt="search_icon">
 				<input type="text" placeholder="Search by Name" name="search_member" size="15">
 				<input type="text" placeholder="Search by Number" name="search_number" size="15">
 			</div>
@@ -50,38 +55,63 @@
 		},
 		data() {
 			return {
-				players: [
-					{
-						"name": "aaaaa",
-						"number": "1",
-						"position": "Forward"
-					},
-					{
-						"name": "bbbbb",
-						"number": "2",
-						"position": "Wide Midfield"
-					},
-					{
-						"name": "ccccc",
-						"number": "3",
-						"position": "Center Forward"
-					}
-				]
+				isLoading: true,
+				// players: [{
+				// 		"name": "aaaaa",
+				// 		"number": "1",
+				// 		"position": "Forward"
+				// 	},
+				// 	{
+				// 		"name": "bbbbb",
+				// 		"number": "2",
+				// 		"position": "Wide Midfield"
+				// 	},
+				// 	{
+				// 		"name": "ccccc",
+				// 		"number": "3",
+				// 		"position": "Center Forward"
+				// 	}
+				// ]
+				players: null
 			}
 		},
 		computed: {
-    teamDataInPlayersList () {
-      return this.$route.params.dataToPass
-    }
-  }
+			teamDataInPlayersList() {
+				return this.$route.params.dataToPass;
+			}
+		},
+		created() {
+			this.loadMembersData()
+		},
+		methods: {
+			loadMembersData() {
+				fetch("http://api.football-data.org/v2/teams/" + this.teamDataInPlayersList.id, {
+						method: "GET",
+						headers: {
+							'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',
+							'Content-Type': 'application/json'
+						}
+					})
+					.then(response => {
+						return response.json();
+					})
+					.then(json => {
+						this.players = json.squad;
+						this.isLoading = false;
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+			}
+		}
 	};
 </script>
 
 <style scoped>
 	#title {
 		display: flex;
-    flex-direction: column;
-    align-items: center;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	#title p {
@@ -89,7 +119,7 @@
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
 	}
 
-	
+
 	#search_engine {
 		margin-top: 50px;
 	}
@@ -104,53 +134,54 @@
 	#search_engine input {
 		width: 45%;
 	}
+
 	@media screen and (max-width:416px) {
 
-	#title img {
-		width: 40%;
-	}
+		#title img {
+			width: 40%;
+		}
 
-	#scroll p:first-child {
-		font-size: 25px;
-	}
+		#scroll p:first-child {
+			font-size: 25px;
+		}
 
-	#scroll {
-		padding-top: 120px;
-	}
+		#scroll {
+			padding-top: 120px;
+		}
 
 
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
 
-	#title img {
-		width: 35%;
-	}
+		#title img {
+			width: 35%;
+		}
 
-	#scroll p:first-child {
-		font-size: 30px;
-	}
+		#scroll p:first-child {
+			font-size: 30px;
+		}
 
-	#scroll {
-		padding-top: 150px;
-	}
+		#scroll {
+			padding-top: 150px;
+		}
 
 
 	}
 
 	@media screen and (min-width:751px) {
 
-	#title img {
-		width: 30%;
-	}
+		#title img {
+			width: 30%;
+		}
 
-	#scroll p:first-child {
-		font-size: 35px;
-	}
+		#scroll p:first-child {
+			font-size: 35px;
+		}
 
-	#scroll {
-		padding-top: 200px;
-	}
+		#scroll {
+			padding-top: 200px;
+		}
 
 
 	}

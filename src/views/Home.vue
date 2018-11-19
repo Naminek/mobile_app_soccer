@@ -4,10 +4,10 @@
       <img src="#" alt="loading_icon"><p>now loading</p>
     </div>
     <div v-else id="container">
-      <HomeHeader />
+      <HomeHeader :datas="datas" />
 
       <div id="scroll">
-        <router-link :to="{ name: 'matchResults', params: { dataToPass: this.matchData } }">
+        <router-link :to="{ name: 'matchResults', params: { dataToPass: this.datas } }">
           <FlashReport />
         </router-link>
         <div id="logo" class="mb-3">
@@ -18,19 +18,19 @@
         </div>
         <div id="home_menu">
           <div>
-            <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.teamData } }">
+            <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.datas } }">
               <img alt="soccer_icon" src="../assets/soccer_ball.png">
               <p>Team Information</p>
             </router-link>
           </div>
           <div>
-            <router-link :to="{ name: 'schedule', params: { dataToPass: this.matchData } }">
+            <router-link :to="{ name: 'schedule', params: { dataToPass: this.datas } }">
               <img alt="calender_icon" src="../assets/calendar.png">
               <p>Match Schedule</p>
             </router-link>
           </div>
           <div>
-            <router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.teamData } }">
+            <router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.datas } }">
               <img alt="stadium_icon" src="../assets/stadium.png">
               <p>Stadium Location</p>
             </router-link>
@@ -53,8 +53,9 @@
     },
     data() {
       return {
-        matchData: null,
-        teamData: null,
+        datas:[{"matchData": null,
+        "teamData": null}],
+        
         isLoading: true
       }
     },
@@ -74,16 +75,16 @@
             return response.json();
           })
           .then(json => {
-            this.matchData = json.matches;
+            this.datas.matchData = json.matches;
             this.isLoading = false;
-            console.log(this.matchData);
+            console.log(this.datas.matchData);
           })
           .catch(function (error) {
             console.log(error);
           });
       },
       getTeamData() {
-        fetch("//api.jsonbin.io/b/5beecc7018a56238b6f76f57/10", {
+        fetch("//api.jsonbin.io/b/5bf2ee3bf508a567790351f2", {
           method: "GET",
           headers: {
             "Content-Type": "application/json"
@@ -93,9 +94,9 @@
           return response.json();
         })
         .then(json => {
-          this.teamData = json.everyTeams;
+          this.datas.teamData = json.everyTeams;
           this.isLoading = false;
-          console.log(this.teamData);
+          console.log(this.datas.teamData);
         })
         .catch(function (error) {
           console.log(error);

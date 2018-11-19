@@ -21,7 +21,7 @@
 								<router-link :to="{ name: 'playersList', params: { dataToPass: this.oneTeamDetail } }">
 									<button type="button" class="btn btn-dark" :value="oneTeamDetail.name" data-dismiss="modal">players List</button>
 								</router-link>
-								<a :href="oneTeamDetail.website" target="_blank" class="btn btn-dark" data-dismiss="modal">Official Website</a>
+								<a :href="oneTeamDetail.website" target="_blank" class="btn btn-dark">Official Website</a>
 							</div>
 						</div>
 					</div>

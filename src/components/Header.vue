@@ -47,6 +47,7 @@
 <script>
 	export default {
 		name: "Header",
+		props: ["matchData", "teamData"],
 		data() {
 			return {
 				menuOn: false

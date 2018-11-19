@@ -1,6 +1,6 @@
 <template>
 	<div id="team_details">
-		<div v-for="(oneTeam, index) in teamDetails" :key="index">
+		<div v-for="(oneTeam, index) in teamDetails.teamData" :key="index">
 			<div @click="showDetails(oneTeam)" data-toggle="modal" data-target="#exampleModalCenter">
 				<img alt="team_icon" :src="oneTeam.crestUrl" class="mt-4">
 				<p>{{ oneTeam.name }}</p>
@@ -31,7 +31,7 @@
 				this.clickedTeam = oneTeam;
 				console.log(this.clickedTeam);
 				this.pushedButton = oneTeam.name;
-				if (this.clickedTeam.id = this.pushedButton){
+				if (this.clickedTeam.name == this.pushedButton){
 					this.whichTeamDetail = true;
 				}
 				// console.log(this.whichTeamDetail);
