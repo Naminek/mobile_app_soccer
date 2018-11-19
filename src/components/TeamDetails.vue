@@ -1,26 +1,18 @@
 <template>
 	<div id="team_details">
 		<div v-for="(oneTeam, index) in teamDetails" :key="index">
-			<button @click="showDetails($event, oneTeam)" :value="`${ oneTeam.name }`">
+			<div @click="showDetails(oneTeam)" data-toggle="modal" data-target="#exampleModalCenter">
 				<img alt="team_icon" :src="oneTeam.crestUrl" class="mt-4">
 				<p>{{ oneTeam.name }}</p>
-			</button>
-			<!-- <OneTeamDetail v-if="whichTeamDetail" :oneTeamDetail="clickedTeam" /> -->
-			<div v-if="whichTeamDetail">
-				<p>City: <span>{{ clickedTeam.city }}</span></p>
-				<router-link to="/playersList"><button type="button" class="btn btn-dark mb-1" :value="clickedTeam.name">players
-						List</button></router-link>
-				<a :href="clickedTeam.website" target="_blank" class="btn btn-dark mt-1">Official Website</a>
-				<p @click="closeDetail()" class="mt-2">&times; CLOSE</p>
 			</div>
 		</div>
-
+<OneTeamDetail v-if="whichTeamDetail" :oneTeamDetail="clickedTeam" />
 
 	</div>
 </template>
 
 <script>
-	// import OneTeamDetail from "@/components/OneTeamDetail.vue";
+	import OneTeamDetail from "@/components/OneTeamDetail.vue";
 	export default {
 		name: "teamDetails",
 		props: ["teamDetails"],
@@ -31,23 +23,23 @@
 				pushedButton: ""
 			}
 		},
-		// components: {
-		// 	OneTeamDetail
-		// },
+		components: {
+			OneTeamDetail
+		},
 		methods: {
-			showDetails(ev, oneTeam) {
+			showDetails(oneTeam) {
 				this.clickedTeam = oneTeam;
 				console.log(this.clickedTeam);
-				this.pushedButton = ev.target.value;
+				this.pushedButton = oneTeam.name;
 				if (this.clickedTeam.id = this.pushedButton){
 					this.whichTeamDetail = true;
 				}
 				// console.log(this.whichTeamDetail);
 					console.log(this.pushedButton);
 			},
-			closeDetail() {
-				this.whichTeamDetail = false;
-			}
+			// closeDetail() {
+			// 	this.whichTeamDetail = false;
+			// }
 		}
 
 	};
@@ -68,9 +60,9 @@
 		align-items: center;
 	}
 
-	#hidden_details {
+	/* #hidden_details {
 		display: none;
-	}
+	} */
 
 	@media screen and (max-width:416px) {
 		#team_details img {
