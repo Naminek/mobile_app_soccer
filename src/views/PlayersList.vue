@@ -2,11 +2,11 @@
 	<div class="players_list pl-3 pr-3">
 		<Header />
 		<div id="scroll">
-			<p class="h4 d-flex justify-content-center pb-4 pt-5">Team1</p>
+			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.name }}</p>
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 				
-				<img alt="team_icon" src="../assets/liverpool_logo.png" class="mt-4">
+				<img alt="team_icon" :src="teamDataInPlayersList.crestUrl" class="mt-4">
 				
 			</div>
 			<div id="search_engine" class="d-flex">
@@ -68,7 +68,12 @@
 					}
 				]
 			}
-		}
+		},
+		computed: {
+    teamDataInPlayersList () {
+      return this.$route.params.dataToPass
+    }
+  }
 	};
 </script>
 

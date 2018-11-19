@@ -9,9 +9,12 @@
 			<div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
-				<input type="text" placeholder="search by team" name="search_team" size="15">
+				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchTeam">
 				<input type="date" name="today" id="today">
 			</div>
+			<!-- <div v-for="(team, index) in teamDataInSchedule" :key="index">
+				<p>{{ team.name }}</p>
+			</div> -->
 			<OneMatchSchedule :oneMatchSchedule="matchDataInSchedule" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
@@ -24,14 +27,24 @@
 
 	export default {
 		name: "schedule",
+		data() {
+			return {
+				searchTeam: ""
+			}
+		},
 		components: {
 			Header,
 			OneMatchSchedule
 		},
 		computed: {
 			matchDataInSchedule() {
-				// console.log("111" + this.$route.params.dataToPass)
-				return this.$route.params.dataToPass;
+				if (this.searchTeam == "") {
+					return this.$route.params.dataToPass;
+				} else {
+					// console.log(this.searchWords);
+					return this.$route.params.dataToPass.filter(team => (team.awayTeam.name.toUpperCase().includes(this.searchTeam.toUpperCase())
+					|| team.homeTeam.name.toUpperCase().includes(this.searchTeam.toUpperCase())));
+				}
 			}
 		}
 	};
