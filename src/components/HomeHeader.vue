@@ -16,13 +16,19 @@
                 <ul class="h5">
                   <p @click="ShowMenuBar" v-if="menuOn" class="mt-1 h4">&times;</p>
                   <li>
-                    <router-link to="/teamInformation">Team Information</router-link>
+                    <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.teamData } }">
+                      Team Information
+                    </router-link>
                   </li>
                   <li>
-                    <router-link to="/schedule">Match Schedule</router-link>
+                    <router-link :to="{ name: 'schedule', params: { dataToPass: this.matchData } }">
+                      Match Schedule
+                    </router-link>
                   </li>
                   <li>
-                    <router-link to="/stadiumLocation">Stadium Location</router-link>
+                    <router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.teamData } }">
+                      Stadium Location
+                    </router-link>
                   </li>
                 </ul>
               </div>
