@@ -4,7 +4,7 @@
       <p>now loading</p>
     </div>
     <div v-else id="container">
-      <HomeHeader :datas="datas" />
+      <HomeHeader :homeHeader="datas" />
 
       <div id="scroll">
         <router-link :to="{ name: 'matchResults', params: { dataToPass: this.datas } }">

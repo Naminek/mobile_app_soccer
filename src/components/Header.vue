@@ -21,17 +21,17 @@
 							<ul class="h5">
 								<p @click="ShowMenuBar" v-if="menuOn" class="mt-1 h4">&times;</p>
 								<li>
-									<router-link :to="{ name: 'teamInformation', params: { dataToPass: this.teamData } }">
+									<router-link :to="{ name: 'teamInformation', params: { dataToPass: this.header } }">
 										Team Information
 									</router-link>
 								</li>
 								<li>
-									<router-link :to="{ name: 'schedule', params: { dataToPass: this.matchData } }">
+									<router-link :to="{ name: 'schedule', params: { dataToPass: this.header } }">
 										Match Schedule
 									</router-link>
 								</li>
 								<li>
-									<router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.teamData } }">
+									<router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.header } }">
 										Stadium Location
 									</router-link>
 								</li>
@@ -47,7 +47,7 @@
 <script>
 	export default {
 		name: "Header",
-		props: ["matchData", "teamData"],
+		props: ["header"],
 		data() {
 			return {
 				menuOn: false

@@ -1,6 +1,6 @@
 <template>
 	<div class="pl-3 pr-3" id="top">
-		<Header />
+		<Header :header="dataInTeamInformation" />
 		<div id="scroll">
 			<p class="d-flex justify-content-center pt-5">Team Information</p>
 			<div class="d-flex justify-content-center" id="title">
@@ -11,7 +11,7 @@
 					<img src="../assets/scope.png" alt="search_icon"></label>
 				<input type="text" v-model="searchTeamName" placeholder="search by team name" name="search_team">
 			</div>
-			<TeamDetails :teamDetails="teamDataInTeamInformation" />
+			<TeamDetails :teamDetails="dataInTeamInformation" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
@@ -34,7 +34,7 @@
 			TeamDetails
 		},
 		computed: {
-			teamDataInTeamInformation() {
+			dataInTeamInformation() {
 				if (this.searchTeamName == "") {
 					return this.$route.params.dataToPass;
 				} else {

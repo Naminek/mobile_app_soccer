@@ -1,6 +1,6 @@
 <template>
 	<div class="location pl-3 pr-3" id="top">
-		<Header />
+		<Header :header="dataInStadium" />
 		<div id="scroll">
 			<p class="d-flex justify-content-center">Stadium</p>
 			<div class="d-flex justify-content-center" id="title">
@@ -11,7 +11,7 @@
 					<img src="../assets/scope.png" alt="search_icon"></label>
 				<input type="text" v-model="searchStadium" placeholder="search by stadium or team" name="search_stadium">
 			</div>
-			<OneStadium :oneStadium="teamDataInStadium" />
+			<OneStadium :oneStadium="dataInStadium" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
@@ -23,7 +23,7 @@
 	import OneStadium from "@/components/OneStadium.vue";
 
 	export default {
-		name: "home",
+		name: "stadiumLocation",
 		data() {
 			return {
 				searchStadium: "",
@@ -35,7 +35,7 @@
 			OneStadium
 		},
 		computed: {
-			teamDataInStadium() {
+			dataInStadium() {
 				// console.log("111" + this.$route.params.dataToPass)
 				if (this.searchStadium == "") {
 					return this.$route.params.dataToPass;

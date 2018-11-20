@@ -1,6 +1,6 @@
 <template>
 	<div class="schedule pl-3 pr-3">
-		<Header />
+		<Header :header="dataInSchedule"/>
 		<div id="scroll">
 			<p class="h4 d-flex justify-content-center pb-4 pt-5">Match Schedule</p>
 			<div class="d-flex justify-content-center" id="title">
@@ -15,7 +15,7 @@
 			<!-- <div v-for="(team, index) in teamDataInSchedule" :key="index">
 				<p>{{ team.name }}</p>
 			</div> -->
-			<OneMatchSchedule :oneMatchSchedule="matchDataInSchedule" />
+			<OneMatchSchedule :oneMatchSchedule="dataInSchedule" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 			OneMatchSchedule
 		},
 		computed: {
-			matchDataInSchedule() {
+			dataInSchedule() {
 				if (this.searchTeam == "") {
 					return this.$route.params.dataToPass;
 					console.log(new Date(this.searchByDate));

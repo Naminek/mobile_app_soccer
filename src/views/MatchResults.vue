@@ -1,12 +1,12 @@
 <template>
 	<div class="match_results pl-3 pr-3" id="top">
-		<Header />
+		<Header :header="dataInResults" />
 		<div id="scroll">
 			<p class="d-flex justify-content-center">Today's Match</p>
 			<div class="d-flex justify-content-center" id="title">
 				<p class="d-flex justify-content-center pb-4 mb-4"></p>
 			</div>
-			<TodayOneMatch :todayOneMatch="matchDataInResults"/>
+			<TodayOneMatch :todayOneMatch="dataInResults"/>
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 			TodayOneMatch
 		},
 		computed: {
-			matchDataInResults() {
+			dataInResults() {
 				return this.$route.params.dataToPass;
 			}
 		}
