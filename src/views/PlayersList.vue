@@ -7,11 +7,11 @@
 		<!-- <Header /> -->
 		
 		<div v-else id="scroll">
-			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.teamData.name }}</p>
+			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.name }}</p>
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 
-				<img alt="team_icon" :src="teamDataInPlayersList.teamData.crestUrl" class="mt-4">
+				<img alt="team_icon" :src="teamDataInPlayersList.crestUrl" class="mt-4">
 
 			</div>
 			<div id="search_engine" class="d-flex">
@@ -56,22 +56,6 @@
 		data() {
 			return {
 				isLoading: true,
-				// players: [{
-				// 		"name": "aaaaa",
-				// 		"number": "1",
-				// 		"position": "Forward"
-				// 	},
-				// 	{
-				// 		"name": "bbbbb",
-				// 		"number": "2",
-				// 		"position": "Wide Midfield"
-				// 	},
-				// 	{
-				// 		"name": "ccccc",
-				// 		"number": "3",
-				// 		"position": "Center Forward"
-				// 	}
-				// ]
 				players: null
 			}
 		},
@@ -89,7 +73,7 @@
 						method: "GET",
 						headers: {
 							'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',
-							'Content-Type': 'application/json'
+							// 'Content-Type': 'application/json'
 						}
 					})
 					.then(response => {
