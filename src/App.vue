@@ -56,6 +56,7 @@
       padding: 0 0 40px;
       background-image: url("./assets/one_shoes_v.jpg");
       height: 100%;
+      min-height: 812px;
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -73,6 +74,7 @@
       padding: 0 0 40px;
       background-image: url("./assets/one_shoes_h.jpg");
       height: 100%;
+      min-height: 1025px;
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;

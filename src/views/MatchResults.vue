@@ -55,6 +55,7 @@
 	#scroll p:first-child {
 		font-size: 25px;
 	}
+	
 }
 
 @media screen and (min-width:416px) and (max-width:750px) {
@@ -65,6 +66,8 @@
 	#scroll p:first-child {
 		font-size: 30px;
 	}
+
+	
 }
 @media screen and (min-width:751px){
 	#top p:last-child {
