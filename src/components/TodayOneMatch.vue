@@ -1,8 +1,9 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
-		<div class="row" id="today_one_match" v-for="(match, index) in todayOneMatch" :key="index">
+		<div class="row" id="today_one_match" v-for="(match, index) in todayMatch" :key="index">
 			<div class="col-3 pt-3">
 				<img alt="team_icon" src="../assets/liverpool_logo.png">
+				<p>{{ match.homeTeam.name }}</p>
 			</div>
 			<div class="col-6 text-center align-middle">
 				<p class="pt-4">{{ match.score.fullTime.homeTeam }} - {{ match.score.fullTime.awayTeam }}</p>
@@ -11,6 +12,7 @@
 			<!-- <div class="col-3"></div> -->
 			<div class="col-3 pt-3">
 				<img alt="team_icon" src="../assets/chelsea_logo.png">
+				<p>{{ match.awayTeam.name }}</p>
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
 				<p>Kick Off: <span>7:00 p.m.</span></p>
@@ -31,7 +33,36 @@
 		props: ["todayOneMatch"],
 		data() {
 			return {
-				ShowMap: false
+				ShowMap: false,
+				// todayDate: "2018-11-24",
+				todayDate: "",
+				homeTeamLogo: "",
+				awayTeamLogo: "",
+				todayMatch: null
+			}
+		},
+		created() {
+			this.getToday(),
+			this.todayMachData()
+		},
+		methods: {
+			getToday() {
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0
+				var yyyy = today.getFullYear();
+				if(dd < 10) {
+    				dd = '0' + dd;
+				} 
+				if(mm < 10) {
+       				 mm = '0' + mm;
+				} 
+				this.todayDate = yyyy + '-' + mm + '-' + dd;
+				console.log(this.todayDate);
+			},
+			todayMachData() {
+				this.todayMatch = this.todayOneMatch.matchData.filter(match => (match.utcDate.includes(this.todayDate)));
+				console.log(this.todayMatch)
 			}
 		}
 	};

@@ -1,6 +1,6 @@
 <template>
 	<div id="one_stadium">
-		<div v-for="(stadium, index) in oneStadium" :key="index">
+		<div v-for="(stadium, index) in oneStadium.teamData" :key="index">
 			<div @click="ShowBalloonMap = true">
 				<img alt="team_icon" src="../assets/anfield.jpg">
 				<p>{{ stadium.venue }}</p>

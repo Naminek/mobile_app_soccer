@@ -1,6 +1,6 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
-		<div class="row" id="one_match" v-for="(eachMatch, index) in oneMatchSchedule" :key="index">
+		<div class="row" id="one_match" v-for="(eachMatch, index) in oneMatchSchedule.matchData" :key="index">
 			<div class="col-3 pt-3">
 				<img alt="team_icon" src="../assets/liverpool_logo.png">
 				<p>{{ eachMatch.homeTeam.name }}</p>

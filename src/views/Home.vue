@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div v-if="isLoading" id="loading">
-      <img src="#" alt="loading_icon"><p>now loading</p>
+      <p>now loading</p>
     </div>
     <div v-else id="container">
       <HomeHeader :datas="datas" />

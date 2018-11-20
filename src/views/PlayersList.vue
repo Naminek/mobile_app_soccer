@@ -1,7 +1,7 @@
 <template>
 	<div class="players_list pl-3 pr-3">
 		<div v-if="isLoading" id="loading">
-      <img src="#" alt="loading_icon"><p>now loading</p>
+    	<img src="#" alt="loading_icon"><p>now loading</p>
     </div>
 
 		<!-- <Header /> -->
@@ -24,7 +24,6 @@
 					<thead>
 						<tr>
 							<th scope="col">Name</th>
-							<th scope="col"># Number</th>
 							<th scope="col">Position</th>
 						</tr>
 					</thead>
@@ -32,7 +31,6 @@
 						<tr v-for="(player, index) in players" :key="index">
 
 							<td>{{player.name}}</td>
-							<td>{{player.number}}</td>
 							<td>{{player.position}}</td>
 
 						</tr>
