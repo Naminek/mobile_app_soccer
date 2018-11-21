@@ -4,7 +4,12 @@
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
 				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchMatch" />
-				<input type="date" name="today" id="today" />
+				<!-- <input type="date" name="today" id="today" /> -->
+				<div id="check_filter">
+				<label><input type="checkbox" name="party" value="FINISHED" v-model="checkedMatch" />Finished</label>
+				<label><input type="checkbox" name="party" value="SCHEDULED" v-model="checkedMatch" />Upcoming</label>
+				<!-- <p>{{checkedMatch}}</p> -->
+				</div>
 			</div>
 		<div class="row" id="one_match" v-for="(eachMatch, index) in searchSchedule" :key="index">
 			<div class="col-3 pt-3">
@@ -43,20 +48,27 @@
 			return {
 				ShowLocation: false,
 				searchMatch: "",
-				Location: ""
-
+				Location: "",
+				checkedMatch: []
 			}
 		},
 		computed: {
 			searchSchedule() {
 				if (this.searchMatch == "") {
-					// console.log(this.oneMatchSchedule.matchData)
-					// console.log(this.oneMatchSchedule.matchData[0])
-					return this.oneMatchSchedule.matchData;
+					if (this.checkedMatch.length == 0) {
+						return this.oneMatchSchedule.matchData;
+					} else {
+						return this.oneMatchSchedule.matchData.filter(match => (this.checkedMatch.includes(match.status)))
+					}
 				} else {
-					// console.log(this.searchWords);
-					return this.oneMatchSchedule.matchData.filter(team => (team.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
+					if (this.checkedMatch.length == 0) {
+						return this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
 					|| team.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
+					} else {
+						var searchedName = this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
+					|| team.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
+						return searchedName.filter(match => (this.checkedMatch.includes(match.status)))
+					}
 				}
 			}
 		},
@@ -147,7 +159,11 @@
 		border-radius: 4px;
 	}
 
-
+	#check_filter {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
 	@media screen and (max-width:416px) {
 

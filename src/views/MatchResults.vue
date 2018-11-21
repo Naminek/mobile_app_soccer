@@ -7,7 +7,7 @@
 				<p class="d-flex justify-content-center pb-4 mb-4"></p>
 			</div>
 			<TodayOneMatch :todayOneMatch="dataInResults"/>
-			<p><a href="#top">&#x25B2; Back to Top</a></p>
+			<!-- <p><a href="#top">&#x25B2; Back to Top</a></p> -->
 		</div>
 	</div>
 </template>
