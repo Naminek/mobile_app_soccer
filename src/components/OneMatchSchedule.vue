@@ -5,9 +5,11 @@
 				<img alt="team_icon" src="../assets/liverpool_logo.png">
 				<p>{{ eachMatch.homeTeam.name }}</p>
 			</div>
-			<div class="col-6 text-center align-middle" id="result">
+			<div class="col-6 text-center align-middle" id="result" v-if="eachMatch.status == 'FINISHED'">
 				<p class="pt-4">{{ eachMatch.score.fullTime.homeTeam }} - {{ eachMatch.score.fullTime.awayTeam }}</p>
-
+			</div>
+			<div  v-else class="col-6 text-center align-middle" id="scheduled">
+				<p>Scheduled</p>
 			</div>
 			<div class="col-3 pt-3">
 				<img alt="team_icon" src="../assets/chelsea_logo.png">
@@ -35,17 +37,6 @@
 		data() {
 			return {
 				ShowLocation: false,
-				// oneMatch: [{
-				// 		"team1": "Liverpool",
-				// 		"team2": "Chelsea",
-				// 		"location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1050816941647!2d-2.963018684236881!3d53.43082937999687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2z44Ki44Oz44OV44Kj44O844Or44OJ!5e0!3m2!1sja!2sde!4v1542128644694"
-				// 	},
-				// 	{
-				// 		"team1": "Chelsea",
-				// 		"team2": "Huddersfield Town",
-				// 		"location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1050816941647!2d-2.963018684236881!3d53.43082937999687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2z44Ki44Oz44OV44Kj44O844Or44OJ!5e0!3m2!1sja!2sde!4v1542128644694"
-				// 	}
-				// ]
 			}
 		}
 	};
@@ -82,6 +73,7 @@
 	}
 
 
+
 	@media screen and (max-width:416px) {
 
 		#one_match p,
@@ -92,6 +84,11 @@
 			padding-top: 10px;
 			font-size: 30px;
 		}
+
+		#scheduled p {
+		font-size: 18px;
+		margin-top: 40px;
+	}
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
@@ -104,6 +101,10 @@
 			padding-top: 10px;
 			font-size: 40px;
 		}
+		#scheduled p {
+		font-size: 28px;
+		margin-top: 60px;
+	}
 	}
 
 	@media screen and (min-width:751px) {
@@ -116,5 +117,9 @@
 			padding-top: 10px;
 			font-size: 50px;
 		}
+		#scheduled p {
+		font-size: 35px;
+		margin-top: 80px;
+	}
 	}
 </style>
