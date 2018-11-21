@@ -13,7 +13,7 @@
 					<p>{{ oneTeam.name }}</p>
 				</div>
 			</div>
-			<OneTeamDetail v-if="whichTeamDetail" :oneTeamDetail="clickedTeam" />
+			<OneTeamDetail v-if="whichTeamDetail" :oneTeamDetail="clickedTeam" :allData="teamDetails" />
 		</div>
 	</div>
 </template>

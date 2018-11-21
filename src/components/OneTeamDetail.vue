@@ -38,7 +38,7 @@
 <script>
 	export default {
 		name: "oneTeamDetail",
-		props: ["oneTeamDetail"]
+		props: ["oneTeamDetail", "allData"]
 
 	};
 </script>

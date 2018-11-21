@@ -63,7 +63,7 @@
     },
     created() {
       this.getMatchData();
-      this.getTeamData();
+      // this.getTeamData();
     },
     methods: {
       getMatchData() {
@@ -78,6 +78,7 @@
           })
           .then(json => {
             this.data.matchData = json.matches;
+            this.getTeamData();
             this.isLoading = false;
             console.log(this.data.matchData);
           })

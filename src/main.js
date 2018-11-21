@@ -24,12 +24,12 @@ Vue.config.productionTip = false
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDQajpmDhRL1tlvTg_MmLPNIhRFUUIkmMk",
-  authDomain: "mychatdatabase-b5b11.firebaseapp.com",
-  databaseURL: "https://mychatdatabase-b5b11.firebaseio.com",
-  projectId: "mychatdatabase-b5b11",
-  storageBucket: "mychatdatabase-b5b11.appspot.com",
-  messagingSenderId: "672059654067"
+  apiKey: "AIzaSyDd-HziuGsi_k3V7qEbbo9DknaxQcfVsG8",
+  authDomain: "mychat-d459c.firebaseapp.com",
+  databaseURL: "https://mychat-d459c.firebaseio.com",
+  projectId: "mychat-d459c",
+  storageBucket: "mychat-d459c.appspot.com",
+  messagingSenderId: "847284807546"
 };
 firebase.initializeApp(config);
 

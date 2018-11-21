@@ -15,9 +15,9 @@
 				<img alt="team_icon" :src="teamDataInPlayersList.crestUrl" class="mt-4">
 
 			</div>
-			<div id="search_engine" class="d-flex">
+			<div id="search_engine" class="d-flex justify-content-center">
 				<img src="../assets/scope.png" alt="search_icon">
-				<input v-model="searchByName" type="text" placeholder="Search by Name" name="search_member" size="15">
+				<input v-model="searchByName" type="text" placeholder="Search Player" name="search_member" size="15">
 				<!-- <input type="text" placeholder="Search by Number" name="search_number" size="15"> -->
 			</div>
 			<div id="table_for_players">
