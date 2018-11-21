@@ -2,7 +2,7 @@
 	<div class="d-flex justify-content-center flex-wrap">
 		<div class="row" id="today_one_match" v-for="(match, index) in todayMatch" :key="index">
 			<div class="col-3 pt-3">
-				<img alt="team_icon" src="../assets/liverpool_logo.png">
+				<img alt="team_icon" :src="getHomeTeamLogo(match)">
 				<p>{{ match.homeTeam.name }}</p>
 			</div>
 			<div class="col-6 text-center align-middle">
@@ -63,6 +63,12 @@
 			todayMachData() {
 				this.todayMatch = this.todayOneMatch.matchData.filter(match => (match.utcDate.includes(this.todayDate)));
 				console.log(this.todayMatch)
+			},
+			getHomeTeamLogo(match) {
+				const hometeam = this.todayOneMatch.teamData
+					.filter(el => el.name == match.homeTeam.name) 
+				console.log(hometeam[0].crestUrl)
+				return hometeam[0].crestUrl
 			}
 		}
 	};

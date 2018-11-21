@@ -23,7 +23,7 @@
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
 				<p>Date: <span>{{ eachMatch.utcDate }}</span></p>
-				<button class="btn" @click="ShowLocation = true">Location:<hr><span>{{ getVenue(eachMatch) }}</span></button>
+				<button class="btn" @click="ShowLocation = true">Location<p>{{ getVenue(eachMatch) }}</p></button>
 				<div v-if="ShowLocation">
 					<iframe v-bind:src="getLocation(eachMatch)"
 					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -123,6 +123,10 @@
 
 	#time_and_location p:first-child {
 		margin-bottom: 0;
+	}
+
+	#time_and_location button span {
+		word-break: break-all;
 	}
 
 	.btn {

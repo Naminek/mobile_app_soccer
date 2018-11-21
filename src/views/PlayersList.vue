@@ -5,14 +5,14 @@
 			<p>now loading</p>
 		</div>
 
-		<!-- <Header /> -->
 
 		<div v-else id="scroll">
-			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.name }}</p>
+		<!-- <Header /> -->
+			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.oneTeam.name }}</p>
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 
-				<img alt="team_icon" :src="teamDataInPlayersList.crestUrl" class="mt-4">
+				<img alt="team_icon" :src="teamDataInPlayersList.oneTeam.crestUrl" class="mt-4">
 
 			</div>
 			<div id="search_engine" class="d-flex justify-content-center">
@@ -66,6 +66,7 @@
 		},
 		computed: {
 			teamDataInPlayersList() {
+				console.log(this.$route.params.dataToPass)
 				return this.$route.params.dataToPass;
 			},
 			searchMember() {
@@ -90,7 +91,7 @@
 		},
 		methods: {
 			loadMembersData() {
-				fetch("http://api.football-data.org/v2/teams/" + this.teamDataInPlayersList.id, {
+				fetch("http://api.football-data.org/v2/teams/" + this.teamDataInPlayersList.oneTeam.id, {
 						method: "GET",
 						headers: {
 							'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',
