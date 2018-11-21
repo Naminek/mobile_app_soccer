@@ -244,7 +244,7 @@
 		padding: 7px 10px;
 		min-height: 50px;
 		min-width: 120px;
-		max-width: 100%;
+		max-width: 80%;
 		color: #555;
 		font-size: 16px;
 		background: #FFF;

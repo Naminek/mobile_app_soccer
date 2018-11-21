@@ -38,7 +38,7 @@
 		data() {
 			return {
 				// todayDate: "",
-				todayDate: "2018-11-24",
+				todayDate: "2018-11-11",
 				todayMatch: false,
 				todayAllMatch: null
 			}

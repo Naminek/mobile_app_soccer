@@ -1,24 +1,24 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
 		<div class="row" id="today_one_match" v-for="(match, index) in todayMatch" :key="index">
-			<div class="col-3 pt-3">
+			<div class="col-4 pt-3">
 				<img alt="team_icon" :src="getHomeTeamLogo(match)">
 				<p>{{ match.homeTeam.name }}</p>
 			</div>
-			<div class="col-6 text-center align-middle">
-				<p class="pt-4">{{ match.score.fullTime.homeTeam }} - {{ match.score.fullTime.awayTeam }}</p>
+			<div class="col-4 text-center align-middle">
+				<p id="score">{{ match.score.fullTime.homeTeam }} - {{ match.score.fullTime.awayTeam }}</p>
 
 			</div>
 			<!-- <div class="col-3"></div> -->
-			<div class="col-3 pt-3">
-				<img alt="team_icon" src="../assets/chelsea_logo.png">
+			<div class="col-4 pt-3">
+				<img alt="team_icon" :src="getAwayTeamLogo(match)">
 				<p>{{ match.awayTeam.name }}</p>
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
-				<p>Kick Off: <span>7:00 p.m.</span></p>
-				<button class="btn" @click="ShowMap = true">Location: <span>Anfield, Liverpool</span></button>
+				<p>Kick Off: {{ match.utcDate }}</p>
+				<button class="btn" @click="ShowMap = true">Location: <p>{{getVenue(match)}}</p></button>
 				<div v-if="ShowMap">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1050816941647!2d-2.963018684236881!3d53.43082937999687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2z44Ki44Oz44OV44Kj44O844Or44OJ!5e0!3m2!1sja!2sde!4v1542128644694"
+					<iframe :src="getMap(match)"
 					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
 					<p @click="ShowMap = false" class="mt-1">&times; CLOSE</p>
 				</div>
@@ -34,7 +34,7 @@
 		data() {
 			return {
 				ShowMap: false,
-				todayDate: "2018-11-24",
+				todayDate: "2018-11-11",
 				// todayDate: "",
 				homeTeamLogo: "",
 				awayTeamLogo: "",
@@ -67,8 +67,22 @@
 			getHomeTeamLogo(match) {
 				const hometeam = this.todayOneMatch.teamData
 					.filter(el => el.name == match.homeTeam.name) 
-				console.log(hometeam[0].crestUrl)
 				return hometeam[0].crestUrl
+			},
+			getAwayTeamLogo(match) {
+				const awayteam = this.todayOneMatch.teamData
+					.filter(el => el.name == match.awayTeam.name) 
+				return awayteam[0].crestUrl
+			},
+			getVenue(match) {
+				const venues = this.todayOneMatch.teamData
+					.filter(el => el.name == match.homeTeam.name) 
+				return venues[0].venue
+			},
+			getMap(match) {
+				const maps = this.todayOneMatch.teamData
+					.filter(el => el.name == match.homeTeam.name) 
+				return maps[0].map
 			}
 		}
 	};
@@ -84,8 +98,8 @@
 	}
 
 	#today_one_match img {
-		width: 100%;
-		margin: 2%;
+		width: 80%;
+		margin: 2% 10%;
 	}
 
 	#today_one_match div {
@@ -105,9 +119,14 @@
 
 
 @media screen and (max-width:416px){
-	#today_one_match p,
+	#today_one_match p:not(#score),
 	#today_one_match button {
 		font-size: 15px;
+	}
+
+	#score {
+		font-size: 30px;
+		margin-top: 40px;
 	}
 }
 

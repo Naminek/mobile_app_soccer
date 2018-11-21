@@ -8,7 +8,7 @@
 			<div id="one_stadium">
 		<div v-for="(stadium, index) in getStadium" :key="index">
 			<div @click="ShowBalloonMap = true">
-				<img alt="team_icon" src="../assets/anfield.jpg">
+				<img :src="stadium.venue_photo" alt="stadium">
 				<p>{{ stadium.venue }}</p>
 			</div>
 			<div class="balloon_map" v-if="ShowBalloonMap">
