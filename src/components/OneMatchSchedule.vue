@@ -1,25 +1,31 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
-		<div class="row" id="one_match" v-for="(eachMatch, index) in oneMatchSchedule.matchData" :key="index">
+		<div id="search_engine" class="d-flex justify-content-center">
+				<label for="search_team">
+					<img src="../assets/scope.png" alt="search_icon"></label>
+				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchMatch" />
+				<input type="date" name="today" id="today" />
+			</div>
+		<div class="row" id="one_match" v-for="(eachMatch, index) in searchSchedule" :key="index">
 			<div class="col-3 pt-3">
-				<img alt="team_icon" src="../assets/liverpool_logo.png">
+				<img alt="team_icon" v-bind:src="getHomeTeamLogo(eachMatch)">
 				<p>{{ eachMatch.homeTeam.name }}</p>
 			</div>
 			<div class="col-6 text-center align-middle" id="result" v-if="eachMatch.status == 'FINISHED'">
 				<p class="pt-4">{{ eachMatch.score.fullTime.homeTeam }} - {{ eachMatch.score.fullTime.awayTeam }}</p>
 			</div>
-			<div  v-else class="col-6 text-center align-middle" id="scheduled">
+			<div v-else class="col-6 text-center align-middle" id="scheduled">
 				<p>Scheduled</p>
 			</div>
 			<div class="col-3 pt-3">
-				<img alt="team_icon" src="../assets/chelsea_logo.png">
+				<img alt="team_icon" v-bind:src="getAwayTeamLogo(eachMatch)">
 				<p>{{ eachMatch.awayTeam.name }}</p>
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
 				<p>Kick Off: <span>{{ eachMatch.utcDate }}</span></p>
-				<button class="btn" @click="ShowLocation = true">Location: <span>Anfield, Liverpool</span></button>
+				<button class="btn" @click="ShowLocation = true">Location: <span>aaa</span></button>
 				<div v-if="ShowLocation">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.1050816941647!2d-2.963018684236881!3d53.43082937999687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2z44Ki44Oz44OV44Kj44O844Or44OJ!5e0!3m2!1sja!2sde!4v1542128644694"
+					<iframe v-bind:src="getLocation(eachMatch)"
 					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
 					<p @click="ShowLocation = false" class="mt-1">&times; CLOSE</p>
 				</div>
@@ -30,13 +36,56 @@
 </template>
 
 <script>
-
 	export default {
 		name: "oneMatchSchedule",
 		props: ["oneMatchSchedule"],
 		data() {
 			return {
 				ShowLocation: false,
+				searchMatch: "",
+				Location: ""
+
+			}
+		},
+		computed: {
+			searchSchedule() {
+				if (this.searchMatch == "") {
+					return this.oneMatchSchedule.matchData;
+				} else {
+					// console.log(this.searchWords);
+					return this.oneMatchSchedule.matchData.filter(team => (team.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
+					|| team.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
+				}
+			}
+		},
+		methods: {
+			getHomeTeamLogo(eachMatch) {
+				this.oneMatchSchedule.teamData.forEach(el => {
+					if (el.name == eachMatch.homeTeam.name) {
+						return el.crestUrl
+					}
+				})
+			},
+			getAwayTeamLogo(eachMatch) {
+				this.oneMatchSchedule.teamData.forEach(el => {
+					if (el.name == eachMatch.awayTeam.name) {
+						return el.crestUrl
+					}
+				})
+			},
+			getLocation(eachMatch) {
+				this.oneMatchSchedule.teamData.forEach(el => {
+					if (el.name == eachMatch.homeTeam.name) {
+						return el.map
+					}
+				})
+			},
+			getVenue(eachMatch) {
+				this.oneMatchSchedule.teamData.forEach(el => {
+					if (el.name == eachMatch.homeTeam.name) {
+						return el.venue
+					}
+				})
 			}
 		}
 	};
@@ -72,6 +121,17 @@
 		color: #2c3e50;
 	}
 
+	#search_engine {
+		margin-top: 50px;
+	}
+
+	#search_engine input {
+		padding: 5px;
+		margin: 0 5px;
+		border: 1px solid rgba(56, 55, 55, 0.7);
+		border-radius: 4px;
+	}
+
 
 
 	@media screen and (max-width:416px) {
@@ -80,15 +140,20 @@
 		#one_match button {
 			font-size: 15px;
 		}
+
 		#result p {
 			padding-top: 10px;
 			font-size: 30px;
 		}
 
 		#scheduled p {
-		font-size: 18px;
-		margin-top: 40px;
-	}
+			font-size: 18px;
+			margin-top: 40px;
+		}
+
+		input {
+			font-size: 15px;
+		}
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
@@ -97,14 +162,20 @@
 		#one_match button {
 			font-size: 20px;
 		}
+
 		#result p {
 			padding-top: 10px;
 			font-size: 40px;
 		}
+
 		#scheduled p {
-		font-size: 28px;
-		margin-top: 60px;
-	}
+			font-size: 28px;
+			margin-top: 60px;
+		}
+
+		input {
+			font-size: 20px;
+		}
 	}
 
 	@media screen and (min-width:751px) {
@@ -113,13 +184,19 @@
 		#one_match button {
 			font-size: 30px;
 		}
+
 		#result p {
 			padding-top: 10px;
 			font-size: 50px;
 		}
+
 		#scheduled p {
-		font-size: 35px;
-		margin-top: 80px;
-	}
+			font-size: 35px;
+			margin-top: 80px;
+		}
+
+		input {
+			font-size: 25px;
+		}
 	}
 </style>

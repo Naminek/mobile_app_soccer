@@ -1,6 +1,6 @@
 <template>
 	<div class="login pl-3 pr-3">
-		<ChatRoomHeader />
+		<ChatRoomHeader :chatRoomHeader="dataInChatRoomLogin" />
 		<div id="scroll">
 		<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
 		<div class="d-flex justify-content-center" id="title">
@@ -26,6 +26,11 @@
 		name: "chatRoomLogin",
 		components: {
 			ChatRoomHeader
+		},
+		computed: {
+			dataInChatRoomLogin() {
+				return this.$route.params.dataToPass;
+			}
 		}
 	};
 </script>

@@ -4,11 +4,11 @@
       <p>now loading</p>
     </div>
     <div v-else id="container">
-      <HomeHeader :homeHeader="datas" />
+      <HomeHeader :homeHeader="data" />
 
       <div id="scroll">
-        <router-link :to="{ name: 'matchResults', params: { dataToPass: this.datas } }">
-          <FlashReport />
+        <router-link :to="{ name: 'matchResults', params: { dataToPass: this.data } }">
+          <FlashReport :flashReport="data" />
         </router-link>
         <div id="logo" class="mb-3">
           <img alt="logo" src="../assets/premier-league-logo.png" class="img-fluid mx-auto d-block mt-2">
@@ -18,19 +18,19 @@
         </div>
         <div id="home_menu">
           <div>
-            <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.datas } }">
+            <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.data } }">
               <img alt="soccer_icon" src="../assets/soccer_ball.png">
               <p>Team Information</p>
             </router-link>
           </div>
           <div>
-            <router-link :to="{ name: 'schedule', params: { dataToPass: this.datas } }">
+            <router-link :to="{ name: 'schedule', params: { dataToPass: this.data } }">
               <img alt="calender_icon" src="../assets/calendar.png">
               <p>Match Schedule</p>
             </router-link>
           </div>
           <div>
-            <router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.datas } }">
+            <router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.data } }">
               <img alt="stadium_icon" src="../assets/stadium.png">
               <p>Stadium Location</p>
             </router-link>
@@ -53,7 +53,7 @@
     },
     data() {
       return {
-        datas:[{"matchData": null,
+        data:[{"matchData": null,
         "teamData": null}],
         
         isLoading: true
@@ -75,9 +75,9 @@
             return response.json();
           })
           .then(json => {
-            this.datas.matchData = json.matches;
+            this.data.matchData = json.matches;
             this.isLoading = false;
-            console.log(this.datas.matchData);
+            console.log(this.data.matchData);
           })
           .catch(function (error) {
             console.log(error);
@@ -94,9 +94,9 @@
           return response.json();
         })
         .then(json => {
-          this.datas.teamData = json.everyTeams;
+          this.data.teamData = json.everyTeams;
           this.isLoading = false;
-          console.log(this.datas.teamData);
+          console.log(this.data.teamData);
         })
         .catch(function (error) {
           console.log(error);

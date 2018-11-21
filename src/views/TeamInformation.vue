@@ -6,11 +6,11 @@
 			<div class="d-flex justify-content-center" id="title">
 				<p class="d-flex justify-content-center pb-4"></p>
 			</div>
-			<div id="search_engine" class="d-flex justify-content-center">
+			<!-- <div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
 				<input type="text" v-model="searchTeamName" placeholder="search by team name" name="search_team">
-			</div>
+			</div> -->
 			<TeamDetails :teamDetails="dataInTeamInformation" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
 		</div>
@@ -26,7 +26,7 @@
 		name: "teamInformation",
 		data() {
 			return {
-				searchTeamName: ""
+				// searchTeamName: ""
 			}
 		},
 		components: {
@@ -35,12 +35,7 @@
 		},
 		computed: {
 			dataInTeamInformation() {
-				if (this.searchTeamName == "") {
 					return this.$route.params.dataToPass;
-				} else {
-					// console.log(this.searchWords);
-					return this.$route.params.dataToPass.filter(team => (team.name.toUpperCase().includes(this.searchTeamName.toUpperCase())));
-				}
 			}
 		}
 	};
@@ -52,21 +47,10 @@
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
 	}
 
-	#search_engine {
-		margin-top: 50px;
-	}
-
-
 	#scroll {
 		padding-top: 150px;
 	}
 
-	#search_engine input {
-		padding: 5px;
-		margin: 0 5px;
-		border: 1px solid rgba(56, 55, 55, 0.7);
-		border-radius: 4px;
-	}
 
 	a {
 		text-decoration: none;
@@ -83,9 +67,7 @@
 			font-size: 25px;
 		}
 
-		input {
-			font-size: 15px;
-		}
+		
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
@@ -98,9 +80,7 @@
 			font-size: 30px;
 		}
 
-		input {
-			font-size: 20px;
-		}
+		
 	}
 
 	@media screen and (min-width:751px) {
@@ -117,8 +97,6 @@
 			padding-top: 200px;
 		}
 
-		input {
-			font-size: 25px;
-		}
+		
 	}
 </style>

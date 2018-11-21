@@ -6,14 +6,11 @@
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 			</div>
-			<div id="search_engine" class="d-flex justify-content-center">
+			<!-- <div id="search_engine" class="d-flex justify-content-center">
 				<label for="search_team">
 					<img src="../assets/scope.png" alt="search_icon"></label>
 				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchTeam" />
 				<input type="date" name="today" id="today" v-model="searchByDate" />
-			</div>
-			<!-- <div v-for="(team, index) in teamDataInSchedule" :key="index">
-				<p>{{ team.name }}</p>
 			</div> -->
 			<OneMatchSchedule :oneMatchSchedule="dataInSchedule" />
 			<p><a href="#top">&#x25B2; Back to Top</a></p>
@@ -29,9 +26,7 @@
 		name: "schedule",
 		data() {
 			return {
-				searchTeam: "",
-				todayDate: "",
-				searchByDate: new Date(),
+				todayDate: ""
 			}
 		},
 		components: {
@@ -40,14 +35,7 @@
 		},
 		computed: {
 			dataInSchedule() {
-				if (this.searchTeam == "") {
 					return this.$route.params.dataToPass;
-					console.log(new Date(this.searchByDate));
-				} else {
-					// console.log(this.searchWords);
-					return this.$route.params.dataToPass.filter(team => (team.awayTeam.name.toUpperCase().includes(this.searchTeam.toUpperCase())
-					|| team.homeTeam.name.toUpperCase().includes(this.searchTeam.toUpperCase())));
-				}
 			}
 		},
 		created() {
@@ -80,16 +68,7 @@
 
 	
 
-	#search_engine {
-		margin-top: 50px;
-	}
-
-	#search_engine input {
-		padding: 5px;
-		margin: 0 5px;
-		border: 1px solid rgba(56, 55, 55, 0.7);
-		border-radius: 4px;
-	}
+	
 
 		@media screen and (max-width:416px) {
 			#scroll {
@@ -104,9 +83,6 @@
 			font-size: 25px;
 		}
 
-		input {
-			font-size: 15px;
-		}
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
@@ -120,10 +96,6 @@
 
 		#scroll p:first-child {
 			font-size: 30px;
-		}
-
-		input {
-			font-size: 20px;
 		}
 	}
 
@@ -142,10 +114,6 @@
 
 		#scroll {
 			padding-top: 200px;
-		}
-
-		input {
-			font-size: 25px;
 		}
 	}
 </style>

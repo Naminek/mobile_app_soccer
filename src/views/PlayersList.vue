@@ -1,7 +1,7 @@
 <template>
 	<div class="players_list pl-3 pr-3">
 		<div v-if="isLoading" id="loading">
-    	<img src="#" alt="loading_icon"><p>now loading</p>
+    <img src="#" alt="loading_icon"><p>now loading</p>
     </div>
 
 		<!-- <Header /> -->

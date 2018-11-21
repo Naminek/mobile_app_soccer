@@ -1,6 +1,12 @@
 <template>
-	<div id="one_stadium">
-		<div v-for="(stadium, index) in oneStadium.teamData" :key="index">
+	<div>
+		<div id="search_engine" class="d-flex justify-content-center">
+				<label for="search_stadium">
+					<img src="../assets/scope.png" alt="search_icon"></label>
+				<input type="text" v-model="searchStadium" placeholder="search by stadium or team" name="search_stadium">
+			</div>
+			<div id="one_stadium">
+		<div v-for="(stadium, index) in getStadium" :key="index">
 			<div @click="ShowBalloonMap = true">
 				<img alt="team_icon" src="../assets/anfield.jpg">
 				<p>{{ stadium.venue }}</p>
@@ -21,6 +27,7 @@
 			
 		</div> -->
 	</div>
+	</div>
 </template>
 
 <script>
@@ -29,7 +36,20 @@
 		props: ["oneStadium"],
 		data() {
 			return {
-				ShowBalloonMap: false
+				ShowBalloonMap: false,
+				searchStadium: "",
+			}
+		},
+		computed: {
+			getStadium() {
+				// console.log("111" + this.$route.params.dataToPass)
+				if (this.searchStadium == "") {
+					return this.oneStadium.teamData;
+				} else {
+					// console.log(this.searchWords);
+					return this.oneStadium.teamData.filter(stadium => (stadium.name.toUpperCase().includes(this.searchStadium.toUpperCase()) ||
+						stadium.venue.toUpperCase().includes(this.searchStadium.toUpperCase())));
+				}
 			}
 		}
 	
@@ -92,7 +112,16 @@
 		width: 100%;
 	}
 
-	
+	#search_engine {
+		margin-top: 50px;
+	}
+
+	#search_engine input {
+		padding: 5px;
+		margin: 0 5px;
+		border: 1px solid rgba(56, 55, 55, 0.7);
+		border-radius: 4px;
+	}
 
 	.balloon_map {
 		position: relative;
@@ -136,17 +165,32 @@
 		p {
 			font-size: 15px;
 		}
+
+		input {
+			font-size: 15px;
+			width: 60%;
+		}
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
 		p {
 			font-size: 20px;
 		}
+
+		input {
+			font-size: 20px;
+			width: 50%;
+		}
 	}
 
 	@media screen and (min-width:751px) {
 		p {
 			font-size: 25px;
+		}
+
+		input {
+			font-size: 25px;
+			width: 50%;
 		}
 
 	}

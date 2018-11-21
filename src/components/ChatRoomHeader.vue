@@ -18,13 +18,13 @@
                 <ul class="h5">
                   <p @click="ShowMenuBar" v-if="menuOn" class="mt-1 h4">&times;</p>
                   <li>
-                    <router-link to="/teamInformation">Team Information</router-link>
+                    <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.chatRoomHeader } }">Team Information</router-link>
                   </li>
                   <li>
-                    <router-link to="/schedule">Match Schedule</router-link>
+                    <router-link :to="{ name: 'schedule', params: { dataToPass: this.chatRoomHeader } }">Match Schedule</router-link>
                   </li>
                   <li>
-                    <router-link to="/stadiumLocation">Stadium Location</router-link>
+                    <router-link :to="{ name: 'stadiumLocation', params: { dataToPass: this.chatRoomHeader } }">Stadium Location</router-link>
                   </li>
                 </ul>
               </div>
@@ -38,6 +38,7 @@
 <script>
 	export default {
 		name: "chatRoomHeader",
+		props: ["chatRoomHeader"],
 		data() {
       return {
         menuOn: false

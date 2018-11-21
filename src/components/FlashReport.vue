@@ -1,27 +1,72 @@
 <template>
-	<div class="row d-flex justify-content-center" id="flash_report">
-		<div class="col-3">
-			<img alt="team_icon" src="../assets/liverpool_logo.png">
+<div id="flash_report">
+	<div class="d-flex justify-content-center">
+		<p>Today's Match</p>
+	</div>
+	<div v-if="todayMatch" v-for="(match, index) in todayAllMatch" :key="index" class="row d-flex justify-content-center">
+		<div class="col-5">
+			<p>{{ match.homeTeam.name }}</p>
 		</div>
-		<div class="col-6 text-center align-middle" id="result">
-			<p>3 - 2</p>
-
+		<div class="col-2 text-center align-middle" id="result">
+			<p>-</p>
 		</div>
-		<div class="col-3">
-			<img alt="team_icon" src="../assets/chelsea_logo.png">
+		<div class="col-5">
+			<p>{{ match.awayTeam.name }}</p>
 		</div>
-		<div class="col-12 text-center align-middle" id="end_of_match">
+		<!-- <div class="col-12 text-center align-middle" id="end_of_match">
 			<p>End of Match</p>
-		</div>
+		</div> -->
+	</div>
+	<div v-else class="d-flex justify-content-center">
+		<p>No Match Today</p>
+	</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "frashReport"
-		// props: {
-		//   msg: String
-		// }
+		name: "frashReport",
+		props: ["flashReport"],
+		data() {
+			return{
+				// todayDate: "",
+				todayDate: "2018-11-24",
+				todayMatch: false,
+				todayAllMatch: null
+			}
+		},
+		created() {
+			// this.getToday(),
+			this.checkTodayMatch(),
+			this.todayMachData()
+		},
+		methods: {
+			getToday() {
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0
+				var yyyy = today.getFullYear();
+				if(dd < 10) {
+    				dd = '0' + dd;
+				} 
+				if(mm < 10) {
+       				 mm = '0' + mm;
+				} 
+				this.todayDate = yyyy + '-' + mm + '-' + dd;
+				console.log(this.todayDate);
+			},
+			checkTodayMatch() {
+				this.flashReport.matchData.forEach(el => {
+					if (el.utcDate.includes(this.todayDate)) {
+						this.todayMatch = true;
+					}
+				})
+			},
+			todayMachData() {
+				this.todayAllMatch = this.flashReport.matchData.filter(match => (match.utcDate.includes(this.todayDate)));
+				console.log(this.todayAllMatch)
+			}
+		}
 	};
 </script>
 
@@ -53,7 +98,7 @@
 
 	@media screen and (max-width:416px) {
 		#result p {
-			padding-top: 10px;
+			/* padding-top: 10px; */
 			font-size: 30px;
 		}
 
@@ -65,7 +110,7 @@
 
 	@media screen and (min-width:416px) and (max-width:750px) {
 		#result p {
-			padding-top: 30px;
+			/* padding-top: 30px; */
 			font-size: 40px;
 		}
 
@@ -77,7 +122,7 @@
 	@media screen and (min-width:751px) {
 
 		#result p {
-			padding-top: 50px;
+			/* padding-top: 50px; */
 			font-size: 50px;
 		}
 

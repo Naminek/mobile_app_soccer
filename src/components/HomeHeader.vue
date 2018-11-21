@@ -5,7 +5,7 @@
       </div>
       <div class="col-5">
         <div class="d-flex justify-content-end header_icon">
-          <router-link to="/chatRoomLogin" class="mr-3">
+          <router-link :to="{ name: 'chatRoomLogin', params: { dataToPass: this.homeHeader } }" class="mr-3">
             <img alt="chat_icon" src="../assets/chat.png">
           </router-link>
           <div id="navmenu">
