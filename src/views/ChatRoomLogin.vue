@@ -2,15 +2,26 @@
 	<div class="login pl-3 pr-3">
 		<ChatRoomHeader :chatRoomHeader="dataInChatRoomLogin" />
 		<div id="scroll">
-		<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
-		<div class="d-flex justify-content-center" id="title">
-			<p class="h4 d-flex justify-content-center pb-4"></p>
-		</div>
-		<form id="form_for_login">
-			Email<input type="text" name="email" id="email"><br>
-			Password<input type="password" name="pwd" maxlength="8" id="password"><br>
-			<input type="submit" id="submit" class="btn btn-dark">
-		</form>
+			<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
+			<div class="d-flex justify-content-center" id="title">
+				<p class="h4 d-flex justify-content-center pb-4"></p>
+			</div>
+			<form id="form_for_login">
+				<p></p>
+				<br>
+				<button v-on:click="login()" class="btn btn-dark">Login</button>
+				<button v-on:click="logout()" class="btn btn-dark">Logout</button>
+			</form>
+
+			<input type="text" v-model="msg">
+      <button v-on:click="writeNewPost()">Send</button>
+
+			<div v-for="(msg, index) in messages" :key="index">
+        <p>{{msg.name}}</p>
+        <p>{{msg.date}}</p>
+        <p>{{msg.body}}</p>
+      </div>
+
 		</div>
 
 
@@ -22,6 +33,10 @@
 	// @ is an alias to /src
 	import ChatRoomHeader from "@/components/ChatRoomHeader.vue";
 
+	import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
+
 	export default {
 		name: "chatRoomLogin",
 		components: {
@@ -31,6 +46,85 @@
 			dataInChatRoomLogin() {
 				return this.$route.params.dataToPass;
 			}
+		},
+		data() {
+    return {
+      msg: "",
+      user: null,
+      messages: []
+    };
+  },
+		methods: {
+			login() {
+				console.log("in login");
+				var provider = new firebase.auth.GoogleAuthProvider();
+
+				firebase
+					.auth()
+					.signInWithPopup(provider)
+					.then(result => {
+						// This gives you a Google Access Token. You can use it to access the Google API.
+						var token = result.credential.accessToken;
+						// The signed-in user info.
+						var user = result.user;
+						// let user = firebase.auth().currentUser;
+						this.user = user;
+						console.log(user);
+						console.log(user.displayName);
+						console.log(user.email);
+					})
+					.catch(function (error) {
+						alert("error" + error.message);
+					});
+			},
+			logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(function() {
+          console.log("Sign-out successful.");
+        })
+        .catch(function(error) {
+          alert("alert logout");
+        });
+    },
+    writeNewPost() {
+      console.log(this.user.displayName);
+      console.log(this.msg);
+
+      const post = {
+        name: this.user.displayName,
+        body: this.msg,
+        date: new Date().toLocaleString("en-US")
+      };
+
+      const newPostKey = firebase
+        .database()
+        .ref()
+        .child("mainChat")
+        .push().key;
+
+      const updates = {};
+
+      updates[newPostKey] = post;
+
+      firebase
+        .database()
+        .ref("mainChat")
+        .update(updates);
+
+      this.msg = null;
+
+      this.getPosts();
+    },
+    getPosts() {
+      firebase
+        .database()
+        .ref("mainChat")
+        .on("value", data => {
+          this.messages = data.val();
+        });
+    }
 		}
 	};
 </script>
@@ -56,20 +150,12 @@
 		align-items: center;
 	}
 
-	#email, #password {
-		padding: 5px;
-		margin: 0 5px;
-		border: 1px solid rgba(56, 55, 55, 0.7);
-		border-radius: 4px;
-		width: 55%;
-	}
 
-	#submit {
+	button {
 		padding: 5px;
 		margin: 20px 5px;
 		border: 1px solid rgba(56, 55, 55, 0.7);
 		border-radius: 4px;
 		width: 70%;
 	}
-
 </style>

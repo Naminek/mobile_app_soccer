@@ -8,7 +8,6 @@
 
       <div id="scroll">
         <router-link :to="{ name: 'matchResults', params: { dataToPass: this.data } }">
-          <FlashReport :flashReport="data" />
         </router-link>
         <div id="logo" class="mb-3">
           <img alt="logo" src="../assets/premier-league-logo.png" class="img-fluid mx-auto d-block mt-2">
@@ -16,6 +15,7 @@
         <div class="d-flex justify-content-center" id="title">
           <p class="h1 d-flex justify-content-center pt-2 pb-3"></p>
         </div>
+          <FlashReport :flashReport="data" id="flash_report" />
         <div id="home_menu">
           <div>
             <router-link :to="{ name: 'teamInformation', params: { dataToPass: this.data } }">
@@ -125,6 +125,10 @@
     /* display: flex; */
     flex-direction: row;
     justify-content: center;
+  }
+
+  #flash_report {
+    margin-top: 70px;
   }
 
   @media screen and (max-width:415px) {

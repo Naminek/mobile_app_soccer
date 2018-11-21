@@ -1,25 +1,33 @@
 <template>
-<div id="flash_report">
-	<div class="d-flex justify-content-center">
-		<p>Today's Match</p>
-	</div>
-	<div v-if="todayMatch" v-for="(match, index) in todayAllMatch" :key="index" class="row d-flex justify-content-center">
-		<div class="col-5">
-			<p>{{ match.homeTeam.name }}</p>
+	<div id="flash_report">
+		<div class="d-flex justify-content-center">
+			<p><b>Today's Match</b></p>
 		</div>
-		<div class="col-2 text-center align-middle" id="result">
-			<p>-</p>
-		</div>
-		<div class="col-5">
-			<p>{{ match.awayTeam.name }}</p>
-		</div>
-		<!-- <div class="col-12 text-center align-middle" id="end_of_match">
+		<div v-if="todayMatch" class="row d-flex justify-content-center">
+			<table class="table table-borderless table-sm mt-4">
+				<thead>
+					<tr>
+						<th class="wide">Home</th>
+						<th></th>
+						<th class="wide">Away</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(match, index) in todayAllMatch" :key="index">
+
+						<td class="wide">{{ match.homeTeam.name }}</td>
+						<td>&mdash;</td>
+						<td class="wide">{{ match.awayTeam.name }}</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- <div class="col-12 text-center align-middle" id="end_of_match">
 			<p>End of Match</p>
 		</div> -->
-	</div>
-	<div v-else class="d-flex justify-content-center">
-		<p>No Match Today</p>
-	</div>
+		</div>
+		<div v-else class="d-flex justify-content-center">
+			<p>No Match Today</p>
+		</div>
 	</div>
 </template>
 
@@ -28,7 +36,7 @@
 		name: "frashReport",
 		props: ["flashReport"],
 		data() {
-			return{
+			return {
 				// todayDate: "",
 				todayDate: "2018-11-24",
 				todayMatch: false,
@@ -38,20 +46,20 @@
 		created() {
 			// this.getToday(),
 			this.checkTodayMatch(),
-			this.todayMachData()
+				this.todayMachData()
 		},
 		methods: {
 			getToday() {
 				var today = new Date();
 				var dd = today.getDate();
-				var mm = today.getMonth()+1; //January is 0
+				var mm = today.getMonth() + 1; //January is 0
 				var yyyy = today.getFullYear();
-				if(dd < 10) {
-    				dd = '0' + dd;
-				} 
-				if(mm < 10) {
-       				 mm = '0' + mm;
-				} 
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
 				this.todayDate = yyyy + '-' + mm + '-' + dd;
 				console.log(this.todayDate);
 			},
@@ -72,9 +80,18 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.wide {
+	width: 45%;
+}
+
+	th,td {
+		text-align: center;
+		vertical-align: middle;
+	}
+
 	#flash_report {
 		border: solid 2px rgba(56, 55, 55, 0.7);
-		margin: 30px 13% 40px;
+		margin: 30px 10% 40px;
 		height: auto;
 		padding: 20px 20px
 	}
@@ -92,7 +109,8 @@
 		margin: 0;
 	}
 
-	p {
+	p,
+	table {
 		color: #22313f;
 	}
 
@@ -126,8 +144,5 @@
 			font-size: 50px;
 		}
 
-		#end_of_match p {
-			font-size: 25px;
-		}
 	}
 </style>
