@@ -1,11 +1,11 @@
 <template>
 	<div id="flash_report">
 		<div class="d-flex justify-content-center">
-			<p><b>Today's Match</b></p>
+			<p class="mt-3"><b>Today's Match</b></p>
 		</div>
 		<div v-if="todayMatch" class="row d-flex justify-content-center">
-			<table class="table table-borderless table-sm mt-4">
-				<thead>
+			<table class="table table-light table-striped table-borderless table-sm mt-4">
+				<thead class="thead-dark">
 					<tr>
 						<th class="wide">Home</th>
 						<th></th>
@@ -89,11 +89,19 @@
 		vertical-align: middle;
 	}
 
+	th {
+		color: white;
+	}
+
+	td {
+		color: #22313f
+	}
+
 	#flash_report {
 		border: solid 2px rgba(56, 55, 55, 0.7);
 		margin: 30px 10% 40px;
 		height: auto;
-		padding: 20px 20px
+		padding: 0 20px
 	}
 
 	#flash_report img {

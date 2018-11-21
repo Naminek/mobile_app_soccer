@@ -8,8 +8,6 @@
 			</div>
 		<div class="row" id="one_match" v-for="(eachMatch, index) in searchSchedule" :key="index">
 			<div class="col-3 pt-3">
-				<!-- <p>{{eachMatch}}</p> -->
-				<!-- <img :src="www.google.com" alt="team_icon"> -->
 				<img :src="getHomeTeamLogo(eachMatch)" alt="team_icon">
 				<p>{{ eachMatch.homeTeam.name }}</p>
 			</div>
@@ -24,8 +22,8 @@
 				<p>{{ eachMatch.awayTeam.name }}</p>
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
-				<p>Kick Off: <span>{{ eachMatch.utcDate }}</span></p>
-				<button class="btn" @click="ShowLocation = true">Location: <span>{{ getLocation(eachMatch) }}</span></button>
+				<p>Date: <span>{{ eachMatch.utcDate }}</span></p>
+				<button class="btn" @click="ShowLocation = true">Location:<hr><span>{{ getVenue(eachMatch) }}</span></button>
 				<div v-if="ShowLocation">
 					<iframe v-bind:src="getLocation(eachMatch)"
 					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -64,36 +62,37 @@
 		},
 		methods: {
 			getAwayTeamLogo(eachMatch) {
-				this.oneMatchSchedule.teamData.forEach(el => {
-					if (el.name == eachMatch.awayTeam.name) {
-						return el.crestUrl
-					}
-				})
+				const team = this.oneMatchSchedule.teamData
+					.filter(el => el.name == eachMatch.awayTeam.name) 
+				// console.log(team[0].crestUrl)
+				return team[0].crestUrl
 			},
 			getLocation(eachMatch) {
-				this.oneMatchSchedule.teamData.forEach(el => {
-					if (el.name == eachMatch.homeTeam.name) {
-						return el.map
-					}
-				})
+				const team = this.oneMatchSchedule.teamData
+					.filter(el => el.name == eachMatch.homeTeam.name) 
+				// console.log(team[0].crestUrl)
+				return team[0].map
 			},
 			getVenue(eachMatch) {
-				this.oneMatchSchedule.teamData.forEach(el => {
-					if (el.name == eachMatch.homeTeam.name) {
-						return el.venue
-					}
-				})
+				const team = this.oneMatchSchedule.teamData
+					.filter(el => el.name == eachMatch.homeTeam.name) 
+				// console.log(team[0].crestUrl)
+				return team[0].venue
 			},
 			getHomeTeamLogo(eachMatch) {
-				console.log(eachMatch)
+				// console.log(eachMatch)
 				// return "www.google.com"
-				return this.oneMatchSchedule.teamData.forEach(el => {
-					if (el.name == eachMatch.homeTeam.name) {
-						// console.log(el.crestUrl)
-						return el.crestUrl
-						// el.crestUrl
-					}
-				})
+				// this.oneMatchSchedule.teamData.forEach(el => {
+				// 	if (el.name == eachMatch.homeTeam.name) {
+				// 		// console.log(el.crestUrl)
+				// 		return el.crestUrl
+				// 		// el.crestUrl
+				// 	}
+				// })
+				const team = this.oneMatchSchedule.teamData
+					.filter(el => el.name == eachMatch.homeTeam.name) 
+				// console.log(team[0].crestUrl)
+				return team[0].crestUrl
 			}
 		}
 	};
@@ -116,6 +115,10 @@
 
 	#one_match div {
 		padding: 1px;
+	}
+
+	#time_and_location button {
+		width: 80%;
 	}
 
 	#time_and_location p:first-child {

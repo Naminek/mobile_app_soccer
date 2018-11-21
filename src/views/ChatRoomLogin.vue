@@ -1,16 +1,21 @@
 <template>
 	<div class="login pl-3 pr-3">
-		<ChatRoomHeader :chatRoomHeader="dataInChatRoomLogin" />
 		<div id="scroll">
+		<div v-if="checkLogin">
+		<ChatRoomHeader :chatRoomHeader="dataInChatRoomLogin" />
+		
 			<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 			</div>
-			<form id="form_for_login">
+
 				<p>Login with Google</p>
-				<button v-on:click="login()" class="btn btn-dark"> Login </button>
-    <button v-on:click="logout()" class="btn btn-dark"> Logout </button>
-			</form>
+				<button v-on:click="login()" class="btn btn-dark form_for_login"> Login </button>
+</div>
+	
+		<div v-else>
+    		<button v-on:click="logout()" class="btn btn-dark form_for_login"> Logout </button>
+
 
 			<div>
       <input type="text" v-model="msg">
@@ -26,7 +31,8 @@
 
     </div>
       </div>
-
+			
+	</div>
 		</div>
 
 </template>
@@ -36,8 +42,8 @@
 	import ChatRoomHeader from "@/components/ChatRoomHeader.vue";
 
 	import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/database";
+	import "firebase/auth";
+	import "firebase/database";
 
 	export default {
 		name: "chatRoomLogin",
@@ -53,11 +59,17 @@ import "firebase/database";
     return {
       msg: "",
       user: null,
-      messages: []
+			messages: [],
+			checkLogin: true
     };
   },
   methods: {
+		// test(){
+		// 	event.preventDefault()
+		// 	console.log("test")
+		// },
     login() {
+			event.preventDefault()
       console.log("in login");
       var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -73,7 +85,9 @@ import "firebase/database";
           this.user = user;
           console.log(user);
           console.log(user.displayName);
-          console.log(user.email);
+					console.log(user.email);
+					this.checkLogin = false;
+					this.getPosts();
         })
         .catch(function(error) {
           alert("error" + error.message);
@@ -145,7 +159,7 @@ import "firebase/database";
 		border-bottom: solid 3px rgba(56, 55, 55, 0.7);
 	}
 
-	#form_for_login {
+	.form_for_login {
 		margin-top: 50px;
 		display: flex;
 		flex-direction: column;

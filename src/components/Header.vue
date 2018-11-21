@@ -10,7 +10,7 @@
 				<router-link :to="{ name: 'home', params: { dataToPass: this.header } }">
 					<img alt="home_icon" src="../assets/home.png" class="mr-2">
 				</router-link>
-				<router-link to="/chatRoomLogin">
+				<router-link :to="{ name: 'chatRoomLogin', params: { dataToPass: this.header } }">
 					<img alt="chat_icon" src="../assets/chat.png" class="mr-2">
 				</router-link>
 				<div id="navmenu">
