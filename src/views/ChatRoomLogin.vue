@@ -7,26 +7,28 @@
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 			</div>
 			<form id="form_for_login">
-				<p></p>
-				<br>
-				<button v-on:click="login()" class="btn btn-dark">Login</button>
-				<button v-on:click="logout()" class="btn btn-dark">Logout</button>
+				<p>Login with Google</p>
+				<button v-on:click="login()" class="btn btn-dark"> Login </button>
+    <button v-on:click="logout()" class="btn btn-dark"> Logout </button>
 			</form>
 
-			<input type="text" v-model="msg">
+			<div>
+      <input type="text" v-model="msg">
       <button v-on:click="writeNewPost()">Send</button>
 
-			<div v-for="(msg, index) in messages" :key="index">
+      <hr>
+
+      <div v-for="(msg, index) in messages" :key="index">
         <p>{{msg.name}}</p>
         <p>{{msg.date}}</p>
         <p>{{msg.body}}</p>
       </div>
 
+    </div>
+      </div>
+
 		</div>
 
-
-
-	</div>
 </template>
 
 <script>
@@ -54,30 +56,30 @@ import "firebase/database";
       messages: []
     };
   },
-		methods: {
-			login() {
-				console.log("in login");
-				var provider = new firebase.auth.GoogleAuthProvider();
+  methods: {
+    login() {
+      console.log("in login");
+      var provider = new firebase.auth.GoogleAuthProvider();
 
-				firebase
-					.auth()
-					.signInWithPopup(provider)
-					.then(result => {
-						// This gives you a Google Access Token. You can use it to access the Google API.
-						var token = result.credential.accessToken;
-						// The signed-in user info.
-						var user = result.user;
-						// let user = firebase.auth().currentUser;
-						this.user = user;
-						console.log(user);
-						console.log(user.displayName);
-						console.log(user.email);
-					})
-					.catch(function (error) {
-						alert("error" + error.message);
-					});
-			},
-			logout() {
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(result => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          // let user = firebase.auth().currentUser;
+          this.user = user;
+          console.log(user);
+          console.log(user.displayName);
+          console.log(user.email);
+        })
+        .catch(function(error) {
+          alert("error" + error.message);
+        });
+    },
+    logout() {
       firebase
         .auth()
         .signOut()

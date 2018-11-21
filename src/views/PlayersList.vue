@@ -1,11 +1,12 @@
 <template>
 	<div class="players_list pl-3 pr-3">
 		<div v-if="isLoading" id="loading">
-    <img src="#" alt="loading_icon"><p>now loading</p>
-    </div>
+			<img src="#" alt="loading_icon">
+			<p>now loading</p>
+		</div>
 
 		<!-- <Header /> -->
-		
+
 		<div v-else id="scroll">
 			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.name }}</p>
 			<div class="d-flex justify-content-center" id="title">
@@ -16,19 +17,22 @@
 			</div>
 			<div id="search_engine" class="d-flex">
 				<img src="../assets/scope.png" alt="search_icon">
-				<input type="text" placeholder="Search by Name" name="search_member" size="15">
-				<input type="text" placeholder="Search by Number" name="search_number" size="15">
+				<input v-model="searchByName" type="text" placeholder="Search by Name" name="search_member" size="15">
+				<!-- <input type="text" placeholder="Search by Number" name="search_number" size="15"> -->
 			</div>
 			<div id="table_for_players">
 				<table class="table table-bordered table-sm mt-4">
 					<thead>
 						<tr>
 							<th scope="col">Name</th>
-							<th scope="col">Position</th>
+							<th scope="col"><select name="filter_by_position" v-model="selectedPosition">
+									<option value="">Position &#9660;</option>
+									<option v-for="(position, index) in positions" :key="index" v-bind:value="position">{{position}}</option>
+								</select></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="(player, index) in players" :key="index">
+						<tr v-for="(player, index) in searchMember" :key="index">
 
 							<td>{{player.name}}</td>
 							<td>{{player.position}}</td>
@@ -54,12 +58,31 @@
 		data() {
 			return {
 				isLoading: true,
-				players: null
+				players: null,
+				positions: [],
+				selectedPosition: "",
+				searchByName: ""
 			}
 		},
 		computed: {
 			teamDataInPlayersList() {
 				return this.$route.params.dataToPass;
+			},
+			searchMember() {
+				if (this.searchByName == "") {
+					if (this.selectedPosition == "") {
+						return this.players;
+					} else {
+						return this.players.filter(member => (member.position == this.selectedPosition))
+					}
+				} else {
+					if (this.selectedPosition == "") {
+						return this.players.filter(member => (member.name.toUpperCase().includes(this.searchByName.toUpperCase())));
+					} else {
+						var searchedName = this.players.filter(member => (member.name.toUpperCase().includes(this.searchByName.toUpperCase())));
+						return searchedName.filter(member => (member.position == this.selectedPosition))
+					}
+				}
 			}
 		},
 		created() {
@@ -80,10 +103,19 @@
 					.then(json => {
 						this.players = json.squad;
 						this.isLoading = false;
+						this.makeFilter();
 					})
 					.catch(function (error) {
 						console.log(error);
 					});
+			},
+			makeFilter() {
+				var playersPosition = this.players.map(oneplayer => oneplayer.position);
+				var positionOrdered = new Set(playersPosition.sort(function (a, b) {
+					return (b < a ? 1 : -1)
+				}));
+				this.positions = [...positionOrdered];
+				console.log(this.positions)
 			}
 		}
 	};

@@ -7,7 +7,7 @@
 		</div>
 		<div class="col-6">
 			<div class="d-flex justify-content-end header_icon">
-				<router-link to="/">
+				<router-link :to="{ name: 'home', params: { dataToPass: this.header } }">
 					<img alt="home_icon" src="../assets/home.png" class="mr-2">
 				</router-link>
 				<router-link to="/chatRoomLogin">

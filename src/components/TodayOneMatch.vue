@@ -34,15 +34,15 @@
 		data() {
 			return {
 				ShowMap: false,
-				// todayDate: "2018-11-24",
-				todayDate: "",
+				todayDate: "2018-11-24",
+				// todayDate: "",
 				homeTeamLogo: "",
 				awayTeamLogo: "",
 				todayMatch: null
 			}
 		},
 		created() {
-			this.getToday(),
+			// this.getToday(),
 			this.todayMachData()
 		},
 		methods: {

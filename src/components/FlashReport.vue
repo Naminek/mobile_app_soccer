@@ -45,8 +45,8 @@
 		},
 		created() {
 			// this.getToday(),
-			this.checkTodayMatch(),
-				this.todayMachData()
+			this.todayMachData(),
+			this.checkTodayMatch()
 		},
 		methods: {
 			getToday() {
