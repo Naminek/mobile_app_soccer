@@ -22,14 +22,14 @@
 				<p>Scheduled</p>
 			</div>
 			<div class="col-3 pt-3">
-				<img alt="team_icon" v-bind:src="getAwayTeamLogo(eachMatch)">
+				<img alt="team_icon" :src="getAwayTeamLogo(eachMatch)">
 				<p>{{ eachMatch.awayTeam.name }}</p>
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
 				<p>Date: <span>{{ eachMatch.utcDate }}</span></p>
 				<button class="btn" @click="ShowLocation = true">Location<p>{{ getVenue(eachMatch) }}</p></button>
 				<div v-if="ShowLocation">
-					<iframe v-bind:src="getLocation(eachMatch)"
+					<iframe :src="getLocation(eachMatch)"
 					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
 					<p @click="ShowLocation = false" class="mt-1">&times; CLOSE</p>
 				</div>
@@ -62,10 +62,10 @@
 				} else {
 					if (this.checkedMatch.length == 0) {
 						return this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
-					|| team.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
+					|| match.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
 					} else {
 						var searchedName = this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
-					|| team.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
+					|| match.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
 						return searchedName.filter(match => (this.checkedMatch.includes(match.status)))
 					}
 				}
@@ -75,17 +75,18 @@
 			getAwayTeamLogo(eachMatch) {
 				const team = this.oneMatchSchedule.teamData
 					.filter(el => el.name == eachMatch.awayTeam.name) 
+					// console.log(team[0].crestUrl)
 				return team[0].crestUrl
 			},
 			getLocation(eachMatch) {
-				const team = this.oneMatchSchedule.teamData
+				const team1 = this.oneMatchSchedule.teamData
 					.filter(el => el.name == eachMatch.homeTeam.name) 
-				return team[0].map
+				return team1[0].map
 			},
 			getVenue(eachMatch) {
-				const team = this.oneMatchSchedule.teamData
+				const team2 = this.oneMatchSchedule.teamData
 					.filter(el => el.name == eachMatch.homeTeam.name) 
-				return team[0].venue
+				return team2[0].venue
 			},
 			getHomeTeamLogo(eachMatch) {
 				// console.log(eachMatch)
@@ -97,10 +98,10 @@
 				// 		// el.crestUrl
 				// 	}
 				// })
-				const team = this.oneMatchSchedule.teamData
+				const team3 = this.oneMatchSchedule.teamData
 					.filter(el => el.name == eachMatch.homeTeam.name) 
 				// console.log(team[0].crestUrl)
-				return team[0].crestUrl
+				return team3[0].crestUrl
 			}
 		}
 	};

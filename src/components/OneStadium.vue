@@ -8,7 +8,10 @@
 			<div id="one_stadium">
 		<div v-for="(stadium, index) in getStadium" :key="index">
 			<div @click="ShowBalloonMap = true">
-				<img :src="stadium.venue_photo" alt="stadium">
+				<!-- <img :src="stadium.venue_photo" alt="stadium"> -->
+				<!-- <img :src="stadium.venue_photo" alt="stadium"> -->
+				<img :src="require(`../assets/${stadium.venue_photo}`)" alt="xxx">
+				<!--<img :src="require(`../assets/team-logos/${item}.svg`)"> -->
 				<p>{{ stadium.venue }}</p>
 			</div>
 			<!-- <div class="balloon_map" v-if="ShowBalloonMap"> -->
@@ -97,10 +100,15 @@
 	}
 
 	#one_stadium div {
-		margin: 25px 0 0;
+		/* margin: 25px 0 0; */
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+
+	#one_stadium div:last-child {
+		margin: 5px 0 70px;
+		
 	}
 
 

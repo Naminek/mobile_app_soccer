@@ -117,7 +117,10 @@
 				}));
 				this.positions = [...positionOrdered];
 				console.log(this.positions)
-			}
+			},
+			// makeObject() {
+			// 	return this.teamDataInPlayersList.
+			// }
 		}
 	};
 </script>

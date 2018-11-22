@@ -67,11 +67,12 @@
     },
     methods: {
       getMatchData() {
-        fetch("//api.jsonbin.io/b/5beda08b18a56238b6f6e74d", {
+        fetch("http://api.football-data.org/v2/competitions/2021/matches", {
             method: "GET",
             headers: {
-              "Content-Type": "application/json"
-            }
+							'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',
+							// 'Content-Type': 'application/json'
+						}
           })
           .then(response => {
             return response.json();
@@ -87,7 +88,7 @@
           });
       },
       getTeamData() {
-        fetch("//api.jsonbin.io/b/5beecc7018a56238b6f76f57/12", {
+        fetch("//api.jsonbin.io/b/5bf665f5e76b24590c67e7c1", {
           method: "GET",
           headers: {
             "Content-Type": "application/json"
