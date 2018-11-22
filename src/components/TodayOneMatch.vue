@@ -163,7 +163,7 @@
 
 	#myModal{
 		position: fixed;
-		top: 30%;
+		top: 15%;
 	}
 }
 @media screen and (min-width:751px){

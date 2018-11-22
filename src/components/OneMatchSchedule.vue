@@ -210,6 +210,11 @@
 			align-items: center;
 		}
 
+		#myModal{
+		position: fixed;
+		top: 30%;
+	}
+
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
@@ -238,6 +243,10 @@
 			font-size: 20px;
 
 		}
+		#myModal{
+		position: fixed;
+		top: 15%;
+	}
 	}
 
 	@media screen and (min-width:751px) {
@@ -260,5 +269,10 @@
 		input {
 			font-size: 25px;
 		}
+
+		#myModal{
+		position: fixed;
+		top: 30%;
+	}
 	}
 </style>
