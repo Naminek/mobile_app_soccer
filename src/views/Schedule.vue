@@ -6,14 +6,9 @@
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
 			</div>
-			<!-- <div id="search_engine" class="d-flex justify-content-center">
-				<label for="search_team">
-					<img src="../assets/scope.png" alt="search_icon"></label>
-				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchTeam" />
-				<input type="date" name="today" id="today" v-model="searchByDate" />
-			</div> -->
+	
 			<OneMatchSchedule :oneMatchSchedule="dataInSchedule" />
-			<p><a href="#top">&#x25B2; Back to Top</a></p>
+			<!-- <p><a href="#top">&#x25B2; Back to Top</a></p> -->
 		</div>
 	</div>
 </template>

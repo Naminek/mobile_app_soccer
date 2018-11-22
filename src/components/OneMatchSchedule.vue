@@ -1,14 +1,13 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
-		<div id="search_engine" class="d-flex justify-content-center">
+		<div class="d-flex justify-content-center">
 				<label for="search_team">
-					<img src="../assets/scope.png" alt="search_icon"></label>
-				<input type="text" placeholder="search by team" name="search_team" size="15" v-model="searchMatch" />
-				<!-- <input type="date" name="today" id="today" /> -->
+					<img src="../assets/scope.png" alt="search_icon" id="search_icon"></label>
+				<input type="text" placeholder="search by team" name="search_team" v-model="searchMatch"  
+				id="search_engine" />
 				<div id="check_filter">
-				<label><input type="checkbox" name="party" value="FINISHED" v-model="checkedMatch" />Finished</label>
-				<label><input type="checkbox" name="party" value="SCHEDULED" v-model="checkedMatch" />Upcoming</label>
-				<!-- <p>{{checkedMatch}}</p> -->
+				<label><input type="checkbox" name="party" value="FINISHED" v-model="checkedMatch">Finished</label>
+				<label><input type="checkbox" name="party" value="SCHEDULED" v-model="checkedMatch" class="ml-2">Upcoming</label>
 				</div>
 			</div>
 		<div class="row" id="one_match" v-for="(eachMatch, index) in searchSchedule" :key="index">
@@ -76,19 +75,16 @@
 			getAwayTeamLogo(eachMatch) {
 				const team = this.oneMatchSchedule.teamData
 					.filter(el => el.name == eachMatch.awayTeam.name) 
-				// console.log(team[0].crestUrl)
 				return team[0].crestUrl
 			},
 			getLocation(eachMatch) {
 				const team = this.oneMatchSchedule.teamData
 					.filter(el => el.name == eachMatch.homeTeam.name) 
-				// console.log(team[0].crestUrl)
 				return team[0].map
 			},
 			getVenue(eachMatch) {
 				const team = this.oneMatchSchedule.teamData
 					.filter(el => el.name == eachMatch.homeTeam.name) 
-				// console.log(team[0].crestUrl)
 				return team[0].venue
 			},
 			getHomeTeamLogo(eachMatch) {
@@ -148,22 +144,29 @@
 		color: #2c3e50;
 	}
 
-	#search_engine {
+	/* #search_engine {
 		margin-top: 50px;
-	}
+	} */
 
-	#search_engine input {
+	#search_engine {
 		padding: 5px;
-		margin: 0 5px;
+		margin: 50px 5px 0 5px;
 		border: 1px solid rgba(56, 55, 55, 0.7);
 		border-radius: 4px;
+		width: 40%;
+	}
+	
+	#check_filter {
+		padding: 5px;
+		margin: 50px 5px 0 5px;
+		width: 40%;
 	}
 
-	#check_filter {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	#search_icon {
+		padding: 5px;
+		margin: 60px 5px 0 5px;
 	}
+
 
 	@media screen and (max-width:416px) {
 
@@ -182,9 +185,16 @@
 			margin-top: 40px;
 		}
 
-		input {
-			font-size: 15px;
-		}
+		#search_engine input:first-child {
+		font-size: 15px;
+	}
+
+	#check_filter {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
@@ -206,7 +216,13 @@
 
 		input {
 			font-size: 20px;
+			width: 40%;
 		}
+
+		#search_engine input:first-child {
+		font-size: 20px;
+
+	}
 	}
 
 	@media screen and (min-width:751px) {

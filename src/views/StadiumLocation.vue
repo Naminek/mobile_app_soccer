@@ -12,7 +12,7 @@
 				<input type="text" v-model="searchStadium" placeholder="search by stadium or team" name="search_stadium">
 			</div> -->
 			<OneStadium :oneStadium="dataInStadium" />
-			<p><a href="#top">&#x25B2; Back to Top</a></p>
+			<!-- <p><a href="#top">&#x25B2; Back to Top</a></p> -->
 		</div>
 	</div>
 </template>
