@@ -11,10 +11,11 @@
 				<img :src="stadium.venue_photo" alt="stadium">
 				<p>{{ stadium.venue }}</p>
 			</div>
-			<div class="balloon_map" v-if="ShowBalloonMap">
+			<!-- <div class="balloon_map" v-if="ShowBalloonMap"> -->
+				<div class="balloon_map">
 				<iframe :src="stadium.map"
 				width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
-				<p @click="ShowBalloonMap = false" class="mt-2">&times; CLOSE</p>
+				<!-- <p @click="ShowBalloonMap = false" class="mt-2">&times; CLOSE</p> -->
 			</div>
 			
 		</div>
@@ -127,7 +128,7 @@
 		position: relative;
 		display: none;
 		margin: 0;
-		padding: 10px 10px 0;
+		padding: 10px 10px;
 		min-width: 250px;
 		width: 100%;
 		color: #22313f;
