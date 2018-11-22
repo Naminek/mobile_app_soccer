@@ -8,7 +8,7 @@
 				<thead class="thead-dark">
 					<tr>
 						<th class="wide">Home</th>
-						<th></th>
+						<th>&ensp;</th>
 						<th class="wide">Away</th>
 					</tr>
 				</thead>
@@ -83,6 +83,7 @@
 .wide {
 	width: 45%;
 }
+
 
 	th,td {
 		text-align: center;

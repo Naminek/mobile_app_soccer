@@ -7,7 +7,7 @@
 
 
 		<div v-else id="scroll">
-		<!-- <Header /> -->
+		<Header :header="teamDataInPlayersList.allData" />
 			<p class="h4 d-flex justify-content-center pb-4 pt-5">{{ teamDataInPlayersList.oneTeam.name }}</p>
 			<div class="d-flex justify-content-center" id="title">
 				<p class="h4 d-flex justify-content-center pb-4"></p>
@@ -116,10 +116,13 @@
 					return (b < a ? 1 : -1)
 				}));
 				this.positions = [...positionOrdered];
-				console.log(this.positions)
+				// console.log(this.positions)
+				console.log(this.teamDataInPlayersList.allData)
 			},
 			// makeObject() {
-			// 	return this.teamDataInPlayersList.
+			// 	return [{"matchData": this.teamDataInPlayersList.allData.matchData,
+			// 	"teamData": this.teamDataInPlayersList.allData.teamData}];
+				
 			// }
 		}
 	};

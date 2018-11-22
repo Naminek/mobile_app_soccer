@@ -4,13 +4,13 @@
 			<div v-if="checkLogin">
 				<ChatRoomHeader :chatRoomHeader="dataInChatRoomLogin" />
 
-				<p class="h4 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
+				<p class="h3 d-flex justify-content-center pb-4 pt-5">Chat Room</p>
 				<div class="d-flex justify-content-center" id="title">
 					<p class="h4 d-flex justify-content-center pb-4"></p>
 				</div>
 				<div id="login_button">
-				<p>Login with Google</p>
-				<button v-on:click="login()" class="btn btn-dark form_for_login"> Login </button>
+					<p id="sentence">Login with Google</p>
+					<button v-on:click="login()" class="btn btn-dark form_for_login"> Login </button>
 				</div>
 			</div>
 
@@ -40,8 +40,8 @@
 					</div>
 					<div id="sent_form">
 						<!-- <div> -->
-						<input type="text" v-model="msg">
-						
+						<input type="text" v-model="msg" placeholder="Type here">
+
 						<button v-on:click="writeNewPost()"><img src="../assets/send.png" alt="send"></button>
 						<!-- </div> -->
 					</div>
@@ -161,7 +161,15 @@
 					.on("value", data => {
 						this.messages = data.val();
 					});
-			}
+			},
+			// checkPerson() {
+			// 	var onePerson = document.createElement("div");
+			// 	if(this.user.displayName)
+			// 	onePerson.innerHTML = '<img src="' + data[i].cover + '"><div class="caption"><p class="book_title">' + data[i].title + '</p><p class="book_detail text-justify">' + data[i].description + '<p><button type="button" class="more_info" value="' + i + '" onclick="showMoreImage(event.target, bookData)">More Info</button></div>';
+
+			// createDiv.appendChild(oneBook);
+			// }
+			
 		}
 	};
 </script>
@@ -169,11 +177,6 @@
 <style scoped>
 	.login {
 		min-height: 700px;
-	}
-
-	#scroll {
-		padding-top: 120px;
-		padding-bottom: 50px;
 	}
 
 	#title p {
@@ -206,22 +209,24 @@
 		width: 70%;
 	}
 
+	#chat_header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 24;
+		width: 100%;
+		margin: 0;
+		padding: 0 10px 0 0;
+	}
+
+
 	#chat img {
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
 	}
 
-	#sent_form {
-		display: inline;
-		position: fixed;
-			bottom: 20px;
-			left: 15px;
-			z-index: 24;
-			width: 100%;
-			margin: 0;
-			padding: 0 10px 0 0;
-	}
+
 
 	#sent_form input {
 		width: 75%;
@@ -280,7 +285,7 @@
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	#sent_form input {
 		padding: 5px;
 		margin: 0 5px;
@@ -289,6 +294,16 @@
 	}
 
 	@media screen and (max-width:416px) {
+
+		#scroll {
+			padding-top: 120px;
+			padding-bottom: 50px;
+		}
+
+		#sentence {
+			font-size: 20px;
+		}
+
 		#chat_header img {
 			width: 250px;
 			height: auto;
@@ -300,10 +315,11 @@
 			width: 100%;
 		}
 
-		#chat_header {
+		#sent_form {
+			display: inline;
 			position: fixed;
-			top: 0;
-			left: 0;
+			bottom: 20px;
+			left: 15px;
 			z-index: 24;
 			width: 100%;
 			margin: 0;
@@ -312,7 +328,73 @@
 
 	}
 
-	@media screen and (min-width:416px) and (max-width:750px) {}
+	@media screen and (min-width:416px) and (max-width:750px) {
 
-	@media screen and (min-width:751px) {}
+
+
+		#scroll {
+			padding-top: 150px;
+			padding-bottom: 50px;
+		}
+
+		#sentence {
+			font-size: 25px;
+		}
+
+		#chat_header img {
+			width: 200px;
+			height: auto;
+			object-fit: contain;
+		}
+
+		#chat_header button {
+			margin: 50px 20px 30px 0;
+			width: 100%;
+		}
+
+		#sent_form {
+			display: inline;
+			position: fixed;
+			bottom: 20px;
+			left: 50px;
+			z-index: 24;
+			width: 100%;
+			margin: 0;
+			padding: 0 10px 0 0;
+		}
+	}
+
+	@media screen and (min-width:751px) {
+
+		#scroll {
+			padding-top: 200px;
+			padding-bottom: 50px;
+		}
+
+		#sentence {
+			font-size: 30px;
+		}
+
+		#chat_header img {
+			width: 300px;
+			height: auto;
+			object-fit: contain;
+		}
+
+		#chat_header button {
+			margin: 100px 20px 30px 0;
+			width: 100%;
+		}
+
+		#sent_form {
+			display: inline;
+			position: fixed;
+			bottom: 20px;
+			left: 60px;
+			z-index: 24;
+			width: 100%;
+			margin: 0;
+			padding: 0 10px 0 0;
+		}
+	}
 </style>

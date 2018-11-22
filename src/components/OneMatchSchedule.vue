@@ -1,15 +1,14 @@
 <template>
 	<div class="d-flex justify-content-center flex-wrap">
 		<div class="d-flex justify-content-center">
-				<label for="search_team">
-					<img src="../assets/scope.png" alt="search_icon" id="search_icon"></label>
-				<input type="text" placeholder="search by team" name="search_team" v-model="searchMatch"  
-				id="search_engine" />
-				<div id="check_filter">
+			<label for="search_team">
+				<img src="../assets/scope.png" alt="search_icon" id="search_icon"></label>
+			<input type="text" placeholder="search by team" name="search_team" v-model="searchMatch" id="search_engine" />
+			<div id="check_filter">
 				<label><input type="checkbox" name="party" value="FINISHED" v-model="checkedMatch">Finished</label>
 				<label><input type="checkbox" name="party" value="SCHEDULED" v-model="checkedMatch" class="ml-2">Upcoming</label>
-				</div>
 			</div>
+		</div>
 		<div class="row" id="one_match" v-for="(eachMatch, index) in searchSchedule" :key="index">
 			<div class="col-3 pt-3">
 				<img :src="getHomeTeamLogo(eachMatch)" alt="team_icon">
@@ -27,12 +26,24 @@
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
 				<p>Date: <span>{{ eachMatch.utcDate }}</span></p>
-				<button class="btn" @click="ShowLocation = true">Location<p>{{ getVenue(eachMatch) }}</p></button>
-				<div v-if="ShowLocation">
-					<iframe :src="getLocation(eachMatch)"
-					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
-					<p @click="ShowLocation = false" class="mt-1">&times; CLOSE</p>
+				<button class="btn" data-toggle="modal" data-target="#myModal">Location<p>{{ getVenue(eachMatch) }}</p></button>
+				<div class="modal" id="myModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-body">
+								<!-- <iframe :src="getLocation(eachMatch)" width="95%" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+							</div>
+
+						</div>
+					</div>
 				</div>
+				<!-- <iframe :src="getLocation(eachMatch)"
+					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<p @click="ShowLocation = false" class="mt-1">&times; CLOSE</p> -->
+
 
 			</div>
 		</div>
@@ -40,6 +51,7 @@
 </template>
 
 <script>
+	// import EachMatchMap from "@/components/EachMatchMap.vue";
 	export default {
 		name: "oneMatchSchedule",
 		props: ["oneMatchSchedule"],
@@ -61,11 +73,13 @@
 					}
 				} else {
 					if (this.checkedMatch.length == 0) {
-						return this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
-					|| match.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
+						return this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(this.searchMatch
+								.toUpperCase()) ||
+							match.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
 					} else {
-						var searchedName = this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())
-					|| match.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
+						var searchedName = this.oneMatchSchedule.matchData.filter(match => (match.awayTeam.name.toUpperCase().includes(
+								this.searchMatch.toUpperCase()) ||
+							match.homeTeam.name.toUpperCase().includes(this.searchMatch.toUpperCase())));
 						return searchedName.filter(match => (this.checkedMatch.includes(match.status)))
 					}
 				}
@@ -74,18 +88,18 @@
 		methods: {
 			getAwayTeamLogo(eachMatch) {
 				const team = this.oneMatchSchedule.teamData
-					.filter(el => el.name == eachMatch.awayTeam.name) 
-					// console.log(team[0].crestUrl)
+					.filter(el => el.name == eachMatch.awayTeam.name)
+				// console.log(team[0].crestUrl)
 				return team[0].crestUrl
 			},
 			getLocation(eachMatch) {
 				const team1 = this.oneMatchSchedule.teamData
-					.filter(el => el.name == eachMatch.homeTeam.name) 
+					.filter(el => el.name == eachMatch.homeTeam.name)
 				return team1[0].map
 			},
 			getVenue(eachMatch) {
 				const team2 = this.oneMatchSchedule.teamData
-					.filter(el => el.name == eachMatch.homeTeam.name) 
+					.filter(el => el.name == eachMatch.homeTeam.name)
 				return team2[0].venue
 			},
 			getHomeTeamLogo(eachMatch) {
@@ -99,7 +113,7 @@
 				// 	}
 				// })
 				const team3 = this.oneMatchSchedule.teamData
-					.filter(el => el.name == eachMatch.homeTeam.name) 
+					.filter(el => el.name == eachMatch.homeTeam.name)
 				// console.log(team[0].crestUrl)
 				return team3[0].crestUrl
 			}
@@ -156,7 +170,7 @@
 		border-radius: 4px;
 		width: 40%;
 	}
-	
+
 	#check_filter {
 		padding: 5px;
 		margin: 50px 5px 0 5px;
@@ -187,15 +201,15 @@
 		}
 
 		#search_engine input:first-child {
-		font-size: 15px;
-	}
+			font-size: 15px;
+		}
 
-	#check_filter {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	
+		#check_filter {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
@@ -221,9 +235,9 @@
 		}
 
 		#search_engine input:first-child {
-		font-size: 20px;
+			font-size: 20px;
 
-	}
+		}
 	}
 
 	@media screen and (min-width:751px) {

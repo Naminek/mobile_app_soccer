@@ -16,11 +16,26 @@
 			</div>
 			<div class="col-12 text-center align-middle" id="time_and_location">
 				<p>Kick Off: {{ match.utcDate }}</p>
-				<button class="btn" @click="ShowMap = true">Location: <p>{{getVenue(match)}}</p></button>
+				<!-- <button class="btn" @click="ShowMap = true">Location: <p>{{getVenue(match)}}</p></button>
 				<div v-if="ShowMap">
 					<iframe :src="getMap(match)"
 					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
 					<p @click="ShowMap = false" class="mt-1">&times; CLOSE</p>
+				</div> -->
+				<button class="btn" data-toggle="modal" data-target="#myModal">Location<p>{{ getVenue(match) }}</p></button>
+				<div class="modal" id="myModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-body">
+								<iframe :src="getMap(match)" width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+							</div>
+
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -128,18 +143,43 @@
 		font-size: 30px;
 		margin-top: 40px;
 	}
+
+	#myModal{
+		position: fixed;
+		top: 30%;
+	}
 }
 
 @media screen and (min-width:416px) and (max-width:750px) {
-	#today_one_match p,
+	#today_one_match p:not(#score),
 	#today_one_match button {
 		font-size: 20px;
 	}
+
+	#score {
+		font-size: 50px;
+		margin-top: 40px;
+	}
+
+	#myModal{
+		position: fixed;
+		top: 30%;
+	}
 }
 @media screen and (min-width:751px){
-	#today_one_match p,
+	#today_one_match p:not(#score),
 	#today_one_match button {
 		font-size: 30px;
+	}
+
+	#score {
+		font-size: 70px;
+		margin-top: 40px;
+	}
+
+	#myModal{
+		position: fixed;
+		top: 30%;
 	}
 }
 
