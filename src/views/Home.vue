@@ -7,8 +7,8 @@
       <HomeHeader :homeHeader="data" />
 
       <div id="scroll">
-        
-        
+
+
         <div id="logo" class="mb-3">
           <img alt="logo" src="../assets/premier-league-logo.png" class="img-fluid mx-auto d-block mt-2">
         </div>
@@ -55,9 +55,11 @@
     },
     data() {
       return {
-        data:[{"matchData": null,
-        "teamData": null}],
-        
+        data: [{
+          "matchData": null,
+          "teamData": null
+        }],
+
         isLoading: true
       }
     },
@@ -70,9 +72,9 @@
         fetch("http://api.football-data.org/v2/competitions/2021/matches", {
             method: "GET",
             headers: {
-							'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',
-							// 'Content-Type': 'application/json'
-						}
+              'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',
+              // 'Content-Type': 'application/json'
+            }
           })
           .then(response => {
             return response.json();
@@ -89,22 +91,22 @@
       },
       getTeamData() {
         fetch("//api.jsonbin.io/b/5bf665f5e76b24590c67e7c1", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-        .then(response => {
-          return response.json();
-        })
-        .then(json => {
-          this.data.teamData = json.everyTeams;
-          this.isLoading = false;
-          console.log(this.data.teamData);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+          .then(response => {
+            return response.json();
+          })
+          .then(json => {
+            this.data.teamData = json.everyTeams;
+            this.isLoading = false;
+            console.log(this.data.teamData);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
     }
   };

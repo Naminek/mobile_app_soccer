@@ -64,14 +64,14 @@
 			getToday() {
 				var today = new Date();
 				var dd = today.getDate();
-				var mm = today.getMonth()+1; //January is 0
+				var mm = today.getMonth() + 1; //January is 0
 				var yyyy = today.getFullYear();
-				if(dd < 10) {
-    				dd = '0' + dd;
-				} 
-				if(mm < 10) {
-       				 mm = '0' + mm;
-				} 
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
 				this.todayDate = yyyy + '-' + mm + '-' + dd;
 				console.log(this.todayDate);
 			},
@@ -81,22 +81,22 @@
 			},
 			getHomeTeamLogo(match) {
 				const hometeam = this.todayOneMatch.teamData
-					.filter(el => el.name == match.homeTeam.name) 
+					.filter(el => el.name == match.homeTeam.name)
 				return hometeam[0].crestUrl
 			},
 			getAwayTeamLogo(match) {
 				const awayteam = this.todayOneMatch.teamData
-					.filter(el => el.name == match.awayTeam.name) 
+					.filter(el => el.name == match.awayTeam.name)
 				return awayteam[0].crestUrl
 			},
 			getVenue(match) {
 				const venues = this.todayOneMatch.teamData
-					.filter(el => el.name == match.homeTeam.name) 
+					.filter(el => el.name == match.homeTeam.name)
 				return venues[0].venue
 			},
 			getMap(match) {
 				const maps = this.todayOneMatch.teamData
-					.filter(el => el.name == match.homeTeam.name) 
+					.filter(el => el.name == match.homeTeam.name)
 				return maps[0].map
 			}
 		}
@@ -107,7 +107,8 @@
 	#today_one_match {
 		border: solid 2px rgba(56, 55, 55, 0.7);
 		margin: 35px 10% 0;
-		height: auto;;
+		height: auto;
+		;
 		padding: 0 20px;
 		width: 100%;
 	}
@@ -133,54 +134,57 @@
 	}
 
 
-@media screen and (max-width:416px){
-	#today_one_match p:not(#score),
-	#today_one_match button {
-		font-size: 15px;
+	@media screen and (max-width:416px) {
+
+		#today_one_match p:not(#score),
+		#today_one_match button {
+			font-size: 15px;
+		}
+
+		#score {
+			font-size: 30px;
+			margin-top: 40px;
+		}
+
+		#myModal {
+			position: fixed;
+			top: 30%;
+		}
 	}
 
-	#score {
-		font-size: 30px;
-		margin-top: 40px;
+	@media screen and (min-width:416px) and (max-width:750px) {
+
+		#today_one_match p:not(#score),
+		#today_one_match button {
+			font-size: 20px;
+		}
+
+		#score {
+			font-size: 50px;
+			margin-top: 40px;
+		}
+
+		#myModal {
+			position: fixed;
+			top: 15%;
+		}
 	}
 
-	#myModal{
-		position: fixed;
-		top: 30%;
-	}
-}
+	@media screen and (min-width:751px) {
 
-@media screen and (min-width:416px) and (max-width:750px) {
-	#today_one_match p:not(#score),
-	#today_one_match button {
-		font-size: 20px;
-	}
+		#today_one_match p:not(#score),
+		#today_one_match button {
+			font-size: 30px;
+		}
 
-	#score {
-		font-size: 50px;
-		margin-top: 40px;
-	}
+		#score {
+			font-size: 70px;
+			margin-top: 40px;
+		}
 
-	#myModal{
-		position: fixed;
-		top: 15%;
+		#myModal {
+			position: fixed;
+			top: 30%;
+		}
 	}
-}
-@media screen and (min-width:751px){
-	#today_one_match p:not(#score),
-	#today_one_match button {
-		font-size: 30px;
-	}
-
-	#score {
-		font-size: 70px;
-		margin-top: 40px;
-	}
-
-	#myModal{
-		position: fixed;
-		top: 30%;
-	}
-}
-
 </style>
