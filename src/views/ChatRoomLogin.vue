@@ -31,7 +31,7 @@
 					<div v-for="(msg, index) in messages" :key="index" id="chat">
 						<div class="content" v-bind:class="{contentReverse: checkPerson(msg)}">
 							<img :src="msg.icon" alt="icon">
-							<p class="balloon">{{msg.body}}</p>
+							<p class="balloonLeft" v-bind:class="{balloon: checkPerson(msg)}">{{msg.body}}</p>
 						</div>
 						<div class="content" v-bind:class="{contentReverse: checkPerson(msg)}">
 							<p><b>{{msg.name}}</b></p>
@@ -86,7 +86,7 @@
 			// 	console.log("test")
 			// },
 			login() {
-				event.preventDefault()
+				event.preventDefault();
 				console.log("in login");
 				var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -111,7 +111,7 @@
 					});
 			},
 			logout() {
-				event.preventDefault()
+				event.preventDefault();
 				firebase
 					.auth()
 					.signOut()
@@ -159,12 +159,12 @@
 					.ref("mainChat")
 					.on("value", data => {
 						this.messages = data.val();
-						console.log(this.messages)
+						console.log(this.messages);
 					});
 			},
 			checkPerson(msg) {
 				if (this.user.displayName == msg.name) {
-					return true
+					return true;
 				}
 			}
 		}
@@ -228,14 +228,11 @@
 		padding: 0 10px 0 0;
 	}
 
-
 	#chat img {
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
 	}
-
-
 
 	#sent_form input {
 		width: 75%;
@@ -261,7 +258,7 @@
 		max-width: 80%;
 		color: #555;
 		font-size: 16px;
-		background: #FFF;
+		background: #fff;
 		border: solid 3px #555;
 		box-sizing: border-box;
 		border-radius: 10px;
@@ -271,18 +268,18 @@
 	.balloon:before {
 		content: "";
 		position: absolute;
-		top: 20px;
+		top: 50%;
 		right: -24px;
-		margin-top: -13px;
-		border: 13px solid transparent;
-		border-left: 13px solid #FFF;
+		margin-top: -12px;
+		border: 12px solid transparent;
+		border-left: 12px solid #FFF;
 		z-index: 2;
 	}
 
 	.balloon:after {
 		content: "";
 		position: absolute;
-		top: 20px;
+		top: 50%;
 		right: -30px;
 		margin-top: -14px;
 		border: 14px solid transparent;
@@ -293,20 +290,20 @@
 	.balloonLeft {
 		position: relative;
 		display: inline-block;
-		margin: 1.5em 0 1.5em 15px;
+		margin: 0 0 0 15px;
 		padding: 7px 10px;
 		min-width: 120px;
 		max-width: 100%;
 		color: #555;
 		font-size: 16px;
-		background: #FFF;
+		background: #fff;
 		border: solid 3px #555;
 		box-sizing: border-box;
 		border-radius: 10px;
 		word-break: break-all;
 	}
 
-	/* .balloonLeft:before {
+	.balloonLeft:before {
 		content: "";
 		position: absolute;
 		top: 50%;
@@ -315,18 +312,18 @@
 		border: 12px solid transparent;
 		border-right: 12px solid #FFF;
 		z-index: 2;
-	} */
+	}
 
-	/* .balloonLeft:after {
+	.balloonLeft:after {
 		content: "";
 		position: absolute;
-		top: 20px;
+		top: 50%;
 		left: -30px;
 		margin-top: -14px;
 		border: 14px solid transparent;
-		border-left: 14px solid #555;
+		border-right: 14px solid #555;
 		z-index: 1;
-	} */
+	}
 
 	.balloon p {
 		margin: 0;
@@ -340,8 +337,7 @@
 		border-radius: 4px;
 	}
 
-	@media screen and (max-width:416px) {
-
+	@media screen and (max-width: 416px) {
 		#scroll {
 			padding-top: 120px;
 			padding-bottom: 50px;
@@ -372,13 +368,9 @@
 			margin: 0;
 			padding: 0 10px 0 0;
 		}
-
 	}
 
-	@media screen and (min-width:416px) and (max-width:750px) {
-
-
-
+	@media screen and (min-width: 416px) and (max-width: 750px) {
 		#scroll {
 			padding-top: 150px;
 			padding-bottom: 50px;
@@ -411,8 +403,7 @@
 		}
 	}
 
-	@media screen and (min-width:751px) {
-
+	@media screen and (min-width: 751px) {
 		#scroll {
 			padding-top: 200px;
 			padding-bottom: 50px;
