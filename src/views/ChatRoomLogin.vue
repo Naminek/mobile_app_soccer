@@ -38,6 +38,7 @@
 							<p class="mr-2" id="text">{{msg.date}}</p>
 						</div>
 					</div>
+					<div id="bottom"></div>
 					<div id="sent_form">
 						<!-- <div> -->
 						<input type="text" v-model="msg" placeholder="Type here">
@@ -152,6 +153,10 @@
 				this.msg = null;
 
 				this.getPosts();
+
+				var position = document.getElementById("bottom");
+				position.scrollTop = position.scrollHeight;
+			
 			},
 			getPosts() {
 				firebase
@@ -232,6 +237,7 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
+		margin: 0 5px;
 	}
 
 	#sent_form input {
@@ -251,79 +257,38 @@
 	.balloon {
 		position: relative;
 		display: inline-block;
-		margin: 0em 15px 0em 0;
+		margin: 0 15px 0 0;
 		padding: 7px 10px;
 		min-height: 50px;
-		min-width: 120px;
+		min-width: 10px;
 		max-width: 80%;
 		color: #555;
 		font-size: 16px;
 		background: #fff;
 		border: solid 3px #555;
 		box-sizing: border-box;
-		border-radius: 10px;
+		border-radius: 30px 30px 0 30px !important;
 		word-break: break-all;
 	}
 
-	.balloon:before {
-		content: "";
-		position: absolute;
-		top: 50%;
-		right: -24px;
-		margin-top: -12px;
-		border: 12px solid transparent;
-		border-left: 12px solid #FFF;
-		z-index: 2;
-	}
-
-	.balloon:after {
-		content: "";
-		position: absolute;
-		top: 50%;
-		right: -30px;
-		margin-top: -14px;
-		border: 14px solid transparent;
-		border-left: 14px solid #555;
-		z-index: 1;
-	}
+	
 
 	.balloonLeft {
 		position: relative;
 		display: inline-block;
-		margin: 0 0 0 15px;
+		margin: 0;
 		padding: 7px 10px;
-		min-width: 120px;
-		max-width: 100%;
+		min-width: 100px;
+		max-width: 80%;
 		color: #555;
 		font-size: 16px;
 		background: #fff;
 		border: solid 3px #555;
 		box-sizing: border-box;
-		border-radius: 10px;
+		border-radius: 30px 30px 30px 0;
 		word-break: break-all;
 	}
 
-	.balloonLeft:before {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: -24px;
-		margin-top: -12px;
-		border: 12px solid transparent;
-		border-right: 12px solid #FFF;
-		z-index: 2;
-	}
-
-	.balloonLeft:after {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: -30px;
-		margin-top: -14px;
-		border: 14px solid transparent;
-		border-right: 14px solid #555;
-		z-index: 1;
-	}
 
 	.balloon p {
 		margin: 0;

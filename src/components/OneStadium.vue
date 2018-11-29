@@ -7,19 +7,23 @@
 			</div>
 			<div id="one_stadium">
 		<div v-for="(stadium, index) in getStadium" :key="index">
-			<div @click="ShowBalloonMap = true">
+			<!-- <div @click="ShowBalloonMap = true"> -->
 				<!-- <img :src="stadium.venue_photo" alt="stadium"> -->
 				<!-- <img :src="stadium.venue_photo" alt="stadium"> -->
 				<img :src="require(`../assets/${stadium.venue_photo}`)" alt="xxx">
 				<!--<img :src="require(`../assets/team-logos/${item}.svg`)"> -->
 				<p>{{ stadium.venue }}</p>
-			</div>
+
+
+				
+
+			<!-- </div> -->
 			<!-- <div class="balloon_map" v-if="ShowBalloonMap"> -->
-				<div class="balloon_map">
+				<!-- <div class="balloon_map">
 				<iframe :src="stadium.map"
-				width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
+				width="90%" frameborder="0" style="border:0" allowfullscreen></iframe> -->
 				<!-- <p @click="ShowBalloonMap = false" class="mt-2">&times; CLOSE</p> -->
-			</div>
+			<!-- </div> -->
 			
 		</div>
 		<!-- <div v-for="(stadium, index) in oneStadium" :key="index">
@@ -55,8 +59,12 @@
 						stadium.venue.toUpperCase().includes(this.searchStadium.toUpperCase())));
 				}
 			}
+		},
+		methods: {
+			getMap(stadium) {
+				return stadium.map;
+			}
 		}
-	
 	};
 	// import OneMap from "@/components/OneMap.vue";
 	// export default {

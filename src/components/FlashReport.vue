@@ -26,7 +26,7 @@
 		</div> -->
 		</div>
 		<div v-else class="d-flex justify-content-center">
-			<p>No Match Today</p>
+			<p class="pb-3">No Match Today</p>
 		</div>
 	</div>
 </template>
@@ -37,14 +37,14 @@
 		props: ["flashReport"],
 		data() {
 			return {
-				// todayDate: "",
-				todayDate: "2018-11-11",
+				todayDate: "",
+				// todayDate: "2018-11-11",
 				todayMatch: false,
 				todayAllMatch: null
 			}
 		},
 		created() {
-			// this.getToday(),
+			this.getToday(),
 			this.todayMachData(),
 			this.checkTodayMatch()
 		},

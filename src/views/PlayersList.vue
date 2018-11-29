@@ -91,7 +91,7 @@
 		},
 		methods: {
 			loadMembersData() {
-				fetch("http://api.football-data.org/v2/teams/" + this.teamDataInPlayersList.oneTeam.id, {
+				fetch("https://api.football-data.org/v2/teams/" + this.teamDataInPlayersList.oneTeam.id, {
 						method: "GET",
 						headers: {
 							'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',

@@ -47,6 +47,20 @@
 
 <style>
   @media screen and (max-width:416px) {
+    #app::before {
+      background: url("./assets/one_shoes_v.jpg") no-repeat left top;
+      background-size: 100% 100vh;
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      padding-bottom: 108px;
+      content: "";
+      z-index: -1;
+    }
+
     #app {
       font-family: 'Avenir', Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -54,12 +68,12 @@
       color: #22313f;
       background-color: rgba(250, 233, 239, 0.7);
       padding: 0 0 40px;
-      background-image: url("./assets/one_shoes_v.jpg");
-      height: 100%;
+      width: 100%;
+      height: auto;
       min-height: 812px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      /* /* background-size: cover; */
+      /* background-repeat: no-repeat; */
+      /* background-attachment: fixed; */
       background-blend-mode: screen;
     }
   }

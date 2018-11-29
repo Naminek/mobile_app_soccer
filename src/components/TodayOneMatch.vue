@@ -45,38 +45,21 @@
 <script>
 	export default {
 		name: "todayOneMatch",
-		props: ["todayOneMatch"],
+		props: ["todayOneMatch", "todayOneDate"],
 		data() {
 			return {
 				ShowMap: false,
-				todayDate: "2018-11-11",
-				// todayDate: "",
 				homeTeamLogo: "",
 				awayTeamLogo: "",
 				todayMatch: null
 			}
 		},
 		created() {
-			// this.getToday(),
 			this.todayMachData()
 		},
 		methods: {
-			getToday() {
-				var today = new Date();
-				var dd = today.getDate();
-				var mm = today.getMonth() + 1; //January is 0
-				var yyyy = today.getFullYear();
-				if (dd < 10) {
-					dd = '0' + dd;
-				}
-				if (mm < 10) {
-					mm = '0' + mm;
-				}
-				this.todayDate = yyyy + '-' + mm + '-' + dd;
-				console.log(this.todayDate);
-			},
 			todayMachData() {
-				this.todayMatch = this.todayOneMatch.matchData.filter(match => (match.utcDate.includes(this.todayDate)));
+				this.todayMatch = this.todayOneMatch.matchData.filter(match => (match.utcDate.includes(this.todayOneDate)));
 				console.log(this.todayMatch)
 			},
 			getHomeTeamLogo(match) {

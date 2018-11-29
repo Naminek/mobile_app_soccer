@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div v-if="isLoading" id="loading">
-      <p>now loading</p>
+      <img src="../assets/now_loading.gif" alt="now_loading">
     </div>
     <div v-else id="container">
       <HomeHeader :homeHeader="data" />
@@ -69,7 +69,7 @@
     },
     methods: {
       getMatchData() {
-        fetch("http://api.football-data.org/v2/competitions/2021/matches", {
+        fetch("https://api.football-data.org/v2/competitions/2021/matches", {
             method: "GET",
             headers: {
               'X-Auth-Token': 'd4981822e10a4691932ae02cb2a9b25f',
@@ -90,7 +90,7 @@
           });
       },
       getTeamData() {
-        fetch("//api.jsonbin.io/b/5bf665f5e76b24590c67e7c1", {
+        fetch("https://api.jsonbin.io/b/5bf665f5e76b24590c67e7c1", {
             method: "GET",
             headers: {
               "Content-Type": "application/json"
@@ -116,6 +116,16 @@
   .home {
     padding: 0;
     margin: 0;
+  }
+
+  #loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #loading img {
+    margin-top: 50px;
   }
 
   #home_menu {

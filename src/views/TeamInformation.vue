@@ -12,7 +12,7 @@
 				<input type="text" v-model="searchTeamName" placeholder="search by team name" name="search_team">
 			</div> -->
 			<TeamDetails :teamDetails="dataInTeamInformation" />
-			<p><a href="#top">&#x25B2; Back to Top</a></p>
+			<!-- <p><a href="#top">&#x25B2; Back to Top</a></p> -->
 		</div>
 	</div>
 </template>
