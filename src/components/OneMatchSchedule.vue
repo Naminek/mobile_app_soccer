@@ -51,7 +51,6 @@
 </template>
 
 <script>
-	// import EachMatchMap from "@/components/EachMatchMap.vue";
 	export default {
 		name: "oneMatchSchedule",
 		props: ["oneMatchSchedule"],
