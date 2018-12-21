@@ -79,6 +79,7 @@
 
 	#scroll {
 		padding-top: 150px;
+		height: 100vh;
 	}
 
 	a {

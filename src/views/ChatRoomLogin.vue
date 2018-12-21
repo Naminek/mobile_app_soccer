@@ -27,17 +27,17 @@
 				<div>
 
 					<hr>
-	<div id="chatScroll">
-					<div v-for="(msg, index) in messages" :key="index" class="chat">
-						<div class="content" v-bind:class="{contentReverse: checkPerson(msg)}">
-							<img :src="msg.icon" alt="icon">
-							<p class="balloonLeft" v-bind:class="{balloon: checkPerson(msg)}">{{msg.body}}</p>
+					<div id="chatScroll">
+						<div v-for="(msg, index) in messages" :key="index" class="chat ml-2 mr-2">
+							<div class="content" v-bind:class="{contentReverse: checkPerson(msg)}">
+								<img :src="msg.icon" alt="icon">
+								<p class="balloonLeft" v-bind:class="{balloon: checkPerson(msg)}">{{msg.body}}</p>
+							</div>
+							<div class="content" v-bind:class="{contentReverse: checkPerson(msg)}">
+								<p><b>{{msg.name}}</b></p>
+								<p class="mr-2" id="text">{{msg.date}}</p>
+							</div>
 						</div>
-						<div class="content" v-bind:class="{contentReverse: checkPerson(msg)}">
-							<p><b>{{msg.name}}</b></p>
-							<p class="mr-2" id="text">{{msg.date}}</p>
-						</div>
-					</div>
 					</div>
 					<div id="bottom"></div>
 					<div id="sent_form">
@@ -110,6 +110,7 @@
 						console.log(user.email);
 						this.checkLogin = false;
 						this.getPosts();
+						this.showLastMessage();
 					})
 					.catch(function (error) {
 						alert("error" + error.message);
@@ -158,7 +159,7 @@
 
 				this.getPosts();
 				this.showLastMessage();
-			
+
 			},
 			getPosts() {
 				firebase
@@ -276,7 +277,7 @@
 		word-break: break-all;
 	}
 
-	
+
 
 	.balloonLeft {
 		position: relative;
@@ -311,6 +312,7 @@
 		#scroll {
 			padding-top: 120px;
 			padding-bottom: 10px;
+			height: 100vh;
 		}
 
 		#sentence {
@@ -340,11 +342,11 @@
 		}
 
 		#chatScroll {
-			height: 467px;
+			height: 472px;
 			position: absolute;
-			top: 120px;
+			top: 115px;
 			overflow-y: scroll;
-			padding-bottom: 50px;
+			padding-bottom: 70px;
 		}
 
 
@@ -354,6 +356,7 @@
 		#scroll {
 			padding-top: 150px;
 			padding-bottom: 50px;
+			height: 100vh;
 		}
 
 		#sentence {
@@ -381,12 +384,21 @@
 			margin: 0;
 			padding: 0 10px 0 0;
 		}
+
+		#chatScroll {
+			height: 185px;
+			position: absolute;
+			top: 110px;
+			overflow-y: scroll;
+			padding-bottom: 55px;
+		}
 	}
 
 	@media screen and (min-width: 751px) {
 		#scroll {
 			padding-top: 200px;
 			padding-bottom: 50px;
+			height: 100vh;
 		}
 
 		#sentence {
@@ -413,6 +425,14 @@
 			width: 100%;
 			margin: 0;
 			padding: 0 10px 0 0;
+		}
+
+		#chatScroll {
+			height: 770px;
+			position: absolute;
+			top: 180px;
+			overflow-y: scroll;
+			padding-bottom: 70px;
 		}
 	}
 </style>
