@@ -194,9 +194,9 @@
 		justify-content: flex-start;
 	}
 
-	.login {
+	/* .login {
 		min-height: 700px;
-	}
+	} */
 
 	#title p {
 		width: 40%;
@@ -344,6 +344,7 @@
 			position: absolute;
 			top: 120px;
 			overflow-y: scroll;
+			padding-bottom: 50px;
 		}
 
 

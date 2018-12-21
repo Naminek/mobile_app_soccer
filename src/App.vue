@@ -69,8 +69,8 @@
       background-color: rgba(250, 233, 239, 0.7);
       padding: 0 0 40px;
       width: 100%;
-      height: auto;
-      min-height: 812px;
+      height: 100vh;
+      /* min-height: 812px; */
       /* /* background-size: cover; */
       /* background-repeat: no-repeat; */
       /* background-attachment: fixed; */
