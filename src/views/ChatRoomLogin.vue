@@ -110,7 +110,7 @@
 						console.log(user.email);
 						this.checkLogin = false;
 						this.getPosts();
-						this.showLastMessage();
+						// this.showLastMessage();
 					})
 					.catch(function (error) {
 						alert("error" + error.message);
