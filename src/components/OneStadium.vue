@@ -19,11 +19,11 @@
 
 			<!-- </div> -->
 			<!-- <div class="balloon_map" v-if="ShowBalloonMap"> -->
-				<!-- <div class="balloon_map">
+				<div class="balloon_map">
 				<iframe :src="stadium.map"
-				width="90%" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-				<!-- <p @click="ShowBalloonMap = false" class="mt-2">&times; CLOSE</p> -->
-			<!-- </div> -->
+				width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
+				<p @click="ShowBalloonMap = false" class="mt-2">&times; CLOSE</p>
+			</div>
 			
 		</div>
 		<!-- <div v-for="(stadium, index) in oneStadium" :key="index">

@@ -27,8 +27,8 @@
 				<div>
 
 					<hr>
-
-					<div v-for="(msg, index) in messages" :key="index" id="chat">
+	<div id="chatScroll">
+					<div v-for="(msg, index) in messages" :key="index" class="chat">
 						<div class="content" v-bind:class="{contentReverse: checkPerson(msg)}">
 							<img :src="msg.icon" alt="icon">
 							<p class="balloonLeft" v-bind:class="{balloon: checkPerson(msg)}">{{msg.body}}</p>
@@ -37,6 +37,7 @@
 							<p><b>{{msg.name}}</b></p>
 							<p class="mr-2" id="text">{{msg.date}}</p>
 						</div>
+					</div>
 					</div>
 					<div id="bottom"></div>
 					<div id="sent_form">
@@ -81,6 +82,9 @@
 				checkLogin: true
 			};
 		},
+		// updated() {
+		// 	this.showLastMessage()
+		// },
 		methods: {
 			// test(){
 			// 	event.preventDefault()
@@ -153,9 +157,7 @@
 				this.msg = null;
 
 				this.getPosts();
-
-				var position = document.getElementById("bottom");
-				position.scrollTop = position.scrollHeight;
+				this.showLastMessage();
 			
 			},
 			getPosts() {
@@ -171,6 +173,9 @@
 				if (this.user.displayName == msg.name) {
 					return true;
 				}
+			},
+			showLastMessage() {
+				document.getElementById('chatScroll').scrollTop = document.getElementById('chatScroll').scrollHeight;
 			}
 		}
 	};
@@ -233,7 +238,7 @@
 		padding: 0 10px 0 0;
 	}
 
-	#chat img {
+	.chat img {
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
@@ -305,7 +310,7 @@
 	@media screen and (max-width: 416px) {
 		#scroll {
 			padding-top: 120px;
-			padding-bottom: 50px;
+			padding-bottom: 10px;
 		}
 
 		#sentence {
@@ -333,6 +338,15 @@
 			margin: 0;
 			padding: 0 10px 0 0;
 		}
+
+		#chatScroll {
+			height: 467px;
+			position: absolute;
+			top: 120px;
+			overflow-y: scroll;
+		}
+
+
 	}
 
 	@media screen and (min-width: 416px) and (max-width: 750px) {
