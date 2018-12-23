@@ -1,40 +1,38 @@
 <template>
 	<div>
 		<div id="search_engine" class="d-flex justify-content-center">
-				<label for="search_stadium">
-					<img src="../assets/scope.png" alt="search_icon"></label>
-				<input type="text" v-model="searchStadium" placeholder="search by stadium or team" name="search_stadium">
-			</div>
-			<div id="one_stadium">
-		<div v-for="(stadium, index) in getStadium" :key="index">
-			<!-- <div @click="ShowBalloonMap = true"> -->
-				<!-- <img :src="stadium.venue_photo" alt="stadium"> -->
-				<!-- <img :src="stadium.venue_photo" alt="stadium"> -->
+			<label for="search_stadium">
+				<img src="../assets/scope.png" alt="search_icon"></label>
+			<input type="text" v-model="searchStadium" placeholder="search by stadium or team" name="search_stadium">
+		</div>
+		<div id="one_stadium">
+			<div v-for="(stadium, index) in getStadium" :key="index">
+
+
 				<img :src="require(`../assets/${stadium.venue_photo}`)" alt="xxx">
 				<!--<img :src="require(`../assets/team-logos/${item}.svg`)"> -->
-				<p>{{ stadium.venue }}</p>
+
+					<!-- <b-button @click="modalShow = !modalShow">
+						{{ stadium.venue }}
+					</b-button>
+					<b-modal v-model="modalShow">
+						<iframe :src="stadium.map" width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</b-modal> -->
+
+						
+  <b-btn v-b-modal="`${index}`">{{ stadium.venue }}</b-btn>
+
+  <!-- the modal -->
+  <b-modal :id="`${index}`">
+    <iframe :src="stadium.map" width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </b-modal>
 
 
-				
 
-			<!-- </div> -->
-			<!-- <div class="balloon_map" v-if="ShowBalloonMap"> -->
-				<div class="balloon_map">
-				<iframe :src="stadium.map"
-				width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
-				<p @click="ShowBalloonMap = false" class="mt-2">&times; CLOSE</p>
+
 			</div>
-			
+
 		</div>
-		<!-- <div v-for="(stadium, index) in oneStadium" :key="index">
-			<div @click="ShowBalloonMap(stadium)">
-				<img alt="team_icon" src="../assets/anfield.jpg">
-				<p>{{ stadium.venue }}</p>
-			</div>
-			<OneMap :oneMap="showingMap" id="balloon_map" />
-			
-		</div> -->
-	</div>
 	</div>
 </template>
 
@@ -46,6 +44,7 @@
 			return {
 				ShowBalloonMap: false,
 				searchStadium: "",
+				// modalShow: false
 			}
 		},
 		computed: {
@@ -84,15 +83,15 @@
 	// 			this.showingMap = eachStadium.map;
 
 	// 			function printMap() {
-    //     var showMap = document.getElementById('balloon_map');
-    //     showMap.style.display = "inline-block";
+	//     var showMap = document.getElementById('balloon_map');
+	//     showMap.style.display = "inline-block";
 
-		    
+
 	// 	    }
 	// printMap();
 	// 		}
 	// 	}
-	
+
 	// };
 </script>
 
@@ -116,7 +115,7 @@
 
 	#one_stadium div:last-child {
 		margin: 5px 0 70px;
-		
+
 	}
 
 
