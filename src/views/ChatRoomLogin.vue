@@ -336,7 +336,6 @@
 			bottom: 20px;
 			left: 15px;
 			z-index: 24;
-			width: 100%;
 			margin: 0;
 			padding: 0 10px 0 0;
 		}
@@ -380,7 +379,6 @@
 			bottom: 20px;
 			left: 50px;
 			z-index: 24;
-			width: 100%;
 			margin: 0;
 			padding: 0 10px 0 0;
 		}
@@ -422,7 +420,6 @@
 			bottom: 20px;
 			left: 60px;
 			z-index: 24;
-			width: 100%;
 			margin: 0;
 			padding: 0 10px 0 0;
 		}
