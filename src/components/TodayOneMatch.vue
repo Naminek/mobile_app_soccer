@@ -55,7 +55,8 @@
 			}
 		},
 		created() {
-			this.todayMachData()
+			this.todayMachData(),
+			this.changeDate()
 		},
 		methods: {
 			todayMachData() {
@@ -81,6 +82,9 @@
 				const maps = this.todayOneMatch.teamData
 					.filter(el => el.name == match.homeTeam.name)
 				return maps[0].map
+			},
+			changeDate() {
+			this.todayMatch.map(match => match.utcDate = new Date(match.utcDate).toLocaleString());
 			}
 		}
 	};

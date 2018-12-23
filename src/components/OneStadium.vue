@@ -12,20 +12,14 @@
 				<img :src="require(`../assets/${stadium.venue_photo}`)" alt="xxx">
 				<!--<img :src="require(`../assets/team-logos/${item}.svg`)"> -->
 
-					<!-- <b-button @click="modalShow = !modalShow">
-						{{ stadium.venue }}
-					</b-button>
-					<b-modal v-model="modalShow">
-						<iframe :src="stadium.map" width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
-					</b-modal> -->
 
-						
-  <b-btn v-b-modal="`${index}`">{{ stadium.venue }}</b-btn>
 
-  <!-- the modal -->
-  <b-modal :id="`${index}`">
-    <iframe :src="stadium.map" width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
-  </b-modal>
+
+				<b-btn v-b-modal="`${index}`">{{ stadium.venue }}</b-btn>
+
+				<b-modal :id="`${index}`">
+					<iframe :src="stadium.map" width="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</b-modal>
 
 
 
@@ -65,34 +59,7 @@
 			}
 		}
 	};
-	// import OneMap from "@/components/OneMap.vue";
-	// export default {
-	// 	name: "oneStadium",
-	// 	props: ["oneStadium"],
-	// 	components: {
-	// 		OneMap
-	// 	},
-	// 	data() {
-	// 		return {
-	// 			showingMap: ""
-	// 		}
-	// 	},
-	// 	methods: {
-	// 		ShowBalloonMap(eachStadium){
-	// 			console.log(eachStadium.map);
-	// 			this.showingMap = eachStadium.map;
-
-	// 			function printMap() {
-	//     var showMap = document.getElementById('balloon_map');
-	//     showMap.style.display = "inline-block";
-
-
-	// 	    }
-	// printMap();
-	// 		}
-	// 	}
-
-	// };
+	
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -186,6 +153,7 @@
 			font-size: 15px;
 			width: 60%;
 		}
+
 	}
 
 	@media screen and (min-width:416px) and (max-width:750px) {
