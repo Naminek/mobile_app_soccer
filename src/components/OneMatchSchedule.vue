@@ -84,6 +84,9 @@
 				}
 			}
 		},
+		created() {
+			this.changeDate()
+		},
 		methods: {
 			getAwayTeamLogo(eachMatch) {
 				const team = this.oneMatchSchedule.teamData
@@ -115,6 +118,9 @@
 					.filter(el => el.name == eachMatch.homeTeam.name)
 				// console.log(team[0].crestUrl)
 				return team3[0].crestUrl
+			},
+			changeDate() {
+			this.oneMatchSchedule.matchData.map(match => match.utcDate = new Date(match.utcDate).toLocaleString());
 			}
 		}
 	};
