@@ -40,9 +40,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- <iframe :src="getLocation(eachMatch)"
-					width="95%" frameborder="0" style="border:0" allowfullscreen></iframe>
-					<p @click="ShowLocation = false" class="mt-1">&times; CLOSE</p> -->
+				
 
 
 			</div>
