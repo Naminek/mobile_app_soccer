@@ -90,7 +90,7 @@
           });
       },
       getTeamData() {
-        fetch("https://api.jsonbin.io/b/5bf665f5e76b24590c67e7c1/3", {
+        fetch("https://api.jsonbin.io/b/5bf665f5e76b24590c67e7c1/4", {
             method: "GET",
             headers: {
               "Content-Type": "application/json"
